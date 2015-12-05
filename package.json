@@ -1,0 +1,56 @@
+{
+  "name": "dispensary",
+  "version": "0.0.1",
+  "description": "SHA-256 Hashes of popular JS libraries, used by Mozilla's Add-ons Validator",
+  "main": "dist/dispensary.js",
+  "bin": {
+    "dispensary": "bin/dispensary"
+  },
+  "scripts": {
+    "start": "node -e \"require('grunt').cli()\" null start",
+    "build": "node -e \"require('grunt').cli()\" null build",
+    "test": "node -e \"require('grunt').cli()\" null test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mozilla/dispensary.git"
+  },
+  "author": "Mozilla Add-ons Team",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/mozilla/dispensary/issues"
+  },
+  "homepage": "https://github.com/mozilla/dispensary#readme",
+  "devDependencies": {
+    "babel-core": "5.8.34",
+    "babel-eslint": "4.1.6",
+    "babel-loader": "5.4.0",
+    "chai": "3.4.1",
+    "coveralls": "2.11.4",
+    "grunt": "0.4.5",
+    "grunt-contrib-clean": "0.7.0",
+    "grunt-contrib-copy": "0.8.2",
+    "grunt-eslint": "17.3.1",
+    "grunt-gh-pages": "0.10.0",
+    "grunt-istanbul": "0.6.1",
+    "grunt-jscs": "2.4.0",
+    "grunt-mocha-test": "0.12.7",
+    "grunt-webpack": "1.0.11",
+    "isparta": "3.5.3",
+    "json-loader": "0.5.4",
+    "load-grunt-configs": "0.4.3",
+    "load-grunt-tasks": "3.3.0",
+    "mocha": "2.3.4",
+    "sinon": "1.17.2",
+    "webpack": "1.12.9",
+    "webpack-dev-server": "1.14.0"
+  },
+  "dependencies": {
+    "eslint": "1.10.3",
+    "request": "^2.67.0",
+    "run-versions": "^1.0.2",
+    "semver": "5.1.0",
+    "sha.js": "2.4.4",
+    "source-map-support": "0.4.0"
+  }
+}
