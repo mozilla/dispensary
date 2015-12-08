@@ -1,0 +1,7 @@
+{
+  "angular": {
+    "path": "angular.js",
+    "pathToMinified": "angular.min.js",
+    "source": "npm"
+  }
+}

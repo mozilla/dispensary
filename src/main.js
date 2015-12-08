@@ -1,14 +1,12 @@
-import { getVersions } from 'versions';
+import cli from 'cli';
+import Dispensary from 'dispensary';
+// import log from 'logger';
 
 import 'babel-core/polyfill';
 
 
-export function main(repo) {
-  return getVersions(repo)
-    .then(() => {
-      // console.log(results);
-    })
-    .catch(() => {
-      // console.error(err);
-    });
+export function createInstance(config=cli.argv) {
+  // log.level(config.logLevel);
+  // log.info('Creating new validator instance', { config: config });
+  return new Dispensary(config);
 }

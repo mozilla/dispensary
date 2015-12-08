@@ -1,0 +1,6 @@
+#!/usr/bin/env node
+
+var path = require('path');
+
+var dispensary = require('../dist/dispensary').createInstance();
+dispensary.run();

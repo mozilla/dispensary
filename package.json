@@ -9,7 +9,8 @@
   "scripts": {
     "start": "node -e \"require('grunt').cli()\" null start",
     "build": "node -e \"require('grunt').cli()\" null build",
-    "test": "node -e \"require('grunt').cli()\" null test"
+    "test": "node -e \"require('grunt').cli()\" null test",
+    "add-hash": "node dist/dispensary.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
   },
   "homepage": "https://github.com/mozilla/dispensary#readme",
   "devDependencies": {
+    "angular": "0.0.1",
     "babel-core": "5.8.34",
     "babel-eslint": "4.1.6",
     "babel-loader": "5.4.0",
@@ -48,9 +50,9 @@
   "dependencies": {
     "eslint": "1.10.3",
     "request": "^2.67.0",
-    "run-versions": "^1.0.2",
     "semver": "5.1.0",
-    "sha.js": "2.4.4",
-    "source-map-support": "0.4.0"
+    "sha.js": "^2.4.4",
+    "source-map-support": "0.4.0",
+    "yargs": "^3.31.0"
   }
 }
