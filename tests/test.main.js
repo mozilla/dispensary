@@ -1,10 +1,11 @@
-import { main } from 'main';
+import Dispensary from 'dispensary';
+import { createInstance } from 'main';
 
-describe('something', function() {
+describe('Main Dispensary module', function() {
 
-  it('should be true', () => {
-    // main('angular');
-    assert.ok(main);
+  it('should create an instance of Dispensary', () => {
+    var dispensary = createInstance();
+    assert.instanceOf(dispensary, Dispensary);
   });
 
 });

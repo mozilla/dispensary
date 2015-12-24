@@ -3,22 +3,8 @@ import argv from 'yargs';
 import { version } from 'json!../package';
 
 
-export function terminalWidth(_process=process) {
-  if (_process && _process.stdout && _process.stdout.columns > 0) {
-    var width = _process.stdout.columns - 2;
-    // Terminals less than ten pixels wide seem silly.
-    if (width < 10) {
-      width = 10;
-    }
-
-    return width;
-  } else {
-    return 78;
-  }
-}
-
 export default argv
-  .usage('Usage: ./$0 [options] library-name \n\n' +
+  .usage('Usage: ./$0 [options] library-json-file \n\n' +
     'Mozilla Dispensary v' + version)
   .option('log-level', {
     describe: 'The log-level to generate',
@@ -48,8 +34,6 @@ export default argv
     type: 'boolean',
     default: false,
   })
-  // Require one non-option.
-  .demand(1)
+  .demand(0)
   .help('help')
-  .alias('h', 'help')
-  .wrap(terminalWidth());
+  .alias('h', 'help');

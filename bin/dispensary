@@ -1,6 +1,7 @@
 #!/usr/bin/env node
-
 var path = require('path');
+
+global.appRoot = path.relative(process.cwd(), path.resolve(__dirname));
 
 var dispensary = require('../dist/dispensary').createInstance();
 dispensary.run();

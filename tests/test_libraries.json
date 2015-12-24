@@ -2,7 +2,7 @@
   "angular": {
     "excludeVersions": [],
     "maxVerion": null,
-    "minVersion": "1.0.1",
+    "minVersion": "2.0.0",
     "path": "angular.js",
     "pathToMinified": "angular.min.js",
     "source": "npm",

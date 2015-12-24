@@ -6,6 +6,9 @@ import { unexpectedSuccess } from './helpers';
 describe('Versions', function() {
 
   it('should get many versions', () => {
+    // HACK: We should use mock data to skip the need for this.
+    this.timeout(50000);
+
     return getVersions('angular')
       .then((versions) => {
         assert.include(versions, '0.0.1');
