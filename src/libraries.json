@@ -7,5 +7,32 @@
     "pathToMinified": "angular.min.js",
     "source": "npm",
     "url": "https://ajax.googleapis.com/ajax/libs/angularjs/$VERSION/$FILENAME"
+  },
+  "backbone": {
+    "excludeVersions": [],
+    "maxVerion": null,
+    "minVersion": "1.0.0",
+    "path": "backbone.js",
+    "pathToMinified": "backbone-min.js",
+    "source": "npm",
+    "url": "https://raw.githubusercontent.com/jashkenas/backbone/$VERSION/$FILENAME"
+  },
+  "backbone.localStorage": {
+    "excludeVersions": [],
+    "maxVerion": null,
+    "minVersion": "1.1.6",
+    "path": "backbone.localStorage.js",
+    "pathToMinified": "backbone.localStorage-min.js",
+    "source": "npm",
+    "url": "https://raw.githubusercontent.com/jeromegn/Backbone.localStorage/v$VERSION/$FILE"
+  },
+  "dojo": {
+    "excludeVersions": [],
+    "maxVerion": null,
+    "minVersion": "1.4.0",
+    "path": "dojo.js.uncompressed.js",
+    "pathToMinified": "dojo.js",
+    "source": "npm",
+    "url": "http://download.dojotoolkit.org/release-$VERSION/$FILE"
   }
 }

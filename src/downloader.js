@@ -9,30 +9,34 @@ export default class Downloader {
     this.library = libraries[libraryName];
     this.libraryName = libraryName;
     this.versions = versions;
+
+    this.files = {};
   }
 
   getAll() {
     var promises = [];
 
     for (let version of this.versions) {
+      // console.log(version);
       var url = this.library.url.replace('$VERSION', version)
         .replace('$FILENAME', this.library.path);
       var minifiedURL = this.library.url.replace('$VERSION', version)
         .replace('$FILENAME', this.library.pathToMinified);
 
-      promises.push(this.getFileFromURL(minifiedURL, version));
+      promises.push(this.getFileFromURL(minifiedURL, version,
+                                        {minified: true}));
       promises.push(this.getFileFromURL(url, version));
     }
 
     return Promise.all(promises)
-      .then((files) => {
+      .then(() => {
         console.log('I HAVE BEEN RUN');
-        console.log(files);
-        return files;
+        // console.log(files);
+        return this.files;
       });
   }
 
-  getFileFromURL(url, version, _request=request) {
+  getFileFromURL(url, version, {minified=false}={}, _request=request) {
     console.log(`Getting ${url}`);
 
     return new Promise((resolve) => {
@@ -43,13 +47,18 @@ export default class Downloader {
           return resolve(null);
         }
 
-        console.log(`I got stuff for ${this.libraryName} ${version}`);
-
-        resolve({
+        var versionKey = (minified === true) ? `${version}.min` : version;
+        this.files[versionKey] = {
           contents: data,
           libraryName: this.libraryName,
+          minified: minified,
           version: version,
-        });
+          versionWithMinified: versionKey,
+        };
+
+        // console.log(`I got stuff for ${this.libraryName}-${versionKey}.js`);
+
+        resolve();
       });
     });
   }

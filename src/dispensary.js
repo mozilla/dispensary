@@ -28,7 +28,8 @@ export default class Dispensary {
         return Promise.all(promises);
       })
       .then((results) => {
-        console.log(results);
+        // console.log(results);
+        return results;
       })
       .catch((err) => {
         console.error(err);
@@ -36,25 +37,40 @@ export default class Dispensary {
   }
 
   processLibrary(libraryName) {
+    var libraryInfo;
     var libraryVersions;
-    return getVersions(libraryName)
+
+    return this.getLibraries()
+      .then((libraries) => {
+        libraryInfo = libraries;
+        return;
+      })
+      .then(() => {
+        return getVersions(libraryName);
+      })
       .then((versions) => {
         libraryVersions = versions;
-        var downloader = new Downloader(libraryName, libraryVersions);
+        var downloader = new Downloader(libraryName, libraryVersions,
+                                        libraryInfo);
         return downloader.getAll();
       })
       .then((files) => {
-        console.log(files);
-        for (var file of files) {
-          console.log(file.libraryName, file.version, file.contents);
-        }
-
-        var hasher = new Hasher(libraryName, libraryVersions);
+        var hasher = new Hasher(libraryName, files);
         return hasher.generate();
       })
       .then((results) => {
-        console.log(results);
-        return results;
+        var outputHashes = [];
+
+        for (let i in results) {
+          outputHashes.push(
+            // jscs:disable
+            `${results[i].hash} ${results[i].libraryName}.${results[i].versionWithMinified}.js` // eslint-disable-line
+            // jscs:enable
+          );
+        }
+        console.log(outputHashes.join('\n'));
+
+        return outputHashes;
       })
       .catch((err) => {
         console.error(err);

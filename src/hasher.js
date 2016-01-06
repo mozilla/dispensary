@@ -2,29 +2,26 @@ import createHash from 'sha.js';
 
 
 class Hasher {
-  constructor(packageName, versions) {
+
+  constructor(packageName, files) {
+    this.files = files;
     this.packageName = packageName;
-    this.versions = versions;
   }
 
   generate() {
     return new Promise((resolve) => {
-      console.log(
-        `${this.packageName}: ${Object.keys(this.versions).length} versions.`);
+      // console.log(
+      //   `${this.packageName}: ${Object.keys(this.versions).length} versions.`);
 
-      resolve();
-      // runVersions({
-      //   bail: true,
-      //   name: this.packageName,
-      //   command: `echo $PWD >> ./test.txt`,
-      //   versions: this.versions,
-      // }, (results) => {
-      //   console.log('done', results);
-      //   resolve(results);
-      // }).on('result', (version, result) => {
-      //   console.log(`${this.packageName}: version ${version}`);
-      //   console.log(version, result);
-      // });
+      for (let i in this.files) {
+        if (this.files[i].contents) {
+          this.files[i].hash = Hasher.makeHash(this.files[i].contents);
+        } else {
+          console.log(this.files[i].packageName, 'err');
+        }
+      }
+
+      resolve(this.files);
     });
   }
 }

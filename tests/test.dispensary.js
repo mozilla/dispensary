@@ -12,9 +12,10 @@ describe('Dispensary', function() {
 
   it('should try to read and parse the library file supplied', () => {
     var dispensary = new Dispensary({
-      _: ['./tests/test_libraries.json'],
+      _: ['./tests/fixtures/test_libraries.json'],
     });
-    assert.equal(dispensary.libraryFile, './tests/test_libraries.json');
+    assert.equal(dispensary.libraryFile,
+                 './tests/fixtures/test_libraries.json');
     dispensary.getLibraries()
       .then((libraries) => {
         assert.equal(libraries.angular.minVersion, '2.0.0');
@@ -32,7 +33,7 @@ describe('Dispensary', function() {
       .catch((err) => {
         assert.instanceOf(err, Error);
         assert.equal(err.message,
-                     'whatever-foo-bar does not exist or is not a file.')
+                     'whatever-foo-bar does not exist or is not a file.');
       });
   });
 
