@@ -5,7 +5,7 @@
     "minVersion": "2.0.0",
     "path": "angular.js",
     "pathToMinified": "angular.min.js",
-    "source": "npm",
+    "useNPM": true,
     "url": "https://ajax.googleapis.com/ajax/libs/angularjs/$VERSION/$FILENAME"
   }
 }
