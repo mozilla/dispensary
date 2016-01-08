@@ -1,3 +1,4 @@
+// import log from 'logger';
 import request from 'request';
 
 
@@ -17,7 +18,6 @@ export default class Downloader {
     var promises = [];
 
     for (let version of this.versions) {
-      // console.log(version);
       var url = this.library.url.replace('$VERSION', version)
         .replace('$FILENAME', this.library.path);
       var minifiedURL = this.library.url.replace('$VERSION', version)
@@ -35,7 +35,7 @@ export default class Downloader {
   }
 
   getFileFromURL(url, version, {minified=false}={}, _request=request) {
-    // console.log(`Getting ${url}`);
+    // log.debug(`Requesting ${url}`);
 
     return new Promise((resolve) => {
       _request.get({
@@ -54,7 +54,7 @@ export default class Downloader {
           versionWithMinified: versionKey,
         };
 
-        // console.log(`I got stuff for ${this.libraryName}-${versionKey}.js`);
+        // log.debug(`Downloaded ${this.libraryName}-${versionKey}.js`);
 
         resolve();
       });

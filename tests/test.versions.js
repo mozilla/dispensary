@@ -22,7 +22,51 @@ describe('Versions', function() {
       });
   });
 
-  it('should get versions for localForage', () => {
+  it('should not check NPM when useNPM is not true', () => {
+    var fakeRequest = {
+      get: () => {
+        throw new Error('Fail!');
+      },
+    };
+
+    var jQueryLibraryInfo = {
+      versions: ['1.0.1'],
+      minVersion: '1.0.1',
+      path: '.js',
+      pathToMinified: '.min.js',
+      url: 'http://code.jquery.com/jquery-$VERSION$FILENAME',
+    };
+
+    return getVersions('jquery', jQueryLibraryInfo, fakeRequest)
+      .then((versions) => {
+        assert.equal(versions.length, 1);
+        assert.include(versions, '1.0.1');
+        assert.notInclude(versions, '1.5.1');
+      });
+  });
+
+  it('should combine explicit versions and NPM versions', () => {
+    // HACK: We should use mock data to skip the need for this.
+    this.timeout(50000);
+
+    var jQueryLibraryInfo = {
+      versions: ['1.0.1'],
+      minVersion: '1.0.1',
+      path: '.js',
+      pathToMinified: '.min.js',
+      useNPM: true,
+      url: 'http://code.jquery.com/jquery-$VERSION$FILENAME',
+    };
+
+    return getVersions('jquery', jQueryLibraryInfo)
+      .then((versions) => {
+        assert.isAbove(versions.length, 1);
+        assert.include(versions, '1.0.1');
+        assert.include(versions, '1.5.1');
+      });
+  });
+
+  it('should get versions for any library', () => {
     var lfLibraryInfo = {
       path: 'localforage.js',
       pathToMinified: 'localforage.min.js',

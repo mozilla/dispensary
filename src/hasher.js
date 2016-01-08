@@ -1,5 +1,7 @@
 import createHash from 'sha.js';
 
+import log from 'logger';
+
 
 class Hasher {
 
@@ -10,8 +12,8 @@ class Hasher {
 
   generate() {
     return new Promise((resolve) => {
-      // console.log(
-      //   `${this.packageName}: ${Object.keys(this.versions).length} versions.`);
+      log.debug(
+        `${this.packageName}: ${Object.keys(this.versions).length} versions.`);
 
       for (let i in this.files) {
         if (this.files[i].contents) {

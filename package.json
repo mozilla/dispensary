@@ -49,6 +49,7 @@
   },
   "dependencies": {
     "eslint": "1.10.3",
+    "logger": "0.0.1",
     "request": "^2.67.0",
     "semver": "5.1.0",
     "sha.js": "^2.4.4",
