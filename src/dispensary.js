@@ -28,11 +28,24 @@ export default class Dispensary {
         return Promise.all(promises);
       })
       .then((results) => {
-        // console.log(results);
-        return results;
+        var hashes = [];
+        for (let r of results) {
+          if (r && r.length) {
+            hashes = hashes.concat(r);
+          }
+        }
+
+        hashes = hashes.sort(function(a, b) {
+          a = a.match(/[A-Za-z0-9]{64} (.*)(\.min)?\.js/)[2];
+          b = b.match(/[A-Za-z0-9]{64} (.*)(\.min)?\.js/)[2];
+
+          return a > b;
+        });
+
+        return hashes;
       })
       .catch((err) => {
-        console.error(err);
+        console.error('ERROR', err);
       });
   }
 
@@ -46,7 +59,7 @@ export default class Dispensary {
         return;
       })
       .then(() => {
-        return getVersions(libraryName);
+        return getVersions(libraryName, libraryInfo[libraryName]);
       })
       .then((versions) => {
         libraryVersions = versions;
@@ -68,7 +81,6 @@ export default class Dispensary {
             // jscs:enable
           );
         }
-        console.log(outputHashes.join('\n'));
 
         return outputHashes;
       })
@@ -87,6 +99,11 @@ export default class Dispensary {
       this._libraries = JSON.parse(libraryJSON);
       return Promise.resolve(this._libraries);
     } catch (err) {
+      if (err.toString().match(/^SyntaxError/)) {
+        return Promise.reject(new Error(
+          `JSONError: ${this.libraryFile} is not valid JSON.`));
+      }
+
       return Promise.reject(new Error(
         `${this.libraryFile} does not exist or is not a file.`));
     }

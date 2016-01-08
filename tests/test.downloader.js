@@ -16,7 +16,6 @@ describe('Downloader', function() {
     var downloader = new Downloader('angular', ['1.0.0'], FAKE_LIBRARIES);
     downloader.getAll()
       .then((files) => {
-        console.log(files);
         assert.isNotNull(files);
       });
   });

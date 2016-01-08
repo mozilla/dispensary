@@ -4,4 +4,7 @@ var path = require('path');
 global.appRoot = path.relative(process.cwd(), path.resolve(__dirname));
 
 var dispensary = require('../dist/dispensary').createInstance();
-dispensary.run();
+dispensary.run()
+  .then(function(hashes) {
+    console.log(hashes.join('\n'));
+  });

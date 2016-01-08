@@ -1,38 +1,240 @@
 {
   "angular": {
-    "excludeVersions": [],
-    "maxVerion": null,
     "minVersion": "1.0.1",
     "path": "angular.js",
     "pathToMinified": "angular.min.js",
-    "source": "npm",
+    "useNPM": true,
     "url": "https://ajax.googleapis.com/ajax/libs/angularjs/$VERSION/$FILENAME"
   },
   "backbone": {
-    "excludeVersions": [],
-    "maxVerion": null,
     "minVersion": "1.0.0",
     "path": "backbone.js",
     "pathToMinified": "backbone-min.js",
-    "source": "npm",
+    "useNPM": true,
     "url": "https://raw.githubusercontent.com/jashkenas/backbone/$VERSION/$FILENAME"
   },
   "backbone.localStorage": {
-    "excludeVersions": [],
-    "maxVerion": null,
-    "minVersion": "1.1.6",
+    "versions": [
+      "1.1.10",
+      "1.1.12",
+      "1.1.13",
+      "1.1.14",
+      "1.1.15",
+      "1.1.16"
+    ],
     "path": "backbone.localStorage.js",
     "pathToMinified": "backbone.localStorage-min.js",
-    "source": "npm",
-    "url": "https://raw.githubusercontent.com/jeromegn/Backbone.localStorage/v$VERSION/$FILE"
+    "url": "https://raw.githubusercontent.com/jeromegn/Backbone.localStorage/v$VERSION/$FILENAME"
   },
   "dojo": {
-    "excludeVersions": [],
-    "maxVerion": null,
-    "minVersion": "1.4.0",
+    "versions": [
+      "1.4.0",
+      "1.4.1",
+      "1.4.3",
+      "1.5",
+      "1.5.1",
+      "1.6",
+      "1.6.1",
+      "1.7.0",
+      "1.7.1",
+      "1.7.2",
+      "1.7.3",
+      "1.8.0",
+      "1.8.1",
+      "1.8.2",
+      "1.8.3",
+      "1.8.4",
+      "1.8.5",
+      "1.8.6",
+      "1.9.0",
+      "1.9.1",
+      "1.9.2",
+      "1.9.3"
+    ],
     "path": "dojo.js.uncompressed.js",
     "pathToMinified": "dojo.js",
-    "source": "npm",
-    "url": "http://download.dojotoolkit.org/release-$VERSION/$FILE"
+    "url": "http://download.dojotoolkit.org/release-$VERSION/$FILENAME"
+  },
+  "ext-core": {
+    "versions": [
+      "3.0.0",
+      "3.1.0"
+    ],
+    "path": "ext-core-debug.js",
+    "pathToMinified": "ext-core.js",
+    "url": "https://ajax.googleapis.com/ajax/libs/ext-core/$VERSION/$FILENAME"
+  },
+  "jquery": {
+    "versions": [
+      "1.0.1",
+      "1.0.2",
+      "1.0.3",
+      "1.0.4",
+      "1.1.0",
+      "1.1.1",
+      "1.1.2",
+      "1.4.0",
+      "1.4.1",
+      "1.4.2",
+      "1.4.4",
+      "1.5.0"
+    ],
+    "minVersion": "1.0.1",
+    "path": ".js",
+    "pathToMinified": ".min.js",
+    "useNPM": true,
+    "url": "http://code.jquery.com/jquery-$VERSION$FILENAME"
+  },
+  "jquery-ui": {
+    "versions": [
+      "1.5.2",
+      "1.5.3",
+      "1.6.0",
+      "1.7.0",
+      "1.7.1",
+      "1.7.2",
+      "1.7.3",
+      "1.8.0",
+      "1.8.1",
+      "1.8.2",
+      "1.8.4",
+      "1.8.5",
+      "1.8.6",
+      "1.8.7",
+      "1.8.8",
+      "1.8.9",
+      "1.8.10",
+      "1.8.11",
+      "1.8.12",
+      "1.8.13",
+      "1.8.14",
+      "1.8.15",
+      "1.8.16",
+      "1.8.17",
+      "1.8.18",
+      "1.8.19",
+      "1.8.20",
+      "1.8.21",
+      "1.8.22",
+      "1.8.23",
+      "1.8.24",
+      "1.9.0",
+      "1.9.1",
+      "1.9.2",
+      "1.10.0",
+      "1.10.1",
+      "1.10.2",
+      "1.10.3",
+      "1.10.4",
+      "1.11.0",
+      "1.11.1",
+      "1.11.2",
+      "1.11.3",
+      "1.11.4"
+    ],
+    "path": "jquery-ui.js",
+    "pathToMinified": "jquery-ui.min.js",
+    "useNPM": true,
+    "url": "https://ajax.googleapis.com/ajax/libs/jqueryui/$VERSION/$FILENAME"
+  },
+  "moment": {
+    "path": "moment.js",
+    "pathToMinified": "min/moment.min.js",
+    "useNPM": true,
+    "url": "https://raw.githubusercontent.com/moment/moment/$VERSION/$FILENAME"
+  },
+  "mootools": {
+    "versions": [
+      "1.1.1",
+      "1.1.2",
+      "1.2.1",
+      "1.2.2",
+      "1.2.3",
+      "1.2.4",
+      "1.2.5",
+      "1.3.0",
+      "1.3.1",
+      "1.3.2",
+      "1.4.0",
+      "1.4.1",
+      "1.4.2",
+      "1.4.3",
+      "1.4.4",
+      "1.4.5",
+      "1.5.0"
+    ],
+    "path": "mootools.js",
+    "pathToMinified": "mootools-yui-compressed.js",
+    "useNPM": true,
+    "url": "https://ajax.googleapis.com/ajax/libs/mootools/$VERSION/$FILENAME"
+  },
+  "prototype": {
+    "versions": [
+      "1.6.0.2",
+      "1.6.0.3",
+      "1.6.1.0",
+      "1.7.0.0",
+      "1.7.1.0",
+      "1.7.2.0"
+    ],
+    "path": "prototype.js",
+    "pathToMinified": null,
+    "url": "https://ajax.googleapis.com/ajax/libs/prototype/$VERSION/$FILENAME"
+  },
+  "scriptaculous": {
+    "versions": [
+      "1.8.1",
+      "1.8.2",
+      "1.8.3",
+      "1.9.0"
+    ],
+    "path": "scriptaculous.js",
+    "url": "https://ajax.googleapis.com/ajax/libs/scriptaculous/$VERSION/$FILENAME"
+  },
+  "swfobject": {
+    "versions": [
+      "2.1",
+      "2.2"
+    ],
+    "path": "swfobject_src.js",
+    "pathToMinified": "swfobject.js",
+    "url": "https://ajax.googleapis.com/ajax/libs/swfobject/$VERSION/$FILENAME"
+  },
+  "underscore": {
+    "versions": [
+      "1.0.0",
+      "1.0.1",
+      "1.0.2"
+    ],
+    "path": "underscore.js",
+    "pathToMinified": "underscore-min.js",
+    "useNPM": true,
+    "url": "https://raw.github.com/documentcloud/underscore/$VERSION/"
+  },
+  "yui": {
+    "versions": [
+      "2.6.0",
+      "2.7.0",
+      "2.8.0r4",
+      "2.8.1",
+      "2.8.2",
+      "2.9.0"
+    ],
+    "path": "yui-base.js",
+    "pathToMinified": "yui-base-min.js",
+    "url": "http://yui.yahooapis.com/$VERSION/build/yui-base/$FILENAME"
+  },
+  "yuiloader": {
+    "versions": [
+      "3.3.0",
+      "3.4.0",
+      "3.4.1",
+      "3.5.0",
+      "3.5.1",
+      "3.6.0"
+    ],
+    "path": "yuiloader.js",
+    "pathToMinified": "yuiloader-min.js",
+    "url": "http://yui.yahooapis.com/$VERSION/build/yuiloader/$FILENAME"
   }
 }

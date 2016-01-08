@@ -30,14 +30,12 @@ export default class Downloader {
 
     return Promise.all(promises)
       .then(() => {
-        console.log('I HAVE BEEN RUN');
-        // console.log(files);
         return this.files;
       });
   }
 
   getFileFromURL(url, version, {minified=false}={}, _request=request) {
-    console.log(`Getting ${url}`);
+    // console.log(`Getting ${url}`);
 
     return new Promise((resolve) => {
       _request.get({
