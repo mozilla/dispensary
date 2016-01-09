@@ -1,19 +1,94 @@
-{
-  "angular": {
+[
+  {
+    "name": "angular",
+    "versions" : [
+      "1.0.1",
+      "1.0.2",
+      "1.0.3",
+      "1.0.4",
+      "1.0.5",
+      "1.0.6",
+      "1.0.7",
+      "1.0.8",
+      "1.1.0",
+      "1.1.1",
+      "1.1.2",
+      "1.1.3",
+      "1.1.4",
+      "1.1.5",
+      "1.2.0",
+      "1.2.1",
+      "1.2.2",
+      "1.2.3",
+      "1.2.4",
+      "1.2.5",
+      "1.2.6",
+      "1.2.7",
+      "1.2.8",
+      "1.2.9",
+      "1.2.10",
+      "1.2.11",
+      "1.2.12",
+      "1.2.13",
+      "1.2.14",
+      "1.2.15",
+      "1.2.16",
+      "1.2.17",
+      "1.2.18",
+      "1.2.19",
+      "1.2.20",
+      "1.2.21",
+      "1.2.22",
+      "1.2.23",
+      "1.2.24",
+      "1.2.25",
+      "1.2.26",
+      "1.2.27",
+      "1.2.28",
+      "1.3.0",
+      "1.3.1",
+      "1.3.2",
+      "1.3.3",
+      "1.3.4",
+      "1.3.5",
+      "1.3.6",
+      "1.3.7",
+      "1.3.8",
+      "1.3.9",
+      "1.3.10",
+      "1.3.11",
+      "1.3.12",
+      "1.3.13",
+      "1.3.14",
+      "1.3.15",
+      "1.3.16",
+      "1.3.17",
+      "1.3.18",
+      "1.3.19",
+      "1.3.20"
+    ],
     "minVersion": "1.0.1",
-    "path": "angular.js",
-    "pathToMinified": "angular.min.js",
+    "filename": "angular.js",
+    "filenameMinified": "angular.min.js",
     "useNPM": true,
     "url": "https://ajax.googleapis.com/ajax/libs/angularjs/$VERSION/$FILENAME"
   },
-  "backbone": {
+  {
+    "name": "backbone",
+    "versions" : [
+      "1.0.0",
+      "1.1.0",
+      "1.1.1",
+      "1.1.2"
+    ],
     "minVersion": "1.0.0",
-    "path": "backbone.js",
-    "pathToMinified": "backbone-min.js",
+    "filename": "backbone.js",
+    "filenameMinified": "backbone-min.js",
     "useNPM": true,
     "url": "https://raw.githubusercontent.com/jashkenas/backbone/$VERSION/$FILENAME"
   },
-  "backbone.localStorage": {
+  {
+    "name": "backbone.localStorage",
     "versions": [
       "1.1.10",
       "1.1.12",
@@ -22,11 +97,12 @@
       "1.1.15",
       "1.1.16"
     ],
-    "path": "backbone.localStorage.js",
-    "pathToMinified": "backbone.localStorage-min.js",
+    "filename": "backbone.localStorage.js",
+    "filenameMinified": "backbone.localStorage-min.js",
     "url": "https://raw.githubusercontent.com/jeromegn/Backbone.localStorage/v$VERSION/$FILENAME"
   },
-  "dojo": {
+  {
+    "name": "dojo",
     "versions": [
       "1.4.0",
       "1.4.1",
@@ -51,41 +127,76 @@
       "1.9.2",
       "1.9.3"
     ],
-    "path": "dojo.js.uncompressed.js",
-    "pathToMinified": "dojo.js",
+    "filename": "dojo.js.uncompressed.js",
+    "filenameMinified": "dojo.js",
     "url": "http://download.dojotoolkit.org/release-$VERSION/$FILENAME"
   },
-  "ext-core": {
+  {
+    "name": "ext-core",
     "versions": [
       "3.0.0",
       "3.1.0"
     ],
-    "path": "ext-core-debug.js",
-    "pathToMinified": "ext-core.js",
+    "filename": "ext-core-debug.js",
+    "filenameMinified": "ext-core.js",
     "url": "https://ajax.googleapis.com/ajax/libs/ext-core/$VERSION/$FILENAME"
   },
-  "jquery": {
+  {
+    "name": "jquery",
     "versions": [
       "1.0.1",
       "1.0.2",
       "1.0.3",
       "1.0.4",
-      "1.1.0",
+      "1.1",
       "1.1.1",
       "1.1.2",
-      "1.4.0",
+      "1.4",
       "1.4.1",
       "1.4.2",
       "1.4.4",
-      "1.5.0"
+      "1.5",
+      "1.5.1",
+      "1.5.2",
+      "1.6",
+      "1.6.1",
+      "1.6.2",
+      "1.6.3",
+      "1.6.4",
+      "1.7",
+      "1.7.1",
+      "1.7.2",
+      "1.8.0",
+      "1.8.1",
+      "1.8.2",
+      "1.8.3",
+      "1.9.0",
+      "1.9.1",
+      "1.10.0",
+      "1.10.1",
+      "1.10.2",
+      "1.11.0",
+      "1.11.1",
+      "1.11.2",
+      "1.11.3",
+      "2.0.0",
+      "2.0.1",
+      "2.0.2",
+      "2.0.3",
+      "2.1.0",
+      "2.1.1",
+      "2.1.2",
+      "2.1.3",
+      "2.1.4"
     ],
     "minVersion": "1.0.1",
-    "path": ".js",
-    "pathToMinified": ".min.js",
+    "filename": ".js",
+    "filenameMinified": ".min.js",
     "useNPM": true,
     "url": "http://code.jquery.com/jquery-$VERSION$FILENAME"
   },
-  "jquery-ui": {
+  {
+    "name": "jquery-ui",
     "versions": [
       "1.5.2",
       "1.5.3",
@@ -132,18 +243,27 @@
       "1.11.3",
       "1.11.4"
     ],
-    "path": "jquery-ui.js",
-    "pathToMinified": "jquery-ui.min.js",
+    "filename": "jquery-ui.js",
+    "filenameMinified": "jquery-ui.min.js",
     "useNPM": true,
     "url": "https://ajax.googleapis.com/ajax/libs/jqueryui/$VERSION/$FILENAME"
   },
-  "moment": {
-    "path": "moment.js",
-    "pathToMinified": "min/moment.min.js",
+  {
+    "name": "moment",
+    "versions": [
+      "2.10.6",
+      "2.10.5",
+      "2.10.3",
+      "2.10.2",
+      "2.9.0"
+    ],
+    "filename": "moment.js",
+    "filenameMinified": "min/moment.min.js",
     "useNPM": true,
     "url": "https://raw.githubusercontent.com/moment/moment/$VERSION/$FILENAME"
   },
-  "mootools": {
+  {
+    "name": "mootools",
     "versions": [
       "1.1.1",
       "1.1.2",
@@ -163,12 +283,13 @@
       "1.4.5",
       "1.5.0"
     ],
-    "path": "mootools.js",
-    "pathToMinified": "mootools-yui-compressed.js",
+    "filename": "mootools.js",
+    "filenameMinified": "mootools-yui-compressed.js",
     "useNPM": true,
     "url": "https://ajax.googleapis.com/ajax/libs/mootools/$VERSION/$FILENAME"
   },
-  "prototype": {
+  {
+    "name": "prototype",
     "versions": [
       "1.6.0.2",
       "1.6.0.3",
@@ -177,41 +298,45 @@
       "1.7.1.0",
       "1.7.2.0"
     ],
-    "path": "prototype.js",
-    "pathToMinified": null,
+    "filename": "prototype.js",
+    "filenameMinified": null,
     "url": "https://ajax.googleapis.com/ajax/libs/prototype/$VERSION/$FILENAME"
   },
-  "scriptaculous": {
+  {
+    "name": "scriptaculous",
     "versions": [
       "1.8.1",
       "1.8.2",
       "1.8.3",
       "1.9.0"
     ],
-    "path": "scriptaculous.js",
+    "filename": "scriptaculous.js",
     "url": "https://ajax.googleapis.com/ajax/libs/scriptaculous/$VERSION/$FILENAME"
   },
-  "swfobject": {
+  {
+    "name": "swfobject",
     "versions": [
       "2.1",
       "2.2"
     ],
-    "path": "swfobject_src.js",
-    "pathToMinified": "swfobject.js",
+    "filename": "swfobject_src.js",
+    "filenameMinified": "swfobject.js",
     "url": "https://ajax.googleapis.com/ajax/libs/swfobject/$VERSION/$FILENAME"
   },
-  "underscore": {
+  {
+    "name": "underscore",
     "versions": [
       "1.0.0",
       "1.0.1",
       "1.0.2"
     ],
-    "path": "underscore.js",
-    "pathToMinified": "underscore-min.js",
+    "filename": "underscore.js",
+    "filenameMinified": "underscore-min.js",
     "useNPM": true,
     "url": "https://raw.github.com/documentcloud/underscore/$VERSION/"
   },
-  "yui": {
+  {
+    "name": "yui",
     "versions": [
       "2.6.0",
       "2.7.0",
@@ -220,11 +345,12 @@
       "2.8.2",
       "2.9.0"
     ],
-    "path": "yui-base.js",
-    "pathToMinified": "yui-base-min.js",
+    "filename": "yui-base.js",
+    "filenameMinified": "yui-base-min.js",
     "url": "http://yui.yahooapis.com/$VERSION/build/yui-base/$FILENAME"
   },
-  "yuiloader": {
+  {
+    "name": "yuiloader",
     "versions": [
       "3.3.0",
       "3.4.0",
@@ -233,8 +359,8 @@
       "3.5.1",
       "3.6.0"
     ],
-    "path": "yuiloader.js",
-    "pathToMinified": "yuiloader-min.js",
+    "filename": "yuiloader.js",
+    "filenameMinified": "yuiloader-min.js",
     "url": "http://yui.yahooapis.com/$VERSION/build/yuiloader/$FILENAME"
   }
-}
+]

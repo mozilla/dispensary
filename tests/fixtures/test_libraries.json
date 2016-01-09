@@ -1,11 +1,16 @@
 {
   "angular": {
-    "excludeVersions": [],
-    "maxVerion": "2.5.0",
-    "minVersion": "2.0.0",
     "path": "angular.js",
     "pathToMinified": "angular.min.js",
     "useNPM": true,
+    "url": "https://ajax.googleapis.com/ajax/libs/angularjs/$VERSION/$FILENAME"
+  },
+  "badangular": {
+    "versions": [
+      "1.0.0"
+    ],
+    "path": "angular.js",
+    "pathToMinified": "angular.min.js",
     "url": "https://ajax.googleapis.com/ajax/libs/angularjs/$VERSION/$FILENAME"
   }
 }

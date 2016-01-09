@@ -31,7 +31,6 @@ describe('Versions', function() {
 
     var jQueryLibraryInfo = {
       versions: ['1.0.1'],
-      minVersion: '1.0.1',
       path: '.js',
       pathToMinified: '.min.js',
       url: 'http://code.jquery.com/jquery-$VERSION$FILENAME',
@@ -102,7 +101,7 @@ describe('Versions', function() {
       .catch((err) => {
         assert.instanceOf(err, Error);
         assert.equal(err.message,
-          'node module "does_not_exist" not found or an error occured.');
+          'RequestError: npm "does_not_exist" (statusCode: 404)');
       });
   });
 
