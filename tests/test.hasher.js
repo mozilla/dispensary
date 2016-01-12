@@ -1,16 +1,11 @@
-import Hasher from 'hasher';
+import hasher from 'hasher';
 
 
 describe('Hasher', function() {
 
-  it('should store package name', () => {
-    var hasher = new Hasher('angular', ['1.0.0', '1.1.0']);
-    assert.equal(hasher.packageName, 'angular');
-  });
-
-  it('should store package name', () => {
-    var hasher = new Hasher('angular', ['1.0.0', '1.1.0']);
-    assert.equal(hasher.packageName, 'angular');
+  it('should generate a sha256 hash', () => {
+    assert.equal(hasher('hasher'),
+      '9320ea11f6d427aec4949634dc8676136b2fa8cdad289d22659b44541abb8c51');
   });
 
 });

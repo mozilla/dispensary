@@ -1,59 +1,48 @@
+import async from 'async';
 import request from 'request';
 
 import log from 'logger';
-import { uniqueArray } from 'utils';
 
 
-export function getVersions(repo, libraryInfo, _request=request) {
-  return new Promise((resolve, reject) => {
-    if (!libraryInfo) {
-      return reject(new Error(`No library info supplied for "${repo}"`));
-    }
+export function getVersions(libraries, maxRequests) {
+  return new Promise((resolve) => {
+    var queue = async.queue(_getVersionsFromNPM, maxRequests);
 
-    var versions = _getVersionsFromLibraries(repo, libraryInfo) || [];
+    queue.drain = function() {
+      log.debug('All versions obtained.');
+      resolve(libraries);
+    };
 
-    if (libraryInfo.useNPM) {
-      return _getVersionsFromNPM(repo, libraryInfo, _request)
-        .then((versionsFromNPM) => {
-          // This just makes the file a bit prettier.
-          var sortedVersions = uniqueArray(
-            versions.concat(versionsFromNPM)
-          ).sort((a, b) => {
-            return parseFloat(a) > parseFloat(b);
-          });
-
-          resolve(sortedVersions);
-        })
-        .catch(reject);
-    }
-
-    resolve(versions);
+    queue.push(libraries.filter((library) => {
+      return library.useNPM === true;
+    }));
   });
 }
 
-function _getVersionsFromNPM(repo, libraryInfo, _request=request) {
-  return new Promise((resolve, reject) => {
-    _request.get({
-      json: true,
-      url: `https://registry.npmjs.org/${repo}`,
-    }, (err, response, data) => {
-      if (err || !response || response.statusCode !== 200) {
-        log.info(
-          `node module "${repo}" not found or an error occured`);
-        return reject(new Error(
-          `RequestError: npm "${repo}" (statusCode: ${response.statusCode})`));
+export function _getVersionsFromNPM(library, callback, _request=request) {
+  var repo = library.name;
+
+  _request.get({
+    json: true,
+    url: `https://registry.npmjs.org/${repo}`,
+  }, (err, response, data) => {
+    if (err || !response || response.statusCode !== 200) {
+      var statusCode = 0;
+
+      if (response && response.statusCode) {
+        statusCode = response.statusCode;
       }
 
-      var versions = Object.keys(data.versions);
-      resolve(versions);
-    });
-  });
-}
+      log.info(
+        `node module "${repo}" not found or an error occured`);
+      return callback(new Error(
+        `RequestError: npm "${repo}" (statusCode: ${statusCode})`));
+    }
 
-function _getVersionsFromLibraries(repo, libraryInfo) {
-  if (libraryInfo.versions && libraryInfo.versions.length) {
-    return libraryInfo.versions;
-  } else {
-    return null;
-  }
+    var versions = Object.keys(data.versions);
+
+    library.versions = library.versions.concat(versions);
+
+    callback();
+  });
 }
