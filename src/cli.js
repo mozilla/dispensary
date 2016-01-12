@@ -24,6 +24,11 @@ export default argv
     type: 'boolean',
     default: false,
   })
+  .option('max', {
+    describe: 'Maximum number of concurrent HTTP requests',
+    type: 'string',
+    default: '35',
+  })
   .option('stack', {
     describe: 'Show stacktraces when errors are thrown',
     type: 'boolean',

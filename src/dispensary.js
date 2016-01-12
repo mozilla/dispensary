@@ -1,21 +1,36 @@
 import fs from 'fs';
 
+import async from 'async';
 import request from 'request';
 
-import { DEFAULT_LIBRARY_FILE } from 'const';
+import { DEFAULT_HAHES_FILE, DEFAULT_LIBRARY_FILE } from 'const';
 import hasher from 'hasher';
 import log from 'logger';
 
+
+function fileFormat(url, {file=null, version=null}={}) {
+  if (!file || !version) {
+    throw new Error('ArgumentError: File and version are required.');
+  }
+
+  return url.replace('$VERSION', version)
+            .replace('$FILENAME', file)
+            .replace('$VERSION', version)
+            .replace('$FILENAME', file);
+}
 
 export default class Dispensary {
 
   constructor(config={}, _libraries=null) {
     this._libraries = _libraries;
-    this.libraryFile = './src/libraries.test.json' || DEFAULT_LIBRARY_FILE;
+    this.libraryFile = DEFAULT_LIBRARY_FILE;
+    this.hashesFile = DEFAULT_HAHES_FILE;
 
     if (config._ && config._[0]) {
       this.libraryFile = config._[0];
     }
+
+    this.maxHTTPRequests = parseInt(config.max);
   }
 
   run() {
@@ -57,90 +72,95 @@ export default class Dispensary {
     }
   }
 
-  downloadFiles(library) {
-    var promises = [];
+  _getAllFilesFromLibrary(library) {
+    var files = [];
 
     for (let version of library.versions) {
       if (library.filename) {
-        promises.push(this.downloadForLibrary(library, {
+        files.push({
           file: library.filename,
+          fileOut: library.filenameOutput || library.filename,
+          library: library,
           version: version,
-        }));
+        });
       }
 
       if (library.filenameMinified) {
-        promises.push(this.downloadForLibrary(library, {
+        files.push({
           file: library.filenameMinified,
+          fileOut: library.filenameMinifiedOutput || library.filenameMinified,
+          library: library,
           version: version,
-        }));
+        });
       }
     }
 
-    return Promise.all(promises)
-      .then((results) => {
-        library.files = results;
-
-        return library;
-      })
-      .catch((err) => {
-        console.log('download error', err);
-        return Promise.reject(err);
-      });
-  }
-
-  downloadForLibrary(library, {file=null, version=null}={}, _request=request) {
-    return new Promise((resolve, reject) => {
-      var url = library.url.replace('$VERSION', version)
-                           .replace('$FILENAME', file)
-                           .replace('$VERSION', version)
-                           .replace('$FILENAME', file);
-      log.debug(`Requesting ${url}`);
-
-      _request.get({
-        url: url,
-      }, (err, response, data) => {
-        if (err || !response || response.statusCode !== 200) {
-          // log.debug(
-          //   `response is not good (statusCode is ${response.statusCode})`);
-          return reject(new Error(
-            `RequestError: ${url}`));
-        }
-
-        // var versionKey = (minified === true) ? `${version}.min` : version;
-        // log.debug(`Downloaded ${this.libraryName}-${versionKey}.js`);
-        // console.log(`SUCCESS: ${url}`);
-
-        resolve({
-          contents: data,
-          file: file,
-          version: version,
-        });
-      });
-    });
+    return files;
   }
 
   getFiles(libraries) {
-    var promises = [];
+    return new Promise((resolve) => {
 
-    for (let library of libraries) {
-      if (!library.files) {
-        library.files = [];
+      var files = [];
+
+      var queue = async.queue(this._getFile, this.maxHTTPRequests);
+      queue.drain = function() {
+        console.log('all items have been processed');
+        resolve(libraries);
+      };
+
+      for (let i in libraries) {
+        let library = libraries[i];
+
+        if (!library.files) {
+          library.files = [];
+        }
+
+        files = files.concat(this._getAllFilesFromLibrary(library));
       }
 
-      if (library.filename) {
-        promises.push(this.downloadFiles(library));
+      queue.push(files);
+      // return Promise.all(promises)
+      //   .catch((err) => {
+      //     console.log('getFiles err', err);
+      //     return Promise.reject(err);
+      //   });
+    });
+  }
+
+  _getFile(fileInfo, callback) {
+    var url = fileFormat(fileInfo.library.urlMin || fileInfo.library.url, {
+      file: fileInfo.file,
+      version: fileInfo.version,
+    });
+
+    log.debug(`Requesting ${url}`);
+    console.log(`Requesting ${url}`);
+
+    request.get({url: url}, (err, response, data) => {
+      if (err || !response) {
+        log.error(`${url} encountered an error: ${err}.`);
+        console.log(`${url} encountered an error: ${err}.`);
+        return callback(new Error(err));
       }
 
-      if (library.filenameMinified) {
-        promises.push(this.downloadFiles(library));
+      if (response && response.statusCode !== 200) {
+        log.warn(`${url} produced code ${response.statusCode}`);
+        console.log(`${url} ${response.statusCode}`);
+        return callback();
       }
-    }
 
-    return Promise.all(promises)
-      .catch((err) => {
-        console.log('getFiles err', err);
-        return Promise.reject(err);
+      log.debug(`Downloaded ${url}`);
+
+      fileInfo.library.files.push({
+        contents: data,
+        file: fileInfo.file,
+        fileOut: fileInfo.fileOut,
+        version: fileInfo.version,
       });
+
+      callback();
+    });
   }
 
   getHashes(libraries) {
@@ -170,12 +190,32 @@ export default class Dispensary {
   }
 
   outputHashes(libraries) {
+    return new Promise((resolve) => {
+      var hashes = new Set();
+
+      if (this.hashesFile) {
+        var cachedHashes = this._getCachedHashes(this.hashesFile);
+        for (let i in cachedHashes) {
+          hashes.add(cachedHashes[i]);
+        }
+      }
+
+      var builtHashes = this._buildHashes(libraries);
+      for (let i in builtHashes) {
+        hashes.add(builtHashes[i]);
+      }
+
+      resolve(Array.from(hashes));
+    });
+  }
+
+  _buildHashes(libraries) {
     var hashes = new Set();
 
     for (let library of libraries) {
       for (let i in library.files) {
         // jscs:disable
-        let hashString = `${library.files[i].hash} ${library.name}.${library.files[i].version}.${library.files[i].file}`; // eslint-disable-line
+        let hashString = `${library.files[i].hash} ${library.name}.${library.files[i].version}.${library.files[i].fileOut}`; // eslint-disable-line
         // jscs:enable
 
         hashes.add(hashString);
@@ -183,6 +223,10 @@ export default class Dispensary {
     }
 
     return Array.from(hashes);
+  }
+
+  _getCachedHashes(hashesPath) {
+    return fs.readFileSync(hashesPath, 'utf8').split('\n');
   }
 
 }

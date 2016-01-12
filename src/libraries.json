@@ -1,6 +1,6 @@
 [
   {
-    "name": "angular",
+    "name": "angularjs",
     "versions" : [
       "1.0.1",
       "1.0.2",
@@ -190,10 +190,12 @@
       "2.1.4"
     ],
     "minVersion": "1.0.1",
-    "filename": ".js",
-    "filenameMinified": ".min.js",
+    "filename": "jquery-$VERSION.js",
+    "filenameOutput": "jquery.js",
+    "filenameMinified": "jquery-$VERSION.min.js",
+    "filenameMinifiedOutput": "jquery.min.js",
     "useNPM": true,
-    "url": "http://code.jquery.com/jquery-$VERSION$FILENAME"
+    "url": "http://code.jquery.com/$FILENAME"
   },
   {
     "name": "jquery-ui",
@@ -258,9 +260,10 @@
       "2.9.0"
     ],
     "filename": "moment.js",
-    "filenameMinified": "min/moment.min.js",
+    "filenameMinified": "moment.min.js",
     "useNPM": true,
-    "url": "https://raw.githubusercontent.com/moment/moment/$VERSION/$FILENAME"
+    "url": "https://raw.githubusercontent.com/moment/moment/$VERSION/$FILENAME",
+    "urlMin": "https://raw.githubusercontent.com/moment/moment/$VERSION/min/$FILENAME"
   },
   {
     "name": "mootools",
