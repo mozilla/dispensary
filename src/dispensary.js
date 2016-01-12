@@ -105,7 +105,7 @@ export default class Dispensary {
 
       var queue = async.queue(this._getFile, this.maxHTTPRequests);
       queue.drain = function() {
-        console.log('all items have been processed');
+        log.debug('All downloads completed.');
         resolve(libraries);
       };
 
@@ -120,11 +120,6 @@ export default class Dispensary {
       }
 
       queue.push(files);
-      // return Promise.all(promises)
-      //   .catch((err) => {
-      //     console.log('getFiles err', err);
-      //     return Promise.reject(err);
-      //   });
     });
   }
 
@@ -135,18 +130,15 @@ export default class Dispensary {
     });
 
     log.debug(`Requesting ${url}`);
-    console.log(`Requesting ${url}`);
 
     request.get({url: url}, (err, response, data) => {
       if (err || !response) {
         log.error(`${url} encountered an error: ${err}.`);
-        console.log(`${url} encountered an error: ${err}.`);
         return callback(new Error(err));
       }
 
       if (response && response.statusCode !== 200) {
         log.warn(`${url} produced code ${response.statusCode}`);
-        console.log(`${url} ${response.statusCode}`);
         return callback();
       }
 
@@ -226,7 +218,13 @@ export default class Dispensary {
   }
 
   _getCachedHashes(hashesPath) {
-    return fs.readFileSync(hashesPath, 'utf8').split('\n');
+    try {
+      return fs.readFileSync(hashesPath, 'utf8').split('\n').filter((value) => {
+        return value && value.length > 0 && value.substr(0, 1) !== '#';
+      });
+    } catch (err) {
+      return [];
+    }
   }
 
 }
