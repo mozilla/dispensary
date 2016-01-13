@@ -37,8 +37,26 @@ describe('Dispensary', function() {
       });
   });
 
-  it('should store versions', () => {
-    assert.ok(true);
+  it('should load cached hashes', () => {
+    var dispensary = new Dispensary({
+      _: ['tests/fixtures/test_libraries.json'],
+    });
+
+    var hashes = dispensary._getCachedHashes('tests/fixtures/hashes.txt');
+    // jscs:disable
+    assert.equal('6657a7293da6afcd29e9243886725c8f90c8399e826dba9978e51a0a19e9bed6 yui.2.7.0.yuiloader-min.js', hashes[1]); // eslint-disable-line
+    // jscs:enable
+    assert.lengthOf(hashes, 23);
+  });
+
+  it('should return an empty array when no hash file exists', () => {
+    var dispensary = new Dispensary({
+      _: ['tests/fixtures/test_libraries.json'],
+    });
+
+    var hashes = dispensary._getCachedHashes('whatever-foo-bar');
+    assert.instanceOf(hashes, Array);
+    assert.lengthOf(hashes, 0);
   });
 
 });

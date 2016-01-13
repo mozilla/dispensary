@@ -1,16 +1,30 @@
-{
-  "angular": {
-    "path": "angular.js",
-    "pathToMinified": "angular.min.js",
-    "useNPM": true,
-    "url": "https://ajax.googleapis.com/ajax/libs/angularjs/$VERSION/$FILENAME"
-  },
-  "badangular": {
+[
+  {
+    "name": "yui",
     "versions": [
-      "1.0.0"
+      "2.6.0",
+      "2.7.0",
+      "2.8.0r4",
+      "2.8.1",
+      "2.8.2",
+      "2.9.0"
     ],
-    "path": "angular.js",
-    "pathToMinified": "angular.min.js",
-    "url": "https://ajax.googleapis.com/ajax/libs/angularjs/$VERSION/$FILENAME"
+    "filename": "yui-base.js",
+    "filenameMinified": "yui-base-min.js",
+    "url": "http://yui.yahooapis.com/$VERSION/build/yui-base/$FILENAME"
+  },
+  {
+    "name": "yuiloader",
+    "versions": [
+      "3.3.0",
+      "3.4.0",
+      "3.4.1",
+      "3.5.0",
+      "3.5.1",
+      "3.6.0"
+    ],
+    "filename": "yuiloader.js",
+    "filenameMinified": "yuiloader-min.js",
+    "url": "http://yui.yahooapis.com/$VERSION/build/yuiloader/$FILENAME"
   }
-}
+]
