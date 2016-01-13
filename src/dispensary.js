@@ -21,10 +21,10 @@ function fileFormat(url, {file=null, version=null}={}) {
 
 export default class Dispensary {
 
-  constructor(config={}, _libraries=null) {
+  constructor(config={}, _libraries=null, _hashes=DEFAULT_HAHES_FILE) {
     this._libraries = _libraries;
     this.libraryFile = DEFAULT_LIBRARY_FILE;
-    this.hashesFile = DEFAULT_HAHES_FILE;
+    this.hashesFile = _hashes;
 
     if (config._ && config._[0]) {
       this.libraryFile = config._[0];

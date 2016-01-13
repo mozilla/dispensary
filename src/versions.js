@@ -4,7 +4,7 @@ import request from 'request';
 import log from 'logger';
 
 
-export function getVersions(libraries, maxRequests) {
+export function getVersions(libraries, maxRequests=35) {
   return new Promise((resolve) => {
     var queue = async.queue(_getVersionsFromNPM, maxRequests);
 
@@ -21,6 +21,10 @@ export function getVersions(libraries, maxRequests) {
 
 export function _getVersionsFromNPM(library, callback, _request=request) {
   var repo = library.name;
+
+  if (!library.versions) {
+    library.versions = [];
+  }
 
   _request.get({
     json: true,

@@ -10,6 +10,19 @@ describe('Versions', function() {
     this.libraries = JSON.parse(fs.readFileSync(DEFAULT_LIBRARY_FILE));
   });
 
+  // TODO: Make this not require a network connection...
+  it('should return a promise', () => {
+    // this.timeout(50000);
+
+    return getVersions([{
+      name: 'localforage',
+      useNPM: true,
+    }]).then((libraries) => {
+      assert.isAbove(libraries[0].versions.length, 0);
+      assert.include(libraries[0].versions, '1.0.0');
+    });
+  });
+
   it('should handle errors', (done) => {
     var requestWithError = {
       get: (params, callback) => {
