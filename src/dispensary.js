@@ -6,6 +6,7 @@ import request from 'request';
 import { DEFAULT_HAHES_FILE, DEFAULT_LIBRARY_FILE } from 'const';
 import hasher from 'hasher';
 import log from 'logger';
+import { getVersions } from 'versions';
 
 
 function fileFormat(url, {file=null, version=null}={}) {
@@ -100,7 +101,6 @@ export default class Dispensary {
 
   getFiles(libraries) {
     return new Promise((resolve) => {
-
       var files = [];
 
       var queue = async.queue(this._getFile, this.maxHTTPRequests);
@@ -166,19 +166,7 @@ export default class Dispensary {
   }
 
   getVersions(libraries) {
-    var promises = [];
-
-    for (let library of libraries) {
-      if (library.useNPM) {
-        // TODO: Get info from npm
-        promises.push(Promise.resolve(library));
-      } else {
-        promises.push(Promise.resolve(library));
-      }
-    }
-
-    return Promise.all(promises)
-      .catch(Promise.reject);
+    return getVersions(libraries);
   }
 
   outputHashes(libraries) {

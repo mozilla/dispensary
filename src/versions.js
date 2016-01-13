@@ -13,6 +13,12 @@ export function getVersions(libraries, maxRequests=35) {
       resolve(libraries);
     };
 
+    for (let library of libraries) {
+      if (!library.versions) {
+        library.versions = [];
+      }
+    }
+
     queue.push(libraries.filter((library) => {
       return library.useNPM === true;
     }));
@@ -21,10 +27,6 @@ export function getVersions(libraries, maxRequests=35) {
 
 export function _getVersionsFromNPM(library, callback, _request=request) {
   var repo = library.name;
-
-  if (!library.versions) {
-    library.versions = [];
-  }
 
   _request.get({
     json: true,

@@ -24,6 +24,7 @@ describe('Dispensary', function() {
           version: '1.0.4',
         },
       ],
+      versions: ['1.0.2', '1.0.4'],
     },
     {
       name: 'myotherlib',
@@ -36,6 +37,7 @@ describe('Dispensary', function() {
           version: '1.0.2',
         },
       ],
+      versions: ['1.0.2'],
     },
   ];
 
@@ -44,25 +46,59 @@ describe('Dispensary', function() {
     assert.equal(dispensary.libraryFile, DEFAULT_LIBRARY_FILE);
   });
 
-  it('should try to read and parse the library file supplied', () => {
+  it('should return a promise from getVersions', () => {
     var dispensary = new Dispensary({
       _: ['./tests/fixtures/test_libraries.json'],
     });
-    assert.equal(dispensary.libraryFile,
-                 './tests/fixtures/test_libraries.json');
-    dispensary.getLibraries()
+
+    return dispensary.getLibraries()
       .then((libraries) => {
-        assert.equal(libraries.angular.minVersion, '2.0.0');
+        return dispensary.getVersions(libraries);
+      })
+      .then((libraries) => {
+        assert.include(libraries[0].versions, '2.6.0');
+        assert.equal(libraries[0].versions.length, 6);
+        assert.include(libraries[1].versions, '3.5.1');
+        assert.equal(libraries[1].versions.length, 6);
+        assert.equal(Object.keys(libraries).length, 2);
+      });
+  });
+
+  it('should read useNPM in getVersions()', () => {
+    var localforageLibraries = [{
+      name: 'localforage',
+      useNPM: true,
+      versions: [],
+    }];
+    var dispensary = new Dispensary({}, localforageLibraries);
+
+    return dispensary.getVersions(localforageLibraries)
+      .then((libraries) => {
+        assert.include(libraries[0].versions, '1.0.0');
         assert.equal(Object.keys(libraries).length, 1);
       });
   });
 
   it('should try to read and parse the library file supplied', () => {
     var dispensary = new Dispensary({
+      _: ['./tests/fixtures/test_libraries.json'],
+    });
+    assert.equal(dispensary.libraryFile,
+                 './tests/fixtures/test_libraries.json');
+    return dispensary.getLibraries()
+      .then((libraries) => {
+        assert.include(libraries[0].versions, '2.6.0');
+        assert.equal(Object.keys(libraries).length, 2);
+      });
+  });
+
+  it('should fail if the library does not exist', () => {
+    var dispensary = new Dispensary({
       _: ['whatever-foo-bar'],
     });
     assert.equal(dispensary.libraryFile, 'whatever-foo-bar');
-    dispensary.getLibraries()
+
+    return dispensary.getLibraries()
       .then(unexpectedSuccess)
       .catch((err) => {
         assert.instanceOf(err, Error);
@@ -78,7 +114,7 @@ describe('Dispensary', function() {
 
     var cachedSpy = sinon.spy(dispensary, '_getCachedHashes');
 
-    dispensary.outputHashes(fakeLibraries)
+    return dispensary.outputHashes(fakeLibraries)
       .then(() => {
         assert.equal(cachedSpy.called, false);
       });
@@ -102,12 +138,12 @@ describe('Dispensary', function() {
       ];
     });
 
-    dispensary.outputHashes(fakeLibraries)
+    return dispensary.outputHashes(fakeLibraries)
       .then((hashes) => {
         assert.instanceOf(hashes, Array);
         assert.lengthOf(hashes, 2);
         // jscs:disable
-        assert.includes(hashes, '1657a7293da6afcd29e9243886725c8f90c8399e826dba9978e51a0a19e9bed6 yui.2.7.0.mylib.js'); // eslint-disable-line
+        assert.include(hashes, '1657a7293da6afcd29e9243886725c8f90c8399e826dba9978e51a0a19e9bed6 yui.2.7.0.mylib.js'); // eslint-disable-line
         // jscs:enable
         assert.equal(cachedStub.called, true);
       });
@@ -118,14 +154,10 @@ describe('Dispensary', function() {
       _: ['whatever-foo-bar'],
     }, fakeLibraries, null);
 
-    sinon.stub(dispensary, '_buildHashes', (() => {
-      return fakeLibraries;
-    }));
-
-    dispensary.outputHashes()
+    return dispensary.outputHashes(fakeLibraries)
       .then((hashes) => {
         assert.instanceOf(hashes, Array);
-        assert.lengthOf(hashes, 0);
+        assert.lengthOf(hashes, 3);
       });
   });
 

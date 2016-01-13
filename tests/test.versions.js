@@ -12,8 +12,6 @@ describe('Versions', function() {
 
   // TODO: Make this not require a network connection...
   it('should return a promise', () => {
-    // this.timeout(50000);
-
     return getVersions([{
       name: 'localforage',
       useNPM: true,
