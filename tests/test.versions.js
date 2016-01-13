@@ -3,16 +3,8 @@ import fs from 'fs';
 import { DEFAULT_LIBRARY_FILE } from 'const';
 import { getVersions, _getVersionsFromNPM } from 'versions';
 
-import { unexpectedSuccess } from './helpers';
-
 
 describe('Versions', function() {
-
-  // var noOp = () => {};
-  var assertErrorCallback = (err) => {
-    assert.instanceOf(err, Error);
-    assert.equal(err.message, 'Fail!');
-  };
 
   beforeEach(() => {
     this.libraries = JSON.parse(fs.readFileSync(DEFAULT_LIBRARY_FILE));
