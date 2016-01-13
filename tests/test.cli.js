@@ -19,6 +19,11 @@ describe('Basic CLI tests', function() {
     assert.equal(args['log-level'], 'fatal');
   });
 
+  it('should default max HTTP requests to 35', () => {
+    var args = cli.parse(['angular']);
+    assert.equal(args.max, '35');
+  });
+
   it('should default add-on output to "json"', () => {
     var args = cli.parse(['angular']);
     assert.equal(args.output, 'json');
