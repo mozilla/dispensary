@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+var path = require('path');
+
+global.appRoot = path.relative(process.cwd(), path.resolve(__dirname));
+
+require('../dist/dispensary')
+  .createInstance()
+  .run()
+  .then(function(hashes) {
+    console.log(hashes.join('\n'));
+  })
+  .catch(function(err) {
+    console.log('MAIN BIN FAILURE', err);
+  });
