@@ -189,15 +189,13 @@ export default class Dispensary {
       var hashes = new Set();
 
       if (this.hashesFile) {
-        var cachedHashes = this._getCachedHashes(this.hashesFile);
-        for (let i in cachedHashes) {
-          hashes.add(cachedHashes[i]);
+        for (let hash of this._getCachedHashes(this.hashesFile)) {
+          hashes.add(hash);
         }
       }
 
-      var builtHashes = this._buildHashes(libraries);
-      for (let i in builtHashes) {
-        hashes.add(builtHashes[i]);
+      for (let hash in this._buildHashes(libraries)) {
+        hashes.add(hash);
       }
 
       resolve(Array.from(hashes));
@@ -208,9 +206,9 @@ export default class Dispensary {
     var hashes = new Set();
 
     for (let library of libraries) {
-      for (let i in library.files) {
+      for (let file of library.files) {
         // jscs:disable
-        let hashString = `${library.files[i].hash} ${library.name}.${library.files[i].version}.${library.files[i].fileOut}`; // eslint-disable-line
+        let hashString = `${file.hash} ${library.name}.${file.version}.${file.fileOut}`; // eslint-disable-line
         // jscs:enable
 
         hashes.add(hashString);
