@@ -1,6 +1,6 @@
 {
   "name": "dispensary",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "SHA-256 Hashes of popular JS libraries, used by Mozilla's Add-ons Validator",
   "main": "dist/dispensary.js",
   "bin": {
