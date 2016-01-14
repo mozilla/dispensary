@@ -9,8 +9,7 @@
   "scripts": {
     "start": "node -e \"require('grunt').cli()\" null start",
     "build": "node -e \"require('grunt').cli()\" null build",
-    "test": "node -e \"require('grunt').cli()\" null test",
-    "add-hash": "node dist/dispensary.js"
+    "test": "node -e \"require('grunt').cli()\" null test"
   },
   "repository": {
     "type": "git",
