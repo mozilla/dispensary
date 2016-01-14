@@ -9,6 +9,9 @@ import log from 'logger';
 import { getVersions } from 'versions';
 
 
+// HACK: We use this global for now to store files inside the async queue.
+var _files = [];
+
 function fileFormat(url, {file=null, version=null}={}) {
   if (!file || !version) {
     throw new Error('ArgumentError: File and version are required.');
@@ -26,18 +29,18 @@ export default class Dispensary {
     this._libraries = _libraries;
     this.libraryFile = DEFAULT_LIBRARY_FILE;
     this.hashesFile = _hashes;
+    this.maxHTTPRequests = 35;
 
     if (config._ && config._[0]) {
       this.libraryFile = config._[0];
+      this.maxHTTPRequests = parseInt(config.max);
     }
-
-    this.maxHTTPRequests = parseInt(config.max);
   }
 
   run() {
     return this.getLibraries()
       .then((libraries) => {
-        return this.getVersions(libraries);
+        return getVersions(libraries);
       })
       .then((libraries) => {
         return this.getFiles(libraries);
@@ -73,7 +76,7 @@ export default class Dispensary {
     }
   }
 
-  _getAllFilesFromLibrary(library) {
+  _getAllFilesFromLibrary(library, index) {
     var files = [];
 
     for (let version of library.versions) {
@@ -81,6 +84,7 @@ export default class Dispensary {
         files.push({
           file: library.filename,
           fileOut: library.filenameOutput || library.filename,
+          index: index,
           library: library,
           version: version,
         });
@@ -90,6 +94,7 @@ export default class Dispensary {
         files.push({
           file: library.filenameMinified,
           fileOut: library.filenameMinifiedOutput || library.filenameMinified,
+          index: index,
           library: library,
           version: version,
         });
@@ -103,9 +108,13 @@ export default class Dispensary {
     return new Promise((resolve) => {
       var files = [];
 
-      var queue = async.queue(this._getFile, this.maxHTTPRequests);
-      queue.drain = function() {
+      var queue = async.queue(this._getFile, this.maxHTTPRequests || 35);
+      queue.drain = () => {
         log.debug('All downloads completed.');
+        for (let file of _files) {
+          libraries[file.index].files.push(file);
+        }
+
         resolve(libraries);
       };
 
@@ -116,7 +125,7 @@ export default class Dispensary {
           library.files = [];
         }
 
-        files = files.concat(this._getAllFilesFromLibrary(library));
+        files = files.concat(this._getAllFilesFromLibrary(library, i));
       }
 
       queue.push(files);
@@ -144,10 +153,11 @@ export default class Dispensary {
 
       log.debug(`Downloaded ${url}`);
 
-      fileInfo.library.files.push({
+      _files.push({
         contents: data,
         file: fileInfo.file,
         fileOut: fileInfo.fileOut,
+        index: fileInfo.index,
         version: fileInfo.version,
       });
 
@@ -157,16 +167,12 @@ export default class Dispensary {
 
   getHashes(libraries) {
     for (let library of libraries) {
-      for (let i in library.files) {
-        library.files[i].hash = hasher(library.files[i].contents);
+      for (let file of library.files) {
+        file.hash = hasher(file.contents);
       }
     }
 
     return Promise.resolve(libraries);
-  }
-
-  getVersions(libraries) {
-    return getVersions(libraries);
   }
 
   outputHashes(libraries) {

@@ -1,5 +1,6 @@
 import { DEFAULT_LIBRARY_FILE } from 'const';
 import Dispensary from 'dispensary';
+import { getVersions } from 'versions';
 import { unexpectedSuccess } from './helpers';
 
 
@@ -46,38 +47,78 @@ describe('Dispensary', function() {
     assert.equal(dispensary.libraryFile, DEFAULT_LIBRARY_FILE);
   });
 
-  it('should return a promise from getVersions', () => {
+  it('should set files', () => {
     var dispensary = new Dispensary({
       _: ['./tests/fixtures/test_libraries.json'],
     });
 
     return dispensary.getLibraries()
       .then((libraries) => {
-        return dispensary.getVersions(libraries);
+        return getVersions(libraries);
       })
       .then((libraries) => {
-        assert.include(libraries[0].versions, '2.6.0');
-        assert.equal(libraries[0].versions.length, 6);
-        assert.include(libraries[1].versions, '3.5.1');
-        assert.equal(libraries[1].versions.length, 6);
-        assert.equal(Object.keys(libraries).length, 2);
-      });
-  });
-
-  it('should read useNPM in getVersions()', () => {
-    var localforageLibraries = [{
-      name: 'localforage',
-      useNPM: true,
-      versions: [],
-    }];
-    var dispensary = new Dispensary({}, localforageLibraries);
-
-    return dispensary.getVersions(localforageLibraries)
+        return dispensary.getFiles(libraries);
+      })
       .then((libraries) => {
-        assert.include(libraries[0].versions, '1.0.0');
-        assert.equal(Object.keys(libraries).length, 1);
+        assert.lengthOf(libraries[0].files, 8);
       });
   });
+
+  it('should set hashes', () => {
+    var dispensary = new Dispensary({
+      _: ['./tests/fixtures/test_libraries.json'],
+    });
+
+    return dispensary.getLibraries()
+      .then((libraries) => {
+        return getVersions(libraries);
+      })
+      .then((libraries) => {
+        return dispensary.getFiles(libraries);
+      })
+      .then((libraries) => {
+        return dispensary.getHashes(libraries);
+      })
+      .then((libraries) => {
+        assert.lengthOf(libraries[0].files, 16);
+        assert.lengthOf(libraries[0].files.filter((file) => {
+          return file.hash.length > 0;
+        }), 16);
+      });
+  });
+
+  // it('should return a promise from getVersions', () => {
+  //   var dispensary = new Dispensary({
+  //     _: ['./tests/fixtures/test_libraries.json'],
+  //   });
+  //
+  //   return dispensary.getLibraries()
+  //     .then((libraries) => {
+  //       return dispensary.getVersions(libraries);
+  //     })
+  //     .then((libraries) => {
+  //       assert.include(libraries[0].versions, '2.6.0');
+  //       assert.equal(libraries[0].versions.length, 6);
+  //       assert.include(libraries[1].versions, '3.5.1');
+  //       assert.equal(libraries[1].versions.length, 6);
+  //       assert.equal(Object.keys(libraries).length, 2);
+  //     });
+  // });
+  //
+  // it('should read useNPM in getVersions()', () => {
+  //   var localforageLibraries = [{
+  //     name: 'localforage',
+  //     useNPM: true,
+  //     versions: [],
+  //   }];
+  //   var dispensary = new Dispensary({}, localforageLibraries);
+  //
+  //   return dispensary.getVersions(localforageLibraries)
+  //     .then((libraries) => {
+  //       assert.include(libraries[0].versions, '1.0.0');
+  //       assert.equal(Object.keys(libraries).length, 1);
+  //     });
+  // });
 
   it('should try to read and parse the library file supplied', () => {
     var dispensary = new Dispensary({
@@ -87,7 +128,7 @@ describe('Dispensary', function() {
                  './tests/fixtures/test_libraries.json');
     return dispensary.getLibraries()
       .then((libraries) => {
-        assert.include(libraries[0].versions, '2.6.0');
+        assert.include(libraries[0].versions, '1.1.1');
         assert.equal(Object.keys(libraries).length, 2);
       });
   });

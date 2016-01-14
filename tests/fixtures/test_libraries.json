@@ -1,30 +1,29 @@
 [
   {
-    "name": "yui",
-    "versions": [
-      "2.6.0",
-      "2.7.0",
-      "2.8.0r4",
-      "2.8.1",
-      "2.8.2",
-      "2.9.0"
+    "name": "backbone",
+    "versions" : [
+      "1.0.0",
+      "1.1.0",
+      "1.1.1",
+      "1.1.2"
     ],
-    "filename": "yui-base.js",
-    "filenameMinified": "yui-base-min.js",
-    "url": "http://yui.yahooapis.com/$VERSION/build/yui-base/$FILENAME"
+    "minVersion": "1.0.0",
+    "filename": "backbone.js",
+    "filenameMinified": "backbone-min.js",
+    "url": "https://raw.githubusercontent.com/jashkenas/backbone/$VERSION/$FILENAME"
   },
   {
-    "name": "yuiloader",
+    "name": "backbone.localStorage",
     "versions": [
-      "3.3.0",
-      "3.4.0",
-      "3.4.1",
-      "3.5.0",
-      "3.5.1",
-      "3.6.0"
+      "1.1.10",
+      "1.1.12",
+      "1.1.13",
+      "1.1.14",
+      "1.1.15",
+      "1.1.16"
     ],
-    "filename": "yuiloader.js",
-    "filenameMinified": "yuiloader-min.js",
-    "url": "http://yui.yahooapis.com/$VERSION/build/yuiloader/$FILENAME"
+    "filename": "backbone.localStorage.js",
+    "filenameMinified": "backbone.localStorage-min.js",
+    "url": "https://raw.githubusercontent.com/jeromegn/Backbone.localStorage/v$VERSION/$FILENAME"
   }
 ]
