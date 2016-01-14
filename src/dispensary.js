@@ -31,8 +31,17 @@ export default class Dispensary {
     this.hashesFile = _hashes;
     this.maxHTTPRequests = 35;
 
+    // The `config._` array is from yargs; it is all CLI arguments passed
+    // to bin/dispensary that aren't option arguments. If you ran:
+    //
+    //     bin/dispensary --stack=true libraries.json
+    //
+    // config._[0] would equal 'libraries.json'
     if (config._ && config._[0]) {
       this.libraryFile = config._[0];
+    }
+
+    if (config && config.max) {
       this.maxHTTPRequests = parseInt(config.max);
     }
   }
