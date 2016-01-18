@@ -4,7 +4,7 @@ import async from 'async';
 import request from 'request';
 
 import { DEFAULT_HAHES_FILE, DEFAULT_LIBRARY_FILE } from 'const';
-import hasher from 'hasher';
+import createHash from 'hasher';
 import log from 'logger';
 import { urlFormat } from 'utils';
 import { getVersions } from 'versions';
@@ -20,6 +20,8 @@ export default class Dispensary {
     this.libraryFile = DEFAULT_LIBRARY_FILE;
     this.hashesFile = _hashes;
     this.maxHTTPRequests = 35;
+
+    this._cachedHashes = null;
 
     // The `config._` array is from yargs; it is all CLI arguments passed
     // to bin/dispensary that aren't option arguments. If you ran:
@@ -55,13 +57,30 @@ export default class Dispensary {
       });
   }
 
-  getLibraries() {
+  // Matches only against cached hashes; this is the API external apps and
+  // libraries would use.
+  match(contents, _hashesFile=DEFAULT_HAHES_FILE) {
+    var hashes = this._getCachedHashes(_hashesFile);
+
+    for (let hashEntry of hashes) {
+      let hash = hashEntry.split(' ')[0];
+      let library = hashEntry.split(' ')[1];
+
+      if (createHash(contents) === hash) {
+        return library;
+      }
+    }
+
+    return false;
+  }
+
+  getLibraries(_fs=fs) {
     if (this._libraries !== null) {
       return Promise.resolve(this._libraries);
     }
 
     try {
-      var libraryJSON = fs.readFileSync(this.libraryFile);
+      var libraryJSON = _fs.readFileSync(this.libraryFile);
       this._libraries = JSON.parse(libraryJSON);
       return Promise.resolve(this._libraries);
     } catch (err) {
@@ -131,7 +150,7 @@ export default class Dispensary {
     });
   }
 
-  _getFile(fileInfo, callback) {
+  _getFile(fileInfo, callback, _request=request) {
     var url = urlFormat(fileInfo.library.urlMin || fileInfo.library.url, {
       filename: fileInfo.file,
       version: fileInfo.version,
@@ -139,7 +158,7 @@ export default class Dispensary {
 
     log.debug(`Requesting ${url}`);
 
-    request.get({url: url}, (err, response, data) => {
+    var processResponse = (err, response, data) => {
       if (err || !response) {
         log.error(`${url} encountered an error: ${err}.`);
         return callback(new Error(err));
@@ -161,13 +180,15 @@ export default class Dispensary {
       });
 
       callback();
-    });
+    };
+
+    _request.get({url: url}, processResponse);
   }
 
   getHashes(libraries) {
     for (let library of libraries) {
       for (let file of library.files) {
-        file.hash = hasher(file.contents);
+        file.hash = createHash(file.contents);
       }
     }
 
@@ -208,11 +229,19 @@ export default class Dispensary {
     return Array.from(hashes);
   }
 
-  _getCachedHashes(hashesPath) {
+  _getCachedHashes(hashesPath, _fs=fs) {
+    if (this._cachedHashes !== null) {
+      return this._cachedHashes;
+    }
+
     try {
-      return fs.readFileSync(hashesPath, 'utf8').split('\n').filter((value) => {
-        return value && value.length > 0 && value.substr(0, 1) !== '#';
-      });
+      this._cachedHashes = _fs.readFileSync(hashesPath, 'utf8')
+        .split('\n')
+        .filter((value) => {
+          return value && value.length > 0 && value.substr(0, 1) !== '#';
+        });
+
+      return this._cachedHashes;
     } catch (err) {
       return [];
     }

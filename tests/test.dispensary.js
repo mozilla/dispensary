@@ -1,4 +1,6 @@
-import { DEFAULT_LIBRARY_FILE } from 'const';
+import fs from 'fs';
+
+import { DEFAULT_HAHES_FILE, DEFAULT_LIBRARY_FILE } from 'const';
 import Dispensary from 'dispensary';
 import { getVersions } from 'versions';
 import { unexpectedSuccess } from './helpers';
@@ -64,6 +66,31 @@ describe('Dispensary', function() {
       });
   });
 
+  it('should match a hash', () => {
+    var h = '9320ea11f6d427aec4949634dc8676136b2fa8cdad289d22659b44541abb8c51';
+    h += ' mylib.1.0.0.js';
+
+    var dispensary = new Dispensary();
+    var getSpy = sinon.stub(dispensary, '_getCachedHashes', () => {
+      return [h];
+    });
+    var match = dispensary.match('hasher');
+
+    assert.ok(match);
+    assert.equal(match, 'mylib.1.0.0.js');
+    assert.isTrue(getSpy.calledOnce);
+  });
+
+  it('should not match contents not in the hash array', () => {
+    var h = '9320ea11f6d427aec4949634dc8676136b2fa8cdad289d22659b44541abb8c51';
+    h += ' mylib.1.0.0.js';
+
+    var dispensary = new Dispensary();
+    var match = dispensary.match('not a match', null, [h]);
+
+    assert.notOk(match);
+  });
+
   it('should set hashes', () => {
     var dispensary = new Dispensary({
       _: ['./tests/fixtures/test_libraries.json'],
@@ -86,39 +113,6 @@ describe('Dispensary', function() {
         }), 16);
       });
   });
-
-  // it('should return a promise from getVersions', () => {
-  //   var dispensary = new Dispensary({
-  //     _: ['./tests/fixtures/test_libraries.json'],
-  //   });
-  //
-  //   return dispensary.getLibraries()
-  //     .then((libraries) => {
-  //       return dispensary.getVersions(libraries);
-  //     })
-  //     .then((libraries) => {
-  //       assert.include(libraries[0].versions, '2.6.0');
-  //       assert.equal(libraries[0].versions.length, 6);
-  //       assert.include(libraries[1].versions, '3.5.1');
-  //       assert.equal(libraries[1].versions.length, 6);
-  //       assert.equal(Object.keys(libraries).length, 2);
-  //     });
-  // });
-  //
-  // it('should read useNPM in getVersions()', () => {
-  //   var localforageLibraries = [{
-  //     name: 'localforage',
-  //     useNPM: true,
-  //     versions: [],
-  //   }];
-  //   var dispensary = new Dispensary({}, localforageLibraries);
-  //
-  //   return dispensary.getVersions(localforageLibraries)
-  //     .then((libraries) => {
-  //       assert.include(libraries[0].versions, '1.0.0');
-  //       assert.equal(Object.keys(libraries).length, 1);
-  //     });
-  // });
 
   it('should try to read and parse the library file supplied', () => {
     var dispensary = new Dispensary({
@@ -159,6 +153,17 @@ describe('Dispensary', function() {
       .then(() => {
         assert.equal(cachedSpy.called, false);
       });
+  });
+
+  it('should return cached hashes after first call to _getCachedHashes', () => {
+    var dispensary = new Dispensary();
+
+    var fsSpy = sinon.spy(fs, 'readFileSync');
+
+    dispensary._getCachedHashes(DEFAULT_HAHES_FILE, fs);
+    assert.ok(fsSpy.called);
+    dispensary._getCachedHashes(DEFAULT_HAHES_FILE, fs);
+    assert.ok(fsSpy.calledOnce);
   });
 
   it('should add cached hashes in outputHashes()', () => {
@@ -236,6 +241,44 @@ describe('Dispensary', function() {
     var hashes = dispensary._getCachedHashes('whatever-foo-bar');
     assert.instanceOf(hashes, Array);
     assert.lengthOf(hashes, 0);
+  });
+
+  it('should pass an error to callback on a bad request', (done) => {
+    var testAssert = ((err) => {
+      assert.instanceOf(err, Error);
+      assert.equal(err.message, 'Error: Fail');
+      done();
+    });
+    var fakeRequest = {
+      get: (params, callback) => {
+        return callback(new Error('Fail'));
+      },
+    };
+
+    var dispensary = new Dispensary();
+    dispensary._getFile({
+      library: {url: 'http://nowhere.bad.idontexist/$VERSION-$FILENAME.js'},
+      file: 'mylib.js',
+      version: '1.1.2',
+    }, testAssert, fakeRequest);
+  });
+
+  it('should encounter a JSONError when library JSON is bad', () => {
+    var fakeFS = {
+      readFileSync: () => {
+        return '{"bad": "jsonData"';
+      },
+    };
+    var dispensary = new Dispensary({
+      _: ['fake.json'],
+    });
+
+    return dispensary.getLibraries(fakeFS)
+      .then(unexpectedSuccess)
+      .catch((err) => {
+        assert.instanceOf(err, Error);
+        assert.equal(err.message, 'JSONError: fake.json is not valid JSON.');
+      });
   });
 
 });
