@@ -2,8 +2,6 @@ import cli from 'cli';
 import Dispensary from 'dispensary';
 import log from 'logger';
 
-import 'babel-core/polyfill';
-
 
 export function createInstance(config=cli.argv) {
   log.level(config.logLevel);
