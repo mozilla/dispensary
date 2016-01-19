@@ -281,4 +281,31 @@ describe('Dispensary', function() {
       });
   });
 
+  it('should use filenameOutput if present', () => {
+    var dispensary = new Dispensary();
+    var library = {
+      filename: 'mylibrary-$VERSION.js',
+      filenameOutput: 'mylibrary.js',
+      versions: ['1.1.0', '1.1.1'],
+    };
+    var files = dispensary._getAllFilesFromLibrary(library, 2);
+
+    assert.deepEqual(files, [
+      {
+        file: 'mylibrary-$VERSION.js',
+        fileOut: 'mylibrary.js',
+        index: 2,
+        library: library,
+        version: '1.1.0',
+      },
+      {
+        file: 'mylibrary-$VERSION.js',
+        fileOut: 'mylibrary.js',
+        index: 2,
+        library: library,
+        version: '1.1.1',
+      },
+    ]);
+  });
+
 });
