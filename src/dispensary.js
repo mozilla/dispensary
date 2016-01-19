@@ -6,22 +6,12 @@ import request from 'request';
 import { DEFAULT_HAHES_FILE, DEFAULT_LIBRARY_FILE } from 'const';
 import hasher from 'hasher';
 import log from 'logger';
+import { urlFormat } from 'utils';
 import { getVersions } from 'versions';
 
 
 // HACK: We use this global for now to store files inside the async queue.
 var _files = [];
-
-function fileFormat(url, {file=null, version=null}={}) {
-  if (!file || !version) {
-    throw new Error('ArgumentError: File and version are required.');
-  }
-
-  return url.replace('$VERSION', version)
-            .replace('$FILENAME', file)
-            .replace('$VERSION', version)
-            .replace('$FILENAME', file);
-}
 
 export default class Dispensary {
 
@@ -142,8 +132,8 @@ export default class Dispensary {
   }
 
   _getFile(fileInfo, callback) {
-    var url = fileFormat(fileInfo.library.urlMin || fileInfo.library.url, {
-      file: fileInfo.file,
+    var url = urlFormat(fileInfo.library.urlMin || fileInfo.library.url, {
+      filename: fileInfo.file,
       version: fileInfo.version,
     });
 
