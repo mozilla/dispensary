@@ -9,3 +9,5 @@ export function createInstance(config=cli.argv) {
 
   return new Dispensary(config);
 }
+
+export default Dispensary;
