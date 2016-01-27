@@ -45,7 +45,7 @@
     "json-loader": "0.5.4",
     "load-grunt-configs": "0.4.3",
     "load-grunt-tasks": "3.4.0",
-    "mocha": "2.4.1",
+    "mocha": "2.4.2",
     "sinon": "1.17.2",
     "webpack": "1.12.11",
     "webpack-dev-server": "1.14.1"
