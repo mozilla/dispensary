@@ -47,7 +47,7 @@
     "load-grunt-tasks": "3.4.0",
     "mocha": "2.4.2",
     "sinon": "1.17.2",
-    "webpack": "1.12.11",
+    "webpack": "1.12.12",
     "webpack-dev-server": "1.14.1"
   },
   "dependencies": {
