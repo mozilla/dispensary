@@ -49,7 +49,8 @@ describe('Dispensary', function() {
     assert.equal(dispensary.libraryFile, DEFAULT_LIBRARY_FILE);
   });
 
-  it('should set files', () => {
+  it('should set files', function() {
+    this.timeout(15000);
     var dispensary = new Dispensary({
       _: ['./tests/fixtures/test_libraries.json'],
     });
@@ -91,7 +92,8 @@ describe('Dispensary', function() {
     assert.notOk(match);
   });
 
-  it('should set hashes', () => {
+  it('should set hashes', function() {
+    this.timeout(15000);
     var dispensary = new Dispensary({
       _: ['./tests/fixtures/test_libraries.json'],
     });
