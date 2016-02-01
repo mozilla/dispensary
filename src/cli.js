@@ -4,8 +4,10 @@ import { version } from 'json!../package';
 
 
 export default argv
+  // jscs:disable
   .usage('Usage: ./$0 [options] library-json-file \n\n' +
     'Mozilla Dispensary v' + version)
+  // jscs:enable
   .option('log-level', {
     describe: 'The log-level to generate',
     type: 'string',
