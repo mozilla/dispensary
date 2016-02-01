@@ -8,6 +8,8 @@ import { unexpectedSuccess } from './helpers';
 
 describe('Dispensary', function() {
 
+  var fsSpy = sinon.spy(fs, 'readFileSync');
+
   var fakeLibraries = [
     {
       name: 'myjslib',
@@ -49,8 +51,40 @@ describe('Dispensary', function() {
     assert.equal(dispensary.libraryFile, DEFAULT_LIBRARY_FILE);
   });
 
+  it('should output an error if something explodes', () => {
+    var dispensary = new Dispensary();
+
+    var fakeConsole = {error: () => {}, log: () => {}};
+    var consoleErrorSpy = sinon.spy(fakeConsole, 'error');
+    sinon.stub(dispensary, 'getLibraries', () => {
+      return Promise.reject(new Error('Error!'));
+    });
+
+    return dispensary.run(fakeConsole)
+      .then(unexpectedSuccess)
+      .catch((err) => {
+        assert.equal(err.message, 'Error!');
+        assert.ok(consoleErrorSpy.calledOnce);
+      });
+  });
+
+  it('should return an array of hashes', function() {
+    this.timeout(15000);
+
+    var dispensary = new Dispensary({
+      _: ['./tests/fixtures/test_libraries.json'],
+    }, null, null);
+
+    return dispensary.run()
+      .then((hashes) => {
+        assert.lengthOf(hashes, 20);
+        assert.instanceOf(hashes, Array);
+      });
+  });
+
   it('should set files', function() {
     this.timeout(15000);
+
     var dispensary = new Dispensary({
       _: ['./tests/fixtures/test_libraries.json'],
     });
@@ -63,7 +97,8 @@ describe('Dispensary', function() {
         return dispensary.getFiles(libraries);
       })
       .then((libraries) => {
-        assert.lengthOf(libraries[0].files, 8);
+        assert.equal(libraries[0].name, 'backbone');
+        assert.lengthOf(libraries[0].files, 16);
       });
   });
 
@@ -109,10 +144,10 @@ describe('Dispensary', function() {
         return dispensary.getHashes(libraries);
       })
       .then((libraries) => {
-        assert.lengthOf(libraries[0].files, 16);
+        assert.lengthOf(libraries[0].files, 24);
         assert.lengthOf(libraries[0].files.filter((file) => {
           return file.hash.length > 0;
-        }), 16);
+        }), 24);
       });
   });
 
@@ -157,10 +192,26 @@ describe('Dispensary', function() {
       });
   });
 
+  it('should return cached libraries after first call to getLibraries', () => {
+    var dispensary = new Dispensary();
+
+    fsSpy.reset();
+
+    return dispensary.getLibraries()
+      .then(() => {
+        assert.ok(fsSpy.called);
+
+        return dispensary.getLibraries();
+      })
+      .then(() => {
+        assert.ok(fsSpy.calledOnce);
+      });
+  });
+
   it('should return cached hashes after first call to _getCachedHashes', () => {
     var dispensary = new Dispensary();
 
-    var fsSpy = sinon.spy(fs, 'readFileSync');
+    fsSpy.reset();
 
     dispensary._getCachedHashes(DEFAULT_HAHES_FILE, fs);
     assert.ok(fsSpy.called);
@@ -254,6 +305,46 @@ describe('Dispensary', function() {
     var fakeRequest = {
       get: (params, callback) => {
         return callback(new Error('Fail'));
+      },
+    };
+
+    var dispensary = new Dispensary();
+    dispensary._getFile({
+      library: {url: 'http://nowhere.bad.idontexist/$VERSION-$FILENAME.js'},
+      file: 'mylib.js',
+      version: '1.1.2',
+    }, testAssert, fakeRequest);
+  });
+
+  it('should pass an error to callback on non-200 responseCode', (done) => {
+    var testAssert = ((err) => {
+      assert.instanceOf(err, Error);
+      assert.equal(err.message, 'ResponseError: 404');
+      done();
+    });
+    var fakeRequest = {
+      get: (params, callback) => {
+        return callback(null, {statusCode: 404});
+      },
+    };
+
+    var dispensary = new Dispensary();
+    dispensary._getFile({
+      library: {url: 'http://nowhere.bad.idontexist/$VERSION-$FILENAME.js'},
+      file: 'mylib.js',
+      version: '1.1.2',
+    }, testAssert, fakeRequest);
+  });
+
+  it('should pass an error to callback on empty responseCode', (done) => {
+    var testAssert = ((err) => {
+      assert.instanceOf(err, Error);
+      assert.equal(err.message, 'InvalidResponseError: undefined');
+      done();
+    });
+    var fakeRequest = {
+      get: (params, callback) => {
+        return callback(null, {});
       },
     };
 

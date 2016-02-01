@@ -23,7 +23,7 @@
   "homepage": "https://github.com/mozilla/dispensary#readme",
   "devDependencies": {
     "babel-core": "6.4.5",
-    "babel-eslint": "5.0.0-beta6",
+    "babel-eslint": "5.0.0-beta9",
     "babel-loader": "6.2.1",
     "babel-plugin-transform-class-properties": "6.0.14",
     "babel-plugin-transform-es2015-modules-commonjs": "6.4.5",

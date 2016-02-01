@@ -38,7 +38,7 @@ export default class Dispensary {
     }
   }
 
-  run() {
+  run(_console=console) {
     return this.getLibraries()
       .then((libraries) => {
         return getVersions(libraries);
@@ -53,7 +53,9 @@ export default class Dispensary {
         return this.outputHashes(libraries);
       })
       .catch((err) => {
-        console.error('ERROR', err);
+        _console.error('ERROR', err);
+
+        throw err;
       });
   }
 
@@ -122,15 +124,21 @@ export default class Dispensary {
     return files;
   }
 
-  getFiles(libraries) {
+  getFiles(libraries, referenceFiles=_files) {
     return new Promise((resolve) => {
       var files = [];
-
       var queue = async.queue(this._getFile, this.maxHTTPRequests || 35);
+
       queue.drain = () => {
         log.debug('All downloads completed.');
-        for (let file of _files) {
-          libraries[file.index].files.push(file);
+
+        for (let file of referenceFiles) {
+          if (file.index && libraries[file.index] &&
+              libraries[file.index].files) {
+            libraries[file.index].files.push(file);
+          } else {
+            throw new Error(`File or index not found: ${file}`);
+          }
         }
 
         resolve(libraries);
@@ -164,9 +172,15 @@ export default class Dispensary {
         return callback(new Error(err));
       }
 
-      if (response && response.statusCode !== 200) {
+      if (response && response.statusCode && response.statusCode !== 200) {
         log.warn(`${url} produced code ${response.statusCode}`);
-        return callback();
+        return callback(new Error(
+          `ResponseError: ${response.statusCode}`));
+      } else if (response && !response.statusCode) {
+        log.warn(
+          `${url} has an invalid response code (${response.statusCode})`);
+        return callback(new Error(
+          `InvalidResponseError: ${response.statusCode}`));
       }
 
       log.debug(`Downloaded ${url}`);
@@ -205,7 +219,7 @@ export default class Dispensary {
         }
       }
 
-      for (let hash in this._buildHashes(libraries)) {
+      for (let hash of this._buildHashes(libraries)) {
         hashes.add(hash);
       }
 
