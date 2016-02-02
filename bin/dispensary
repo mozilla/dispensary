@@ -10,5 +10,5 @@ require('../dist/dispensary')
     console.log(hashes.join('\n'));
   })
   .catch(function(err) {
-    console.log('MAIN BIN FAILURE', err);
+    console.error('MAIN BIN FAILURE', err);
   });
