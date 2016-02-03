@@ -16,6 +16,7 @@ var _files = [];
 export default class Dispensary {
 
   constructor(config={}, _libraries=null, _hashes=DEFAULT_HAHES_FILE) {
+    this._cachedMatches = null;
     this._libraries = _libraries;
     this.libraryFile = DEFAULT_LIBRARY_FILE;
     this.hashesFile = _hashes;
@@ -62,15 +63,22 @@ export default class Dispensary {
   // Matches only against cached hashes; this is the API external apps and
   // libraries would use.
   match(contents, _hashesFile=DEFAULT_HAHES_FILE) {
-    var hashes = this._getCachedHashes(_hashesFile);
+    if (this._cachedMatches === null) {
+      this._cachedMatches = {};
+      var hashes = this._getCachedHashes(_hashesFile);
 
-    for (let hashEntry of hashes) {
-      let hash = hashEntry.split(' ')[0];
-      let library = hashEntry.split(' ')[1];
+      for (let hashEntry of hashes) {
+        let hash = hashEntry.split(' ')[0];
+        let library = hashEntry.split(' ')[1];
 
-      if (createHash(contents) === hash) {
-        return library;
+        this._cachedMatches[hash] = library;
       }
+    }
+
+    var contentsHash = createHash(contents);
+
+    if (this._cachedMatches.hasOwnProperty(contentsHash)) {
+      return this._cachedMatches[contentsHash];
     }
 
     return false;

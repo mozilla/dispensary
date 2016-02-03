@@ -102,6 +102,23 @@ describe('Dispensary', function() {
       });
   });
 
+  it('should save hash object after first match run', () => {
+    var h = '9320ea11f6d427aec4949634dc8676136b2fa8cdad289d22659b44541abb8c51';
+    h += ' mylib.1.0.0.js';
+
+    var dispensary = new Dispensary();
+    sinon.stub(dispensary, '_getCachedHashes', () => {
+      return [h];
+    });
+    assert.equal(dispensary._cachedMatches, null);
+    dispensary.match('hasher');
+    dispensary.match('hasher2');
+    dispensary.match('hasher3');
+
+    assert.instanceOf(dispensary._cachedMatches, Object);
+    assert.lengthOf(Object.keys(dispensary._cachedMatches), 1);
+  });
+
   it('should match a hash', () => {
     var h = '9320ea11f6d427aec4949634dc8676136b2fa8cdad289d22659b44541abb8c51';
     h += ' mylib.1.0.0.js';
