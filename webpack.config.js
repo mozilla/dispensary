@@ -33,6 +33,10 @@ module.exports = {
         // babel options are in .babelrc
         loaders: ['babel'],
       },
+      {
+        test: /\.txt$/,
+        loaders: ['raw'],
+      },
     ],
   },
   externals: nodeModules,

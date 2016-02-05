@@ -3,7 +3,8 @@ import fs from 'fs';
 import async from 'async';
 import request from 'request';
 
-import { DEFAULT_HAHES_FILE, DEFAULT_LIBRARY_FILE } from 'const';
+import HASHES from 'hashes.txt';
+import { DEFAULT_LIBRARY_FILE } from 'const';
 import createHash from 'hasher';
 import log from 'logger';
 import { urlFormat } from 'utils';
@@ -15,14 +16,11 @@ var _files = [];
 
 export default class Dispensary {
 
-  constructor(config={}, _libraries=null, _hashes=DEFAULT_HAHES_FILE) {
-    this._cachedMatches = null;
+  constructor(config={}, _libraries=null) {
+    this._cachedHashes = null;
     this._libraries = _libraries;
     this.libraryFile = DEFAULT_LIBRARY_FILE;
-    this.hashesFile = _hashes;
     this.maxHTTPRequests = 35;
-
-    this._cachedHashes = null;
 
     // The `config._` array is from yargs; it is all CLI arguments passed
     // to bin/dispensary that aren't option arguments. If you ran:
@@ -62,23 +60,22 @@ export default class Dispensary {
 
   // Matches only against cached hashes; this is the API external apps and
   // libraries would use.
-  match(contents, _hashesFile=DEFAULT_HAHES_FILE) {
-    if (this._cachedMatches === null) {
-      this._cachedMatches = {};
-      var hashes = this._getCachedHashes(_hashesFile);
+  match(contents) {
+    if (this._cachedHashes === null) {
+      this._cachedHashes = {};
 
-      for (let hashEntry of hashes) {
+      for (let hashEntry of this._getCachedHashes()) {
         let hash = hashEntry.split(' ')[0];
         let library = hashEntry.split(' ')[1];
 
-        this._cachedMatches[hash] = library;
+        this._cachedHashes[hash] = library;
       }
     }
 
     var contentsHash = createHash(contents);
 
-    if (this._cachedMatches.hasOwnProperty(contentsHash)) {
-      return this._cachedMatches[contentsHash];
+    if (this._cachedHashes.hasOwnProperty(contentsHash)) {
+      return this._cachedHashes[contentsHash];
     }
 
     return false;
@@ -221,10 +218,8 @@ export default class Dispensary {
     return new Promise((resolve) => {
       var hashes = new Set();
 
-      if (this.hashesFile) {
-        for (let hash of this._getCachedHashes(this.hashesFile)) {
-          hashes.add(hash);
-        }
+      for (let hash of this._getCachedHashes()) {
+        hashes.add(hash);
       }
 
       for (let hash of this._buildHashes(libraries)) {
@@ -251,22 +246,10 @@ export default class Dispensary {
     return Array.from(hashes);
   }
 
-  _getCachedHashes(hashesPath, _fs=fs) {
-    if (this._cachedHashes !== null) {
-      return this._cachedHashes;
-    }
-
-    try {
-      this._cachedHashes = _fs.readFileSync(hashesPath, 'utf8')
-        .split('\n')
-        .filter((value) => {
-          return value && value.length > 0 && value.substr(0, 1) !== '#';
-        });
-
-      return this._cachedHashes;
-    } catch (err) {
-      return [];
-    }
+  _getCachedHashes() {
+    return HASHES.split('\n').filter((value) => {
+      return value && value.length > 0 && value.substr(0, 1) !== '#';
+    });
   }
 
 }

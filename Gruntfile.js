@@ -21,6 +21,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('test', [
     'clean',
+    'copy:coverage',
     'instrument',
     'webpack:build',
     'webpack:coverage',
