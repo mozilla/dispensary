@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-import { DEFAULT_HAHES_FILE, DEFAULT_LIBRARY_FILE } from 'const';
+import { DEFAULT_LIBRARY_FILE } from 'const';
 import Dispensary from 'dispensary';
 import { getVersions } from 'versions';
 import { unexpectedSuccess } from './helpers';
@@ -73,7 +73,11 @@ describe('Dispensary', function() {
 
     var dispensary = new Dispensary({
       _: ['./tests/fixtures/test_libraries.json'],
-    }, null, null);
+    });
+
+    sinon.stub(dispensary, '_getCachedHashes', () => {
+      return [];
+    });
 
     return dispensary.run()
       .then((hashes) => {
@@ -102,23 +106,6 @@ describe('Dispensary', function() {
       });
   });
 
-  it('should save hash object after first match run', () => {
-    var h = '9320ea11f6d427aec4949634dc8676136b2fa8cdad289d22659b44541abb8c51';
-    h += ' mylib.1.0.0.js';
-
-    var dispensary = new Dispensary();
-    sinon.stub(dispensary, '_getCachedHashes', () => {
-      return [h];
-    });
-    assert.equal(dispensary._cachedMatches, null);
-    dispensary.match('hasher');
-    dispensary.match('hasher2');
-    dispensary.match('hasher3');
-
-    assert.instanceOf(dispensary._cachedMatches, Object);
-    assert.lengthOf(Object.keys(dispensary._cachedMatches), 1);
-  });
-
   it('should match a hash', () => {
     var h = '9320ea11f6d427aec4949634dc8676136b2fa8cdad289d22659b44541abb8c51';
     h += ' mylib.1.0.0.js';
@@ -139,7 +126,7 @@ describe('Dispensary', function() {
     h += ' mylib.1.0.0.js';
 
     var dispensary = new Dispensary();
-    var match = dispensary.match('not a match', null, [h]);
+    var match = dispensary.match('not a match');
 
     assert.notOk(match);
   });
@@ -196,19 +183,6 @@ describe('Dispensary', function() {
       });
   });
 
-  it('should not get cachedHashes without a hashesFile', () => {
-    var dispensary = new Dispensary({
-      _: ['whatever-foo-bar'],
-    }, fakeLibraries, null);
-
-    var cachedSpy = sinon.spy(dispensary, '_getCachedHashes');
-
-    return dispensary.outputHashes(fakeLibraries)
-      .then(() => {
-        assert.equal(cachedSpy.called, false);
-      });
-  });
-
   it('should return cached libraries after first call to getLibraries', () => {
     var dispensary = new Dispensary();
 
@@ -225,25 +199,12 @@ describe('Dispensary', function() {
       });
   });
 
-  it('should return cached hashes after first call to _getCachedHashes', () => {
-    var dispensary = new Dispensary();
-
-    fsSpy.reset();
-
-    dispensary._getCachedHashes(DEFAULT_HAHES_FILE, fs);
-    assert.ok(fsSpy.called);
-    dispensary._getCachedHashes(DEFAULT_HAHES_FILE, fs);
-    assert.ok(fsSpy.calledOnce);
-  });
-
   it('should add cached hashes in outputHashes()', () => {
-    var dispensary = new Dispensary({
-      _: ['whatever-foo-bar'],
-    }, fakeLibraries, 'fakeHashes.txt');
+    var dispensary = new Dispensary({}, fakeLibraries);
 
-    sinon.stub(dispensary, '_buildHashes', (() => {
+    sinon.stub(dispensary, '_buildHashes', () => {
       return [];
-    }));
+    });
 
     var cachedStub = sinon.stub(dispensary, '_getCachedHashes', () => {
       return [
@@ -266,9 +227,11 @@ describe('Dispensary', function() {
   });
 
   it('should resolve with an array in outputHashes()', () => {
-    var dispensary = new Dispensary({
-      _: ['whatever-foo-bar'],
-    }, fakeLibraries, null);
+    var dispensary = new Dispensary({}, fakeLibraries);
+
+    sinon.stub(dispensary, '_getCachedHashes', () => {
+      return [];
+    });
 
     return dispensary.outputHashes(fakeLibraries)
       .then((hashes) => {
@@ -289,28 +252,6 @@ describe('Dispensary', function() {
     assert.equal(hashes[0], '6657a7293da6afcd29e9243886725c8f90c8399e826dba9978e51a0a19e9bed6 myjslib.1.0.2.mylib.js'); // eslint-disable-line
     assert.equal(hashes[1], '4657a7293da6afcd29e9243886725c8f90c8399e826dba9978e51a0a19e9bed6 myjslib.1.0.4.mylib.min.js'); // eslint-disable-line
     // jscs:enable
-  });
-
-  it('should load cached hashes', () => {
-    var dispensary = new Dispensary({
-      _: ['tests/fixtures/test_libraries.json'],
-    });
-
-    var hashes = dispensary._getCachedHashes('tests/fixtures/hashes.txt');
-    // jscs:disable
-    assert.equal('6657a7293da6afcd29e9243886725c8f90c8399e826dba9978e51a0a19e9bed6 yui.2.7.0.yuiloader-min.js', hashes[1]); // eslint-disable-line
-    // jscs:enable
-    assert.lengthOf(hashes, 23);
-  });
-
-  it('should return an empty array when no hash file exists', () => {
-    var dispensary = new Dispensary({
-      _: ['tests/fixtures/test_libraries.json'],
-    });
-
-    var hashes = dispensary._getCachedHashes('whatever-foo-bar');
-    assert.instanceOf(hashes, Array);
-    assert.lengthOf(hashes, 0);
   });
 
   it('should pass an error to callback on a bad request', (done) => {

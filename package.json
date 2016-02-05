@@ -1,6 +1,6 @@
 {
   "name": "dispensary",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "SHA-256 Hashes of popular JS libraries, used by Mozilla's Add-ons Validator",
   "main": "dist/dispensary.js",
   "bin": {
@@ -47,6 +47,7 @@
     "load-grunt-configs": "0.4.3",
     "load-grunt-tasks": "3.4.0",
     "mocha": "2.4.5",
+    "raw-loader": "0.5.1",
     "sinon": "1.17.3",
     "webpack": "1.12.13",
     "webpack-dev-server": "1.14.1"
