@@ -1,13 +1,12 @@
 import fs from 'fs';
 
-import { DEFAULT_LIBRARY_FILE } from 'const';
 import { getVersions, _getVersionsFromNPM } from 'versions';
 
 
 describe('Versions', function() {
 
   beforeEach(() => {
-    this.libraries = JSON.parse(fs.readFileSync(DEFAULT_LIBRARY_FILE));
+    this.libraries = JSON.parse(fs.readFileSync('src/libraries.json'));
   });
 
   // TODO: Make this not require a network connection...

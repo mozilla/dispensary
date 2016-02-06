@@ -6,9 +6,6 @@ global.appRoot = path.relative(process.cwd(), path.resolve(__dirname));
 require('../dist/dispensary')
   .createInstance()
   .run()
-  .then(function(hashes) {
-    console.log(hashes.join('\n'));
-  })
   .catch(function(err) {
-    console.error('MAIN BIN FAILURE', err);
+    console.error('Uncaught error', err);
   });

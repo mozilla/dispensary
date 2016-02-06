@@ -68,18 +68,74 @@ describe('Dispensary', function() {
       });
   });
 
-  it('should return an array of hashes', function() {
+  it('should send the update command and output', function() {
     this.timeout(15000);
 
     var dispensary = new Dispensary({
-      _: ['./tests/fixtures/test_libraries.json'],
+      _: ['update'],
+      libraries: './tests/fixtures/test_libraries.json',
+      pathToHashes: 'dist/hashes.txt',
     });
+
+    var fakeConsole = {error: () => {}, log: () => {}};
+    var consoleLogSpy = sinon.spy(fakeConsole, 'log');
+    var updateSpy = sinon.spy(dispensary, 'updateCommand');
 
     sinon.stub(dispensary, '_getCachedHashes', () => {
       return [];
     });
 
-    return dispensary.run()
+    return dispensary.run(fakeConsole)
+      .then(() => {
+        assert.lengthOf(fs.readFileSync('dist/hashes.txt', 'utf8').split('\n'),
+                        21);
+        assert.ok(updateSpy.calledOnce);
+        assert.ok(consoleLogSpy.calledOnce);
+        assert.ok(consoleLogSpy.calledWith('hashes.txt updated successfully.'));
+      });
+  });
+
+  it('should error if there was a problem updating hashes', function() {
+    this.timeout(15000);
+
+    var dispensary = new Dispensary({
+      _: ['update'],
+      libraries: './tests/fixtures/test_libraries.json',
+      pathToHashes: 'dist/hashes.txt',
+    });
+
+    var fakeConsole = {error: () => {}, log: () => {}};
+    var fakeFS = {
+      writeFile: (filename, contents, options, callback) => {
+        callback(new Error('Fail!'));
+      },
+    };
+
+    sinon.stub(dispensary, '_getCachedHashes', () => {
+      return [];
+    });
+
+    return dispensary.updateCommand([], fakeConsole, fakeFS)
+      .then(unexpectedSuccess)
+      .catch((err) => {
+        assert.equal(err.message, 'UpdateError: Error: Fail!');
+        assert.instanceOf(err, Error);
+      });
+  });
+
+  it('should return an array of hashes', function() {
+    this.timeout(15000);
+
+    var dispensary = new Dispensary({
+      libraries: './tests/fixtures/test_libraries.json',
+    });
+    var fakeConsole = {error: () => {}, log: () => {}};
+
+    sinon.stub(dispensary, '_getCachedHashes', () => {
+      return [];
+    });
+
+    return dispensary.run(fakeConsole)
       .then((hashes) => {
         assert.lengthOf(hashes, 20);
         assert.instanceOf(hashes, Array);
@@ -90,7 +146,7 @@ describe('Dispensary', function() {
     this.timeout(15000);
 
     var dispensary = new Dispensary({
-      _: ['./tests/fixtures/test_libraries.json'],
+      libraries: './tests/fixtures/test_libraries.json',
     });
 
     return dispensary.getLibraries()
@@ -102,7 +158,7 @@ describe('Dispensary', function() {
       })
       .then((libraries) => {
         assert.equal(libraries[0].name, 'backbone');
-        assert.lengthOf(libraries[0].files, 16);
+        assert.lengthOf(libraries[0].files, 24);
       });
   });
 
@@ -134,7 +190,7 @@ describe('Dispensary', function() {
   it('should set hashes', function() {
     this.timeout(15000);
     var dispensary = new Dispensary({
-      _: ['./tests/fixtures/test_libraries.json'],
+      libraries: './tests/fixtures/test_libraries.json',
     });
 
     return dispensary.getLibraries()
@@ -148,16 +204,16 @@ describe('Dispensary', function() {
         return dispensary.getHashes(libraries);
       })
       .then((libraries) => {
-        assert.lengthOf(libraries[0].files, 24);
+        assert.lengthOf(libraries[0].files, 32);
         assert.lengthOf(libraries[0].files.filter((file) => {
           return file.hash.length > 0;
-        }), 24);
+        }), 32);
       });
   });
 
   it('should try to read and parse the library file supplied', () => {
     var dispensary = new Dispensary({
-      _: ['./tests/fixtures/test_libraries.json'],
+      libraries: './tests/fixtures/test_libraries.json',
     });
     assert.equal(dispensary.libraryFile,
                  './tests/fixtures/test_libraries.json');
@@ -170,7 +226,7 @@ describe('Dispensary', function() {
 
   it('should fail if the library does not exist', () => {
     var dispensary = new Dispensary({
-      _: ['whatever-foo-bar'],
+      libraries: 'whatever-foo-bar',
     });
     assert.equal(dispensary.libraryFile, 'whatever-foo-bar');
 
@@ -184,7 +240,9 @@ describe('Dispensary', function() {
   });
 
   it('should return cached libraries after first call to getLibraries', () => {
-    var dispensary = new Dispensary();
+    var dispensary = new Dispensary({
+      libraries: './tests/fixtures/test_libraries.json',
+    });
 
     fsSpy.reset();
 
@@ -242,7 +300,7 @@ describe('Dispensary', function() {
 
   it('should output hashes in the correct format', () => {
     var dispensary = new Dispensary({
-      _: ['tests/fixtures/test_libraries.json'],
+      libraries: 'tests/fixtures/test_libraries.json',
     });
 
     var hashes = dispensary._buildHashes(fakeLibraries);
@@ -321,7 +379,7 @@ describe('Dispensary', function() {
       },
     };
     var dispensary = new Dispensary({
-      _: ['fake.json'],
+      libraries: 'fake.json',
     });
 
     return dispensary.getLibraries(fakeFS)
