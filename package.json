@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/mozilla/dispensary#readme",
   "devDependencies": {
-    "babel-core": "6.4.5",
+    "babel-core": "6.5.0",
     "babel-eslint": "5.0.0-beta9",
     "babel-loader": "6.2.2",
     "babel-plugin-transform-array-from": "1.0.0",
