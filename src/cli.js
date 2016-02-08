@@ -1,3 +1,5 @@
+import path from 'path';
+
 import argv from 'yargs';
 
 import { version } from 'json!../package';
@@ -40,6 +42,13 @@ export default argv
     describe: 'Disables colorful shell output',
     type: 'boolean',
     default: false,
+  })
+  .option('libraries', {
+    describe: 'Custom library file',
+    type: 'string',
+    default: global.appRoot ?
+      path.join(global.appRoot, '../src/libraries.json') :
+      './src/libraries.json',
   })
   .demand(0)
   .help('help')

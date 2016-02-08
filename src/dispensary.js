@@ -4,7 +4,7 @@ import async from 'async';
 import request from 'request';
 
 import HASHES from 'hashes.txt';
-import { DEFAULT_LIBRARY_FILE } from 'const';
+import { COMMANDS } from 'const';
 import createHash from 'hasher';
 import log from 'logger';
 import { urlFormat } from 'utils';
@@ -19,21 +19,30 @@ export default class Dispensary {
   constructor(config={}, _libraries=null) {
     this._cachedHashes = null;
     this._libraries = _libraries;
-    this.libraryFile = DEFAULT_LIBRARY_FILE;
+    this._pathToHashes = './src/hashes.txt';
+    // Default command is "output"
+    this.command = COMMANDS.default;
+    this.libraryFile = config.libraries;
     this.maxHTTPRequests = 35;
 
     // The `config._` array is from yargs; it is all CLI arguments passed
     // to bin/dispensary that aren't option arguments. If you ran:
     //
-    //     bin/dispensary --stack=true libraries.json
+    //     bin/dispensary --stack=true update
     //
-    // config._[0] would equal 'libraries.json'
+    // config._[0] would equal 'update'
     if (config._ && config._[0]) {
-      this.libraryFile = config._[0];
+      this.command = config._[0];
     }
 
-    if (config && config.max) {
-      this.maxHTTPRequests = parseInt(config.max);
+    if (config) {
+      if (config.max) {
+        this.maxHTTPRequests = parseInt(config.max);
+      }
+
+      if (config.pathToHashes) {
+        this._pathToHashes = config.pathToHashes;
+      }
     }
   }
 
@@ -51,11 +60,37 @@ export default class Dispensary {
       .then((libraries) => {
         return this.outputHashes(libraries);
       })
+      .then((hashes) => {
+        return this[`${this.command}Command`](hashes, _console);
+      })
       .catch((err) => {
         _console.error('ERROR', err);
 
         throw err;
       });
+  }
+
+  // Output command; this is the default and just echoes out all hashes
+  outputCommand(hashes, _console) {
+    _console.log(hashes.join('\n'));
+
+    return Promise.resolve(hashes);
+  }
+
+  // Update command; this gets all hashes and writes them to hashes.txt
+  updateCommand(hashes, _console, _fs=fs) {
+    return new Promise((resolve) => {
+      _fs.writeFile(this._pathToHashes, `${hashes.join('\n')}\n`, 'utf8',
+      (err) => {
+        if (err) {
+          throw new Error(`UpdateError: ${err}`);
+        }
+
+        _console.log('hashes.txt updated successfully.');
+
+        resolve(hashes);
+      });
+    });
   }
 
   // Matches only against cached hashes; this is the API external apps and
