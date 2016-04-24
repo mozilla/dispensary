@@ -7,6 +7,7 @@
     "dispensary": "bin/dispensary"
   },
   "scripts": {
+    "update": "npm run build && ./bin/dispensary > src/hashes.txt",
     "start": "node -e \"require('grunt').cli()\" null start",
     "build": "node -e \"require('grunt').cli()\" null build",
     "test": "node -e \"require('grunt').cli()\" null test"
