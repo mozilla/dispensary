@@ -12,7 +12,6 @@
     "destructuring": true,
     "defaultParams": true,
     "jsx": true,
-    "modules": true,
     "restParams": true,
     "spread": true,
   },
@@ -68,5 +67,8 @@
     "strict": [2, "never"],
     "valid-typeof": 2,
     "wrap-iife": [2, "inside"]
+  },
+  "parserOptions": {
+    "sourceType": "module"
   }
 }
