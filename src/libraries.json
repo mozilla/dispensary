@@ -74,7 +74,7 @@
     "filename": "angular.js",
     "filenameMinified": "angular.min.js",
     "useNPM": true,
-    "url": "https://ajax.googleapis.com/ajax/libs/angularjs/$VERSION/$FILENAME"
+    "url": "https://code.angularjs.org/$VERSION/$FILENAME"
   },
   {
     "name": "backbone",
