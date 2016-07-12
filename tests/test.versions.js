@@ -1,6 +1,7 @@
 import fs from 'fs';
 
-import { getVersions, _getVersionsFromNPM } from 'versions';
+import { getVersions, _getVersionsFromNPM,
+  _handleNPMResponseData } from 'versions';
 
 
 describe('Versions', function() {
@@ -82,6 +83,26 @@ describe('Versions', function() {
 
         assert.lengthOf(librariesWithVersion, 1);
       });
+  });
+
+  it('should ignore alpha/beta/rc NPM versions', () => {
+    var jQuery = {name: 'jQuery', versions: []};
+    var jQueryData = {versions: {
+      '2.2.4': '',
+      '3.0.0-alpha1': '',
+      '3.0.0-beta1': '',
+      '3.0.0-rc1': '',
+      '3.0.0': '',
+    }};
+
+    _handleNPMResponseData(jQuery, jQueryData);
+
+    var versions = jQuery.versions;
+    assert.notInclude(versions, '3.0.0-alpha1');
+    assert.notInclude(versions, '3.0.0-beta1');
+    assert.notInclude(versions, '3.0.0-rc1');
+    assert.include(versions, '2.2.4');
+    assert.include(versions, '3.0.0');
   });
 
 });
