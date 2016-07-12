@@ -10,7 +10,7 @@
     "update": "npm run build && ./bin/dispensary > src/hashes.txt",
     "start": "node -e \"require('grunt').cli()\" null start",
     "build": "node -e \"require('grunt').cli()\" null build",
-    "test": "node -e \"require('grunt').cli()\" null test"
+    "test": "LANG='en_US.UTF-8' node -e \"require('grunt').cli()\" null test"
   },
   "repository": {
     "type": "git",
