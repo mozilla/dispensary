@@ -417,4 +417,55 @@ describe('Dispensary', function() {
     ]);
   });
 
+  it('should sort hashes output', () => {
+    var dispensary = new Dispensary();
+    sinon.stub(dispensary, '_getCachedHashes', () => {
+      return [];
+    });
+
+    var fakeUnsortedLibraries = [
+      {
+        name: 'myzlib',
+        files: [
+          {
+            // jscs:disable
+            hash: '6657a7293da6afcd29e9243886725c8f90c8399e826dba9978e51a0a19e9bed6', // eslint-disable-line
+            // jscs:enable
+            fileOut: 'myzlib.js',
+            version: '1.0.11',
+          },
+          {
+            // jscs:disable
+            hash: '8657a7293da6afcd29e9243886725c8f90c8399e826dba9978e51a0a19e9bed6', // eslint-disable-line
+            // jscs:enable
+            fileOut: 'myzlib.min.js',
+            version: '1.0.9',
+          },
+        ],
+        versions: ['1.0.11', '1.0.9'],
+      },
+      {
+        name: 'myalib',
+        files: [
+          {
+            // jscs:disable
+            hash: '7657a7293da6afcd29e9243886725c8f90c8399e826dba9978e51a0a19e9bed6', // eslint-disable-line
+            // jscs:enable
+            fileOut: 'myalib.js',
+            version: '1.1.99',
+          },
+        ],
+        versions: ['1.1.99'],
+      },
+    ];
+
+    return dispensary.outputHashes(fakeUnsortedLibraries).then((libraries) => {
+      // jscs:disable
+      assert.equal(libraries[0], '7657a7293da6afcd29e9243886725c8f90c8399e826dba9978e51a0a19e9bed6 myalib.1.1.99.myalib.js'); // eslint-disable-line
+      assert.equal(libraries[1], '8657a7293da6afcd29e9243886725c8f90c8399e826dba9978e51a0a19e9bed6 myzlib.1.0.9.myzlib.min.js'); // eslint-disable-line
+      assert.equal(libraries[2], '6657a7293da6afcd29e9243886725c8f90c8399e826dba9978e51a0a19e9bed6 myzlib.1.0.11.myzlib.js'); // eslint-disable-line
+      // jscs:enable
+    });
+  });
+
 });
