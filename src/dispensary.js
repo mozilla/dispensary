@@ -149,6 +149,7 @@ export default class Dispensary {
           index: index,
           library: library,
           version: version,
+          minified: false,
         });
       }
 
@@ -159,6 +160,7 @@ export default class Dispensary {
           index: index,
           library: library,
           version: version,
+          minified: true,
         });
       }
     }
@@ -169,7 +171,8 @@ export default class Dispensary {
   getFiles(libraries, referenceFiles=_files) {
     return new Promise((resolve) => {
       var files = [];
-      var queue = async.queue(this._getFile, this.maxHTTPRequests || 35);
+      var queue = async.queue(this._getFile.bind(this),
+        this.maxHTTPRequests || 35);
 
       queue.drain = () => {
         log.debug('All downloads completed.');
@@ -200,12 +203,19 @@ export default class Dispensary {
     });
   }
 
-  _getFile(fileInfo, callback, _request=request) {
-    var url = urlFormat(fileInfo.library.urlMin || fileInfo.library.url, {
+  _buildDownloadURL(fileInfo) {
+    var base = fileInfo.library.url;
+    if (fileInfo.minified && fileInfo.library.urlMin) {
+      base = fileInfo.library.urlMin;
+    }
+    return urlFormat(base, {
       filename: fileInfo.file,
       version: fileInfo.version,
     });
+  }
 
+  _getFile(fileInfo, callback, _request=request) {
+    var url = this._buildDownloadURL(fileInfo);
     log.debug(`Requesting ${url}`);
 
     var processResponse = (err, response, data) => {
