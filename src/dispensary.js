@@ -10,6 +10,8 @@ import log from 'logger';
 import { urlFormat } from 'utils';
 import { getVersions } from 'versions';
 
+import naturalCompare from 'natural-compare-lite';
+
 
 // HACK: We use this global for now to store files inside the async queue.
 var _files = [];
@@ -261,7 +263,14 @@ export default class Dispensary {
         hashes.add(hash);
       }
 
-      resolve(Array.from(hashes));
+      var hashesArray = Array.from(hashes).sort((a, b) => {
+        // a, b look like "<HASH> <FILENAME>",
+        // The regex finds the filename and uses it for natural sorting
+        var getFileName = /\s+(.*)/;
+        return naturalCompare(a.match(getFileName)[1], b.match(getFileName)[1]);
+      });
+
+      resolve(hashesArray);
     });
   }
 
