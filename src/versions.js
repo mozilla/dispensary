@@ -45,10 +45,15 @@ export function _getVersionsFromNPM(library, callback, _request=request) {
         `RequestError: npm "${repo}" (statusCode: ${statusCode})`));
     }
 
-    var versions = Object.keys(data.versions);
-
-    library.versions = library.versions.concat(versions);
+    _handleNPMResponseData(library, data);
 
     callback();
   });
+}
+
+export function _handleNPMResponseData(library, data) {
+  var versions = Object.keys(data.versions).filter((version) => {
+    return version.search(/(alpha|beta|rc)\d+/g) === -1;
+  });
+  library.versions = library.versions.concat(versions);
 }
