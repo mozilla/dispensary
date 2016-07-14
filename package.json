@@ -6,6 +6,9 @@
   "bin": {
     "dispensary": "bin/dispensary"
   },
+  "engines": {
+    "node": ">= 4.0.0"
+  },
   "scripts": {
     "update": "npm run build && ./bin/dispensary > src/hashes.txt",
     "start": "node -e \"require('grunt').cli()\" null start",
