@@ -90,8 +90,8 @@ describe('Versions', function() {
     var jQueryData = {versions: {
       '2.2.4': '',
       '3.0.0-alpha1': '',
-      '3.0.0-beta1': '',
-      '3.0.0-rc1': '',
+      '3.0.0.beta3': '',
+      '3.0.0rc2': '',
       '3.0.0': '',
     }};
 
@@ -99,8 +99,8 @@ describe('Versions', function() {
 
     var versions = jQuery.versions;
     assert.notInclude(versions, '3.0.0-alpha1');
-    assert.notInclude(versions, '3.0.0-beta1');
-    assert.notInclude(versions, '3.0.0-rc1');
+    assert.notInclude(versions, '3.0.0.beta3');
+    assert.notInclude(versions, '3.0.0rc2');
     assert.include(versions, '2.2.4');
     assert.include(versions, '3.0.0');
   });
