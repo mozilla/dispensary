@@ -406,6 +406,7 @@ describe('Dispensary', function() {
         index: 2,
         library: library,
         version: '1.1.0',
+        minified: false,
       },
       {
         file: 'mylibrary-$VERSION.js',
@@ -413,6 +414,7 @@ describe('Dispensary', function() {
         index: 2,
         library: library,
         version: '1.1.1',
+        minified: false,
       },
     ]);
   });
@@ -466,6 +468,34 @@ describe('Dispensary', function() {
       assert.equal(libraries[2], '6657a7293da6afcd29e9243886725c8f90c8399e826dba9978e51a0a19e9bed6 myzlib.1.0.11.myzlib.js'); // eslint-disable-line
       // jscs:enable
     });
+  });
+
+  it('should construct the correct file download path', () => {
+    var dispensary = new Dispensary();
+    var library = {
+      url: 'https://myserver.com/moment/moment/$VERSION/$FILENAME',
+      urlMin: 'https://myserver.com/moment/moment/$VERSION/min/$FILENAME',
+    };
+
+    var file = {
+      file: 'moment.js',
+      fileOut: 'moment.js',
+      library: library,
+      version: '1.0.0',
+      minified: false,
+    };
+    assert.equal(dispensary._buildDownloadURL(file),
+      'https://myserver.com/moment/moment/1.0.0/moment.js');
+
+    var fileMin = {
+      file: 'moment.min.js',
+      fileOut: 'moment.min.js',
+      library: library,
+      version: '1.0.0',
+      minified: true,
+    };
+    assert.equal(dispensary._buildDownloadURL(fileMin),
+      'https://myserver.com/moment/moment/1.0.0/min/moment.min.js');
   });
 
 });
