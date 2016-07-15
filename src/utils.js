@@ -3,9 +3,12 @@ export function urlFormat(url, {filename=null, version=null}={}) {
     throw new Error('ArgumentError: File and version are required.');
   }
 
-  // This allows us to process jQuery's URLs.
-  return url.replace('$VERSION', version)
-            .replace('$FILENAME', filename)
-            .replace('$VERSION', version)
-            .replace('$FILENAME', filename);
+  var finalURL = url;
+  // Both 'url' and '$FILENAME' can contain $VERSION several times
+  while (finalURL.includes('$VERSION') || finalURL.includes('$FILENAME')) {
+    finalURL = finalURL.replace(/\$VERSION/g, version)
+        .replace(/\$FILENAME/g, filename);
+  }
+
+  return finalURL;
 }

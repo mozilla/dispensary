@@ -18,13 +18,13 @@ describe('urlFormat()', function() {
     }, Error, /ArgumentError/);
   });
 
-  it('should process $FILENAME and $VERSIONS recursively (once)', () => {
-    var result = urlFormat('http://download.net/$FILENAME', {
+  it('should process $FILENAME and $VERSION recursively', () => {
+    var result = urlFormat('http://download.net/$VERSION/$FILENAME', {
       filename: 'mylib-$VERSION.js',
       version: '1.1.1',
     });
 
-    assert.equal(result, 'http://download.net/mylib-1.1.1.js');
+    assert.equal(result, 'http://download.net/1.1.1/mylib-1.1.1.js');
   });
 
 });
