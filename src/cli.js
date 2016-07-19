@@ -7,7 +7,7 @@ import { version } from 'json!../package';
 
 export default argv
   // jscs:disable
-  .usage('Usage: ./$0 [options] library-json-file \n\n' +
+  .usage('Usage: ./$0 [options] \n\n' +
     'Mozilla Dispensary v' + version)
   // jscs:enable
   .option('log-level', {
