@@ -142,26 +142,33 @@ export default class Dispensary {
     var files = [];
 
     for (let version of library.versions) {
-      if (library.filename) {
-        files.push({
-          file: library.filename,
-          fileOut: library.filenameOutput || library.filename,
-          index: index,
-          library: library,
-          version: version,
-          minified: false,
-        });
-      }
+      var minVersion = library.minVersion;
+      // If there is a `minVersion`,
+      // make sure `version` is equal or higher than `minVersion`.
+      // `naturalCompare` behaves like an ordinary 'compare'.
+      if (!minVersion ||
+           (minVersion && naturalCompare(minVersion, version) <= 0)) {
+        if (library.filename) {
+          files.push({
+            file: library.filename,
+            fileOut: library.filenameOutput || library.filename,
+            index: index,
+            library: library,
+            version: version,
+            minified: false,
+          });
+        }
 
-      if (library.filenameMinified) {
-        files.push({
-          file: library.filenameMinified,
-          fileOut: library.filenameMinifiedOutput || library.filenameMinified,
-          index: index,
-          library: library,
-          version: version,
-          minified: true,
-        });
+        if (library.filenameMinified) {
+          files.push({
+            file: library.filenameMinified,
+            fileOut: library.filenameMinifiedOutput || library.filenameMinified,
+            index: index,
+            library: library,
+            version: version,
+            minified: true,
+          });
+        }
       }
     }
 
