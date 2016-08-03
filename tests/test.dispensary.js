@@ -182,9 +182,13 @@ describe('Dispensary', function() {
     h += ' mylib.1.0.0.js';
 
     var dispensary = new Dispensary();
+    var getSpy = sinon.stub(dispensary, '_getCachedHashes', () => {
+      return [h];
+    });
     var match = dispensary.match('not a match');
 
     assert.notOk(match);
+    assert.isTrue(getSpy.calledOnce);
   });
 
   it('should set hashes', function() {

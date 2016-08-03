@@ -1,5 +1,4 @@
 {
-  "esnext": true,
   "disallowEmptyBlocks": true,
   "disallowImplicitTypeConversion": [
     "numeric",
