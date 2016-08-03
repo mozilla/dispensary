@@ -18,7 +18,6 @@
     "beforeOpeningRoundBrace": true
   },
   "disallowTrailingWhitespace": true,
-  "esnext": true,
   "maximumLineLength": {
     "value": 80,
     "allExcept": [ "regex", "urlComments", "functionSignature", "require" ]
