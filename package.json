@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/mozilla/dispensary#readme",
   "devDependencies": {
-    "babel-core": "6.11.4",
+    "babel-core": "6.13.0",
     "babel-eslint": "6.1.2",
     "babel-loader": "6.2.4",
     "babel-plugin-transform-array-from": "1.0.0",
