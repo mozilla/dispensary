@@ -129,8 +129,7 @@
     "filename": "bootstrap.js",
     "filenameMinified": "bootstrap.min.js",
     "useNPM": true,
-    "url": "https://raw.githubusercontent.com/twbs/bootstrap/v$VERSION/dist/js/$FILENAME",
-    "urlMin": "https://raw.githubusercontent.com/twbs/bootstrap/v$VERSION/dist/js/$FILENAME"
+    "url": "https://raw.githubusercontent.com/twbs/bootstrap/v$VERSION/dist/js/$FILENAME"
   },
   {
     "name": "dojo",
@@ -194,14 +193,14 @@
       "0.7.4",
       "0.8.0",
       "0.8.1",
-      "0.8.2"
+      "0.8.2",
+      "0.8.3"
     ],
     "minVersion": "0.7.0",
     "filename": "purify.js",
     "filenameMinified": "purify.min.js",
     "useNPM": true,
-    "url": "https://raw.githubusercontent.com/cure53/DOMPurify/$VERSION/src/$FILENAME",
-    "urlMin": "https://raw.githubusercontent.com/cure53/DOMPurify/$VERSION/dist/$FILENAME"
+    "url": "https://raw.githubusercontent.com/cure53/DOMPurify/$VERSION/src/$FILENAME"
   },
   {
     "name": "jquery",
@@ -355,7 +354,6 @@
       "1.7.3.0"
     ],
     "filename": "prototype.js",
-    "filenameMinified": null,
     "url": "https://ajax.googleapis.com/ajax/libs/prototype/$VERSION/$FILENAME"
   },
   {
@@ -389,16 +387,14 @@
       "15.1.0",
       "15.2.0",
       "15.2.1",
-      "15.3.0"
+      "15.3.0",
+      "15.3.1"
     ],
     "minVersion": "0.8.0",
-    "filename": "react-$VERSION.js",
-    "filenameOutput": "react.js",
-    "filenameMinified": "react-$VERSION.min.js",
-    "filenameMinifiedOutput": "react.min.js",
+    "filename": "react.js",
+    "filenameMinified": "react.min.js",
     "useNPM": true,
-    "url": "https://fb.me/$FILENAME",
-    "urlMin": "https://fb.me/$FILENAME"
+    "url": "https://npmcdn.com/react@$VERSION/dist/$FILENAME"
   },
   {
     "name": "react-dom",
@@ -418,16 +414,14 @@
       "15.1.0",
       "15.2.0",
       "15.2.1",
-      "15.3.0"
+      "15.3.0",
+      "15.3.1"
     ],
     "minVersion": "0.14.0",
-    "filename": "react-dom-$VERSION.js",
-    "filenameOutput": "react-dom.js",
-    "filenameMinified": "react-dom-$VERSION.min.js",
-    "filenameMinifiedOutput": "react-dom.min.js",
+    "filename": "react-dom.js",
+    "filenameMinified": "react-dom.min.js",
     "useNPM": true,
-    "url": "https://fb.me/$FILENAME",
-    "urlMin": "https://fb.me/$FILENAME"
+    "url": "https://npmcdn.com/react-dom@$VERSION/dist/$FILENAME"
   },
   {
     "name": "underscore",
