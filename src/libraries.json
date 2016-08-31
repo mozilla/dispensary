@@ -394,7 +394,7 @@
     "filename": "react.js",
     "filenameMinified": "react.min.js",
     "useNPM": true,
-    "url": "https://npmcdn.com/react@$VERSION/dist/$FILENAME"
+    "url": "https://unpkg.com/react@$VERSION/dist/$FILENAME"
   },
   {
     "name": "react-dom",
@@ -421,7 +421,7 @@
     "filename": "react-dom.js",
     "filenameMinified": "react-dom.min.js",
     "useNPM": true,
-    "url": "https://npmcdn.com/react-dom@$VERSION/dist/$FILENAME"
+    "url": "https://unpkg.com/react-dom@$VERSION/dist/$FILENAME"
   },
   {
     "name": "underscore",
