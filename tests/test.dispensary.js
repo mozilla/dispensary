@@ -2,7 +2,6 @@ import fs from 'fs';
 
 import { DEFAULT_LIBRARY_FILE } from 'const';
 import Dispensary from 'dispensary';
-import { getVersions } from 'versions';
 import { unexpectedSuccess } from './helpers';
 
 
@@ -151,9 +150,6 @@ describe('Dispensary', function() {
 
     return dispensary.getLibraries()
       .then((libraries) => {
-        return getVersions(libraries);
-      })
-      .then((libraries) => {
         return dispensary.getFiles(libraries);
       })
       .then((libraries) => {
@@ -198,9 +194,6 @@ describe('Dispensary', function() {
     });
 
     return dispensary.getLibraries()
-      .then((libraries) => {
-        return getVersions(libraries);
-      })
       .then((libraries) => {
         return dispensary.getFiles(libraries);
       })

@@ -89,7 +89,6 @@
     ],
     "filename": "angular.js",
     "filenameMinified": "angular.min.js",
-    "useNPM": false,
     "url": "https://code.angularjs.org/$VERSION/$FILENAME"
   },
   {
@@ -110,7 +109,6 @@
     "minVersion": "1.0.0",
     "filename": "backbone.js",
     "filenameMinified": "backbone-min.js",
-    "useNPM": true,
     "url": "https://raw.githubusercontent.com/jashkenas/backbone/$VERSION/$FILENAME"
   },
   {
@@ -128,7 +126,6 @@
     ],
     "filename": "bootstrap.js",
     "filenameMinified": "bootstrap.min.js",
-    "useNPM": true,
     "url": "https://raw.githubusercontent.com/twbs/bootstrap/v$VERSION/dist/js/$FILENAME"
   },
   {
@@ -199,7 +196,6 @@
     "minVersion": "0.7.0",
     "filename": "purify.js",
     "filenameMinified": "purify.min.js",
-    "useNPM": true,
     "url": "https://raw.githubusercontent.com/cure53/DOMPurify/$VERSION/src/$FILENAME"
   },
   {
@@ -268,7 +264,6 @@
     "filenameOutput": "jquery.js",
     "filenameMinified": "jquery-$VERSION.min.js",
     "filenameMinifiedOutput": "jquery.min.js",
-    "useNPM": true,
     "url": "http://code.jquery.com/$FILENAME"
   },
   {
@@ -309,7 +304,6 @@
     ],
     "filename": "jquery-ui.js",
     "filenameMinified": "jquery-ui.min.js",
-    "useNPM": false,
     "url": "https://code.jquery.com/ui/$VERSION/$FILENAME"
   },
   {
@@ -335,7 +329,6 @@
     "minVersion": "2.9.0",
     "filename": "moment.js",
     "filenameMinified": "moment.min.js",
-    "useNPM": true,
     "url": "https://raw.githubusercontent.com/moment/moment/$VERSION/$FILENAME",
     "urlMin": "https://raw.githubusercontent.com/moment/moment/$VERSION/min/$FILENAME"
   },
@@ -348,7 +341,6 @@
     ],
     "filename": "mootools-core.js",
     "filenameMinified": "mootools-core.min.js",
-    "useNPM": false,
     "url": "https://raw.githubusercontent.com/mootools/mootools-core/$VERSION/dist/$FILENAME"
   },
   {
@@ -400,7 +392,6 @@
     "minVersion": "0.8.0",
     "filename": "react.js",
     "filenameMinified": "react.min.js",
-    "useNPM": true,
     "url": "https://unpkg.com/react@$VERSION/dist/$FILENAME"
   },
   {
@@ -428,7 +419,6 @@
     "minVersion": "0.14.0",
     "filename": "react-dom.js",
     "filenameMinified": "react-dom.min.js",
-    "useNPM": true,
     "url": "https://unpkg.com/react-dom@$VERSION/dist/$FILENAME"
   },
   {
@@ -461,7 +451,6 @@
     "minVersion": "1.2.0",
     "filename": "underscore.js",
     "filenameMinified": "underscore-min.js",
-    "useNPM": true,
     "url": "https://raw.github.com/jashkenas/underscore/$VERSION/$FILENAME"
   }
 ]

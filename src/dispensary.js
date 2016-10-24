@@ -8,7 +8,6 @@ import { COMMANDS } from 'const';
 import createHash from 'hasher';
 import log from 'logger';
 import { urlFormat } from 'utils';
-import { getVersions } from 'versions';
 
 import naturalCompare from 'natural-compare-lite';
 
@@ -50,9 +49,6 @@ export default class Dispensary {
 
   run(_console=console) {
     return this.getLibraries()
-      .then((libraries) => {
-        return getVersions(libraries);
-      })
       .then((libraries) => {
         return this.getFiles(libraries);
       })
