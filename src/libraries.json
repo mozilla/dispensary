@@ -191,12 +191,14 @@
       "0.8.0",
       "0.8.1",
       "0.8.2",
-      "0.8.3"
+      "0.8.3",
+      "0.8.4"
     ],
     "minVersion": "0.7.0",
     "filename": "purify.js",
     "filenameMinified": "purify.min.js",
-    "url": "https://raw.githubusercontent.com/cure53/DOMPurify/$VERSION/src/$FILENAME"
+    "url": "https://raw.githubusercontent.com/cure53/DOMPurify/$VERSION/src/$FILENAME",
+    "urlMin": "https://raw.githubusercontent.com/cure53/DOMPurify/$VERSION/dist/$FILENAME"
   },
   {
     "name": "jquery",
@@ -324,7 +326,8 @@
       "2.14.2",
       "2.15.0",
       "2.15.1",
-      "2.15.2"
+      "2.15.2",
+      "2.16.0"
     ],
     "minVersion": "2.9.0",
     "filename": "moment.js",
