@@ -66,7 +66,7 @@
     "request": "^2.67.0",
     "semver": "5.3.0",
     "sha.js": "^2.4.4",
-    "source-map-support": "0.4.11",
+    "source-map-support": "0.4.12",
     "yargs": "^6.0.0"
   }
 }
