@@ -29,7 +29,7 @@
   "devDependencies": {
     "babel-core": "6.24.0",
     "babel-eslint": "7.1.0",
-    "babel-loader": "6.3.2",
+    "babel-loader": "6.4.0",
     "babel-plugin-transform-array-from": "1.0.0",
     "babel-plugin-transform-class-properties": "6.24.1",
     "babel-plugin-transform-es2015-modules-commonjs": "6.18.0",
