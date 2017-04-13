@@ -483,5 +483,15 @@
     "filename": "underscore.js",
     "filenameMinified": "underscore-min.js",
     "url": "https://raw.github.com/jashkenas/underscore/$VERSION/$FILENAME"
+  },
+    {
+    "name": "webextension-polyfill",
+    "versions": [
+      "0.1.1"
+    ],
+    "minVersion": "0.1.1",
+    "filename": "browser-polyfill.js",
+    "filenameMinified": "browser-polyfill.min.js",
+    "url": "https://unpkg.com/webextension-polyfill@$VERSION/dist/$FILENAME"
   }
 ]
