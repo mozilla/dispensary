@@ -38,7 +38,7 @@
     "chai": "3.5.0",
     "coveralls": "2.11.16",
     "grunt": "1.0.1",
-    "grunt-contrib-clean": "1.0.0",
+    "grunt-contrib-clean": "1.1.0",
     "grunt-contrib-copy": "1.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-eslint": "19.0.0",
