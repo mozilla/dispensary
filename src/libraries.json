@@ -195,7 +195,7 @@
     ],
     "filename": "dojo.js.uncompressed.js",
     "filenameMinified": "dojo.js",
-    "url": "http://download.dojotoolkit.org/release-$VERSION/$FILENAME"
+    "url": "https://download.dojotoolkit.org/release-$VERSION/$FILENAME"
   },
   {
     "name": "dompurify",
@@ -285,7 +285,7 @@
     "filenameOutput": "jquery.js",
     "filenameMinified": "jquery-$VERSION.min.js",
     "filenameMinifiedOutput": "jquery.min.js",
-    "url": "http://code.jquery.com/$FILENAME"
+    "url": "https://code.jquery.com/$FILENAME"
   },
   {
     "name": "jquery-ui",
