@@ -26,27 +26,34 @@ module.exports = {
     libraryTarget: 'commonjs2',
   },
   module: {
-    loaders: [
+    rules: [
       {
         exclude: /(node_modules|bower_components)/,
         test: /\.js$/,
         // babel options are in .babelrc
-        loaders: ['babel'],
+        use: [
+          {loader: 'babel-loader'}
+        ],
       },
       {
         test: /\.txt$/,
-        loaders: ['raw'],
+        use: [
+          {loader: 'raw-loader'}
+        ],
       },
     ],
   },
   externals: nodeModules,
   plugins: [
-    new webpack.BannerPlugin('require("source-map-support").install();',
-                             { raw: true, entryOnly: false }),
+    new webpack.BannerPlugin({
+      banner: 'require("source-map-support").install();',
+      raw: true,
+      entryOnly: false,
+    }),
   ],
   resolve: {
-    extensions: ['', '.js', '.json'],
-    modulesDirectories: [
+    extensions: ['.js', '.json'],
+    modules: [
       'node_modules',
     ],
   },
