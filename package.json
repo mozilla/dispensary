@@ -55,7 +55,7 @@
     "raw-loader": "0.5.1",
     "sinon": "2.2.0",
     "webpack": "1.13.3",
-    "webpack-dev-server": "1.16.2"
+    "webpack-dev-server": "2.4.5"
   },
   "dependencies": {
     "array-from": "2.1.1",
