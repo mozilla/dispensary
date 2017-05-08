@@ -27,13 +27,13 @@
   },
   "homepage": "https://github.com/mozilla/dispensary#readme",
   "devDependencies": {
-    "babel-core": "6.24.0",
-    "babel-eslint": "7.2.2",
-    "babel-loader": "6.4.0",
+    "babel-core": "6.24.1",
+    "babel-eslint": "7.2.3",
+    "babel-loader": "7.0.0",
     "babel-plugin-transform-array-from": "1.0.0",
     "babel-plugin-transform-class-properties": "6.24.1",
-    "babel-plugin-transform-es2015-modules-commonjs": "6.18.0",
-    "babel-preset-es2015": "6.18.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "6.24.1",
+    "babel-preset-es2015": "6.24.1",
     "babel-preset-stage-2": "6.24.1",
     "chai": "3.5.0",
     "coveralls": "2.13.1",
@@ -43,10 +43,10 @@
     "grunt-contrib-watch": "^1.0.0",
     "grunt-eslint": "19.0.0",
     "grunt-gh-pages": "2.0.0",
-    "grunt-istanbul": "0.7.1",
+    "grunt-istanbul": "0.7.2",
     "grunt-jscs": "3.0.1",
     "grunt-mocha-test": "0.13.2",
-    "grunt-webpack": "1.0.18",
+    "grunt-webpack": "3.0.0",
     "isparta": "4.0.0",
     "json-loader": "0.5.4",
     "load-grunt-configs": "1.0.0",
@@ -54,19 +54,19 @@
     "mocha": "3.3.0",
     "raw-loader": "0.5.1",
     "sinon": "2.2.0",
-    "webpack": "1.13.3",
-    "webpack-dev-server": "1.16.2"
+    "webpack": "2.5.1",
+    "webpack-dev-server": "2.4.5"
   },
   "dependencies": {
     "array-from": "2.1.1",
     "async": "^2.0.0",
     "bunyan": "^1.5.1",
-    "eslint": "3.16.0",
+    "eslint": "3.19.0",
     "natural-compare-lite": "^1.4.0",
     "request": "^2.67.0",
     "semver": "5.3.0",
     "sha.js": "^2.4.4",
     "source-map-support": "0.4.15",
-    "yargs": "^7.1.0"
+    "yargs": "^8.0.1"
   }
 }

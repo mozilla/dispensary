@@ -9,10 +9,10 @@ function noddyClone(obj) {
 }
 
 var buildResolve = noddyClone(defaultResolve);
-buildResolve.modulesDirectories.push('src/');
+buildResolve.modules.push('src');
 
 var coverageResolve = noddyClone(defaultResolve);
-coverageResolve.modulesDirectories.push('coverage/');
+coverageResolve.modules.push('coverage/');
 
 var testConfig = {
   entry: './tests/runner.js',

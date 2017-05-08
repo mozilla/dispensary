@@ -2,7 +2,7 @@ import path from 'path';
 
 import argv from 'yargs';
 
-import { version } from 'json!../package';
+import { version } from '../package.json';
 
 
 export default argv
