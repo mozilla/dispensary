@@ -11,7 +11,7 @@ if (require.main === module) {
 }
 
 export function createInstance(config=cli.argv) {
-  log.level(config.logLevel);
+  log.level = config.logLevel;
   log.info('Creating new Dispensary instance', { config: config });
 
   return new Dispensary(config);
