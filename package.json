@@ -43,7 +43,7 @@
     "grunt-contrib-watch": "^1.0.0",
     "grunt-eslint": "19.0.0",
     "grunt-gh-pages": "2.0.0",
-    "grunt-istanbul": "0.7.2",
+    "grunt-istanbul": "0.8.0",
     "grunt-jscs": "3.0.1",
     "grunt-mocha-test": "0.13.2",
     "grunt-webpack": "3.0.0",
