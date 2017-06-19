@@ -54,7 +54,7 @@
     "mocha": "3.4.2",
     "raw-loader": "0.5.1",
     "sinon": "2.3.4",
-    "webpack": "2.6.1",
+    "webpack": "3.0.0",
     "webpack-dev-server": "2.4.5"
   },
   "dependencies": {
