@@ -115,7 +115,6 @@
       "1.3.2",
       "1.3.3"
     ],
-    "minVersion": "1.0.0",
     "filename": "backbone.js",
     "filenameMinified": "backbone-min.js",
     "url": "https://raw.githubusercontent.com/jashkenas/backbone/$VERSION/$FILENAME"
@@ -209,7 +208,6 @@
       "0.8.9",
       "0.9.0"
     ],
-    "minVersion": "0.7.0",
     "filename": "purify.js",
     "filenameMinified": "purify.min.js",
     "url": "https://raw.githubusercontent.com/cure53/DOMPurify/$VERSION/src/$FILENAME",
@@ -268,7 +266,6 @@
       "3.2.0",
       "3.2.1"
     ],
-    "minVersion": "1.0.1",
     "filename": "jquery-$VERSION.js",
     "filenameOutput": "jquery.js",
     "filenameMinified": "jquery-$VERSION.min.js",
@@ -313,7 +310,6 @@
       "2.18.0",
       "2.18.1"
     ],
-    "minVersion": "2.9.0",
     "filename": "moment.js",
     "filenameMinified": "moment.min.js",
     "url": "https://raw.githubusercontent.com/moment/moment/$VERSION/$FILENAME",
@@ -369,7 +365,6 @@
       "15.6.0",
       "15.6.1"
     ],
-    "minVersion": "0.8.0",
     "filename": "react.js",
     "filenameMinified": "react.min.js",
     "url": "https://unpkg.com/react@$VERSION/dist/$FILENAME"
@@ -400,7 +395,6 @@
       "15.4.2",
       "15.5.4"
     ],
-    "minVersion": "0.14.0",
     "filename": "react-dom.js",
     "filenameMinified": "react-dom.min.js",
     "url": "https://unpkg.com/react-dom@$VERSION/dist/$FILENAME"
@@ -432,7 +426,6 @@
       "1.8.2",
       "1.8.3"
     ],
-    "minVersion": "1.2.0",
     "filename": "underscore.js",
     "filenameMinified": "underscore-min.js",
     "url": "https://raw.github.com/jashkenas/underscore/$VERSION/$FILENAME"
@@ -442,7 +435,6 @@
     "versions": [
       "0.1.1"
     ],
-    "minVersion": "0.1.1",
     "filename": "browser-polyfill.js",
     "filenameMinified": "browser-polyfill.min.js",
     "url": "https://unpkg.com/webextension-polyfill@$VERSION/dist/$FILENAME"

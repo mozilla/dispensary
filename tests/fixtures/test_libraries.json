@@ -7,7 +7,6 @@
       "1.1.1",
       "1.1.2"
     ],
-    "minVersion": "1.0.0",
     "filename": "backbone.js",
     "filenameMinified": "backbone-min.js",
     "url": "https://raw.githubusercontent.com/jashkenas/backbone/$VERSION/$FILENAME"
