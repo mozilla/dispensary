@@ -1,6 +1,6 @@
 {
   "name": "dispensary",
-  "version": "0.10.10",
+  "version": "0.10.12",
   "description": "SHA-256 Hashes of popular JS libraries, used by Mozilla's Add-ons Linter",
   "main": "dist/dispensary.js",
   "bin": {
@@ -29,7 +29,7 @@
   "devDependencies": {
     "babel-core": "6.25.0",
     "babel-eslint": "7.2.3",
-    "babel-loader": "7.1.0",
+    "babel-loader": "7.1.1",
     "babel-plugin-transform-array-from": "1.0.0",
     "babel-plugin-transform-class-properties": "6.24.1",
     "babel-plugin-transform-es2015-modules-commonjs": "6.24.1",
@@ -53,7 +53,7 @@
     "load-grunt-tasks": "3.5.2",
     "mocha": "3.4.2",
     "raw-loader": "0.5.1",
-    "sinon": "2.3.5",
+    "sinon": "2.3.6",
     "webpack": "3.0.0",
     "webpack-dev-server": "2.5.0"
   },
