@@ -5,16 +5,6 @@
     "browser": true,
     "es6": true,
   },
-  "ecmaFeatures": {
-    "arrowFunctions": true,
-    "blockBindings": true,
-    "classes": true,
-    "destructuring": true,
-    "defaultParams": true,
-    "jsx": true,
-    "restParams": true,
-    "spread": true,
-  },
   "globals": {
     "afterEach": false,
     "assert": false,
@@ -69,6 +59,16 @@
     "wrap-iife": [2, "inside"]
   },
   "parserOptions": {
-    "sourceType": "module"
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "arrowFunctions": true,
+      "blockBindings": true,
+      "classes": true,
+      "destructuring": true,
+      "defaultParams": true,
+      "jsx": true,
+      "restParams": true,
+      "spread": true,
+    }
   }
 }
