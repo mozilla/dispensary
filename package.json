@@ -48,19 +48,19 @@
     "grunt-mocha-test": "0.13.2",
     "grunt-webpack": "3.0.2",
     "isparta": "4.0.0",
-    "json-loader": "0.5.4",
+    "json-loader": "0.5.7",
     "load-grunt-configs": "1.0.0",
     "load-grunt-tasks": "3.5.2",
     "mocha": "3.4.2",
     "raw-loader": "0.5.1",
-    "sinon": "2.3.8",
+    "sinon": "2.4.0",
     "webpack": "3.2.0",
-    "webpack-dev-server": "2.5.1"
+    "webpack-dev-server": "2.6.1"
   },
   "dependencies": {
     "array-from": "2.1.1",
     "async": "^2.0.0",
-    "eslint": "4.2.0",
+    "eslint": "4.3.0",
     "natural-compare-lite": "^1.4.0",
     "pino": "^4.6.0",
     "request": "^2.81.0",
