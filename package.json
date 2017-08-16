@@ -35,7 +35,7 @@
     "babel-plugin-transform-es2015-modules-commonjs": "6.24.1",
     "babel-preset-es2015": "6.24.1",
     "babel-preset-stage-2": "6.24.1",
-    "chai": "4.1.0",
+    "chai": "4.1.1",
     "coveralls": "2.13.1",
     "eslint": "4.3.0",
     "grunt": "1.0.1",
@@ -52,11 +52,11 @@
     "json-loader": "0.5.7",
     "load-grunt-configs": "1.0.0",
     "load-grunt-tasks": "3.5.2",
-    "mocha": "3.4.2",
+    "mocha": "3.5.0",
     "raw-loader": "0.5.1",
     "sinon": "2.4.0",
     "webpack": "3.5.4",
-    "webpack-dev-server": "2.6.1"
+    "webpack-dev-server": "2.7.1"
   },
   "dependencies": {
     "array-from": "2.1.1",
@@ -64,7 +64,7 @@
     "natural-compare-lite": "^1.4.0",
     "pino": "^4.6.0",
     "request": "^2.81.0",
-    "semver": "5.4.0",
+    "semver": "5.4.1",
     "sha.js": "^2.4.4",
     "source-map-support": "0.4.15",
     "yargs": "^8.0.1"
