@@ -55,7 +55,7 @@ describe('Dispensary', function() {
 
     var fakeConsole = {error: () => {}, log: () => {}};
     var consoleErrorSpy = sinon.spy(fakeConsole, 'error');
-    sinon.stub(dispensary, 'getLibraries', () => {
+    sinon.stub(dispensary, 'getLibraries').callsFake(() => {
       return Promise.reject(new Error('Error!'));
     });
 
@@ -80,7 +80,7 @@ describe('Dispensary', function() {
     var consoleLogSpy = sinon.spy(fakeConsole, 'log');
     var updateSpy = sinon.spy(dispensary, 'updateCommand');
 
-    sinon.stub(dispensary, '_getCachedHashes', () => {
+    sinon.stub(dispensary, '_getCachedHashes').callsFake(() => {
       return [];
     });
 
@@ -110,7 +110,7 @@ describe('Dispensary', function() {
       },
     };
 
-    sinon.stub(dispensary, '_getCachedHashes', () => {
+    sinon.stub(dispensary, '_getCachedHashes').callsFake(() => {
       return [];
     });
 
@@ -130,7 +130,7 @@ describe('Dispensary', function() {
     });
     var fakeConsole = {error: () => {}, log: () => {}};
 
-    sinon.stub(dispensary, '_getCachedHashes', () => {
+    sinon.stub(dispensary, '_getCachedHashes').callsFake(() => {
       return [];
     });
 
@@ -163,7 +163,7 @@ describe('Dispensary', function() {
     h += ' mylib.1.0.0.js';
 
     var dispensary = new Dispensary();
-    var getSpy = sinon.stub(dispensary, '_getCachedHashes', () => {
+    var getSpy = sinon.stub(dispensary, '_getCachedHashes').callsFake(() => {
       return [h];
     });
     var match = dispensary.match('hasher');
@@ -178,7 +178,7 @@ describe('Dispensary', function() {
     h += ' mylib.1.0.0.js';
 
     var dispensary = new Dispensary();
-    var getSpy = sinon.stub(dispensary, '_getCachedHashes', () => {
+    var getSpy = sinon.stub(dispensary, '_getCachedHashes').callsFake(() => {
       return [h];
     });
     var match = dispensary.match('not a match');
@@ -257,18 +257,20 @@ describe('Dispensary', function() {
   it('should add cached hashes in outputHashes()', () => {
     var dispensary = new Dispensary({}, fakeLibraries);
 
-    sinon.stub(dispensary, '_buildHashes', () => {
+    sinon.stub(dispensary, '_buildHashes').callsFake(() => {
       return [];
     });
 
-    var cachedStub = sinon.stub(dispensary, '_getCachedHashes', () => {
-      return [
-        // jscs:disable
-        '1657a7293da6afcd29e9243886725c8f90c8399e826dba9978e51a0a19e9bed6 yui.2.7.0.mylib.js', // eslint-disable-line
-        '2657a7293da6afcd29e9243886725c8f90c8399e826dba9978e51a0a19e9bed6 yui.2.7.1.mylib.js', // eslint-disable-line
-        // jscs:enable
-      ];
-    });
+    var cachedStub = sinon.stub(dispensary, '_getCachedHashes').callsFake(
+        () => {
+          return [
+            // jscs:disable
+            '1657a7293da6afcd29e9243886725c8f90c8399e826dba9978e51a0a19e9bed6 yui.2.7.0.mylib.js', // eslint-disable-line
+            '2657a7293da6afcd29e9243886725c8f90c8399e826dba9978e51a0a19e9bed6 yui.2.7.1.mylib.js', // eslint-disable-line
+            // jscs:enable
+          ];
+        }
+    );
 
     return dispensary.outputHashes(fakeLibraries)
       .then((hashes) => {
@@ -284,7 +286,7 @@ describe('Dispensary', function() {
   it('should resolve with an array in outputHashes()', () => {
     var dispensary = new Dispensary({}, fakeLibraries);
 
-    sinon.stub(dispensary, '_getCachedHashes', () => {
+    sinon.stub(dispensary, '_getCachedHashes').callsFake(() => {
       return [];
     });
 
@@ -418,7 +420,7 @@ describe('Dispensary', function() {
 
   it('should sort hashes output', () => {
     var dispensary = new Dispensary();
-    sinon.stub(dispensary, '_getCachedHashes', () => {
+    sinon.stub(dispensary, '_getCachedHashes').callsFake(() => {
       return [];
     });
 
