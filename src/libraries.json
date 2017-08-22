@@ -95,7 +95,8 @@
       "1.6.2",
       "1.6.3",
       "1.6.4",
-      "1.6.5"
+      "1.6.5",
+      "1.6.6"
     ],
     "filename": "angular.js",
     "filenameMinified": "angular.min.js",
@@ -208,7 +209,8 @@
       "0.8.7",
       "0.8.9",
       "0.9.0",
-      "1.0.0"
+      "1.0.0",
+      "1.0.1"
     ],
     "filename": "purify.js",
     "filenameMinified": "purify.min.js",
