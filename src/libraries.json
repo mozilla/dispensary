@@ -214,7 +214,7 @@
     ],
     "filename": "purify.js",
     "filenameMinified": "purify.min.js",
-    "url": "https://raw.githubusercontent.com/cure53/DOMPurify/$VERSION/src/$FILENAME",
+    "url": "https://raw.githubusercontent.com/cure53/DOMPurify/$VERSION/dist/$FILENAME",
     "urlMin": "https://raw.githubusercontent.com/cure53/DOMPurify/$VERSION/dist/$FILENAME"
   },
   {
@@ -412,7 +412,9 @@
       "15.4.0",
       "15.4.1",
       "15.4.2",
-      "15.5.4"
+      "15.5.4",
+      "15.6.0",
+      "15.6.1"
     ],
     "filename": "react-dom.js",
     "filenameMinified": "react-dom.min.js",
