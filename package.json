@@ -62,7 +62,7 @@
     "array-from": "2.1.1",
     "async": "^2.0.0",
     "natural-compare-lite": "^1.4.0",
-    "pino": "^4.6.0",
+    "pino": "^4.7.2",
     "request": "^2.81.0",
     "semver": "5.4.1",
     "sha.js": "^2.4.4",
