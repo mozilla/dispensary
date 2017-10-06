@@ -196,7 +196,8 @@
       "1.11.3",
       "1.11.4",
       "1.12.1",
-      "1.12.2"
+      "1.12.2",
+      "1.13.0"
     ],
     "filename": "dojo.js.uncompressed.js",
     "filenameMinified": "dojo.js",
@@ -390,6 +391,15 @@
     "url": "https://unpkg.com/react@$VERSION/dist/$FILENAME"
   },
   {
+    "name": "react16",
+    "versions": [
+      "16.0.0"
+    ],
+    "filename": "react.development.js",
+    "filenameMinified": "react.production.min.js",
+    "url": "https://unpkg.com/react@$VERSION/umd/$FILENAME"
+  },
+  {
     "name": "react-dom",
     "versions": [
       "0.14.0",
@@ -420,6 +430,15 @@
     "filename": "react-dom.js",
     "filenameMinified": "react-dom.min.js",
     "url": "https://unpkg.com/react-dom@$VERSION/dist/$FILENAME"
+  },
+  {
+    "name": "react-dom16",
+    "versions": [
+      "16.0.0"
+    ],
+    "filename": "react-dom.development.js",
+    "filenameMinified": "react-dom.production.min.js",
+    "url": "https://unpkg.com/react-dom@$VERSION/umd/$FILENAME"
   },
   {
     "name": "underscore",
@@ -455,7 +474,9 @@
     {
     "name": "webextension-polyfill",
     "versions": [
-      "0.1.1"
+      "0.1.1",
+      "0.1.2",
+      "0.2.0"
     ],
     "filename": "browser-polyfill.js",
     "filenameMinified": "browser-polyfill.min.js",
