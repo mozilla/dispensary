@@ -329,7 +329,9 @@
       "2.17.0",
       "2.17.1",
       "2.18.0",
-      "2.18.1"
+      "2.18.1",
+      "2.19.0",
+      "2.19.1"
     ],
     "filename": "moment.js",
     "filenameMinified": "moment.min.js",
@@ -476,7 +478,8 @@
     "versions": [
       "0.1.1",
       "0.1.2",
-      "0.2.0"
+      "0.2.0",
+      "0.2.1"
     ],
     "filename": "browser-polyfill.js",
     "filenameMinified": "browser-polyfill.min.js",
