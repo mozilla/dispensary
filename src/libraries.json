@@ -96,7 +96,8 @@
       "1.6.3",
       "1.6.4",
       "1.6.5",
-      "1.6.6"
+      "1.6.6",
+      "1.6.7"
     ],
     "filename": "angular.js",
     "filenameMinified": "angular.min.js",
@@ -331,7 +332,8 @@
       "2.18.0",
       "2.18.1",
       "2.19.0",
-      "2.19.1"
+      "2.19.1",
+      "2.19.2"
     ],
     "filename": "moment.js",
     "filenameMinified": "moment.min.js",
@@ -395,7 +397,9 @@
   {
     "name": "react16",
     "versions": [
-      "16.0.0"
+      "16.0.0",
+      "16.1.0",
+      "16.1.1"
     ],
     "filename": "react.development.js",
     "filenameMinified": "react.production.min.js",
@@ -436,7 +440,9 @@
   {
     "name": "react-dom16",
     "versions": [
-      "16.0.0"
+      "16.0.0",
+      "16.1.0",
+      "16.1.1"
     ],
     "filename": "react-dom.development.js",
     "filenameMinified": "react-dom.production.min.js",
