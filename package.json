@@ -1,6 +1,6 @@
 {
   "name": "dispensary",
-  "version": "0.14.0",
+  "version": "0.15.0",
   "description": "SHA-256 Hashes of popular JS libraries, used by Mozilla's Add-ons Linter",
   "main": "dist/dispensary.js",
   "bin": {
