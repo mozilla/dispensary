@@ -25,6 +25,7 @@ module.exports = {
     filename: 'dispensary.js',
     libraryTarget: 'commonjs2',
   },
+  mode: 'development',
   module: {
     rules: [
       {
