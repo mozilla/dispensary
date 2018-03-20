@@ -59,14 +59,14 @@
     "webpack-dev-server": "~3.1.1"
   },
   "dependencies": {
-    "array-from": "2.1.1",
+    "array-from": "~2.1.1",
     "async": "~2.6.0",
     "natural-compare-lite": "~1.4.0",
     "pino": "~4.14.0",
     "request": "~2.85.0",
-    "semver": "5.5.0",
+    "semver": "~5.5.0",
     "sha.js": "~2.4.4",
-    "source-map-support": "0.5.4",
+    "source-map-support": "~0.5.4",
     "yargs": "~11.0.0"
   }
 }
