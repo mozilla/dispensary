@@ -28,7 +28,7 @@
   "homepage": "https://github.com/mozilla/dispensary#readme",
   "devDependencies": {
     "babel-core": "~6.26.0",
-    "babel-eslint": "~8.0.0",
+    "babel-eslint": "~8.2.2",
     "babel-loader": "~7.1.1",
     "babel-plugin-transform-array-from": "~1.0.0",
     "babel-plugin-transform-class-properties": "~6.24.1",
@@ -42,7 +42,7 @@
     "grunt-contrib-clean": "~1.1.0",
     "grunt-contrib-copy": "~1.0.0",
     "grunt-contrib-watch": "~1.0.0",
-    "grunt-eslint": "~20.0.0",
+    "grunt-eslint": "~20.1.0",
     "grunt-gh-pages": "~2.0.0",
     "grunt-istanbul": "~0.7.2",
     "grunt-jscs": "~3.0.1",
@@ -60,7 +60,7 @@
   },
   "dependencies": {
     "array-from": "2.1.1",
-    "async": "~2.0.0",
+    "async": "~2.6.0",
     "natural-compare-lite": "~1.4.0",
     "pino": "~4.14.0",
     "request": "~2.85.0",
