@@ -241,7 +241,7 @@ describe('Dispensary', function() {
       libraries: './tests/fixtures/test_libraries.json',
     });
 
-    fsSpy.reset();
+    fsSpy.resetHistory();
 
     return dispensary.getLibraries()
       .then(() => {
