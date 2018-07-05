@@ -101,7 +101,9 @@
       "1.6.8",
       "1.6.9",
       "1.6.10",
-      "1.7.0"
+      "1.7.0",
+      "1.7.1",
+      "1.7.2"
     ],
     "filename": "angular.js",
     "filenameMinified": "angular.min.js",
@@ -222,7 +224,8 @@
       "1.0.1",
       "1.0.2",
       "1.0.3",
-      "1.0.4"
+      "1.0.4",
+      "1.0.5"
     ],
     "filename": "purify.js",
     "filenameMinified": "purify.min.js",
@@ -365,7 +368,8 @@
       "2.20.1",
       "2.21.0",
       "2.22.0",
-      "2.22.1"
+      "2.22.1",
+      "2.22.2"
     ],
     "filename": "moment.js",
     "filenameMinified": "moment.min.js",
@@ -434,7 +438,8 @@
       "16.1.1",
       "16.2.0",
       "16.3.0",
-      "16.4.0"
+      "16.4.0",
+      "16.4.1"
     ],
     "filename": "react.development.js",
     "filenameMinified": "react.production.min.js",
@@ -480,7 +485,8 @@
       "16.1.1",
       "16.2.0",
       "16.3.0",
-      "16.4.0"
+      "16.4.0",
+      "16.4.1"
     ],
     "filename": "react-dom.development.js",
     "filenameMinified": "react-dom.production.min.js",
@@ -512,7 +518,8 @@
       "1.8.1",
       "1.8.2",
       "1.8.3",
-      "1.9.0"
+      "1.9.0",
+      "1.9.1"
     ],
     "filename": "underscore.js",
     "filenameMinified": "underscore-min.js",
