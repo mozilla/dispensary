@@ -103,7 +103,8 @@
       "1.6.10",
       "1.7.0",
       "1.7.1",
-      "1.7.2"
+      "1.7.2",
+      "1.7.3"
     ],
     "filename": "angular.js",
     "filenameMinified": "angular.min.js",
@@ -443,7 +444,8 @@
       "16.2.0",
       "16.3.0",
       "16.4.0",
-      "16.4.1"
+      "16.4.1",
+      "16.4.2"
     ],
     "filename": "react.development.js",
     "filenameMinified": "react.production.min.js",
@@ -490,7 +492,8 @@
       "16.2.0",
       "16.3.0",
       "16.4.0",
-      "16.4.1"
+      "16.4.1",
+      "16.4.2"
     ],
     "filename": "react-dom.development.js",
     "filenameMinified": "react-dom.production.min.js",
