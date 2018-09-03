@@ -368,6 +368,14 @@ f6f3d579099f5e4162993b74e90b32f83dd119e2d6786a00eabdb323cdaf0184 dojo.1.12.1.doj
 baf6f5ee117ebb0822db977ed294f6d269f0703f6060b1e29798b1f72af0d17e dojo.1.12.2.dojo.js.uncompressed.js
 290c9d104f746a149b91e0bafca3026e235845ebff77ed857a9c3373a1c2820e dojo.1.13.0.dojo.js
 9d3b7434011411f6bfd0ae888745e29fcca2307b412e2065e051aa49376366e8 dojo.1.13.0.dojo.js.uncompressed.js
+b4e1bd6da4a94e59b0c01f7a42cfb94c27b337914d271f50086684eab3cba921 dojo.1.13.1.dojo.js
+b8777ec9dfedc1c85b41409e543d3bede80ba649c922fc82a92be35c13b7563a dojo.1.13.1.dojo.js.uncompressed.js
+78541163d2aeca9d6a7585d580d21ff30dd43308f2f51ca04f42edcc2477b4a1 dojo.1.13.2.dojo.js
+7615faef90d3e8e8638f5d1fc9bdd4615bb470c8546aed9fc6b95398eaf32990 dojo.1.13.2.dojo.js.uncompressed.js
+5f0a72cb8836660dc26028e02e742e2a00fcfae1373d10648b98a5c59b9d232a dojo.1.14.0.dojo.js
+95b57921614c772f851b2241f026600cb1067ceacd6411ed9ac22b9c4069a271 dojo.1.14.0.dojo.js.uncompressed.js
+cd4ffd0774b9c25f62e5e06f725a45df68b51be6b9771cbe0c535a6626ea194f dojo.1.14.1.dojo.js
+7468a8323006f5d6081dff2ebf2030493bfd3904ca5422f47d85df793213c20d dojo.1.14.1.dojo.js.uncompressed.js
 73640f6842937faa9cf86a4ed997b290ff9297cbf0b2cfd1a1c694d61b5c75f6 dompurify.0.8.6.purify.min.js
 404b8ca49883e062c3d2578f14295a47384d23bff243c6fc65a5d7fc132828d1 dompurify.0.8.7.purify.min.js
 6f7de9dc43bc9dabb5d22f616080de4a2f263a094a640d078ef8f893c65a269d dompurify.0.8.9.purify.min.js
@@ -800,3 +808,5 @@ c204650eb44c44f4ec19a7bc19995f5f2642b3de009fbbb1b999677fca65a714 webextension-po
 db9ea23c5b619544c56c04fdb450cd88db7f220021344edc44c2e5cf95287826 webextension-polyfill.0.2.1.browser-polyfill.min.js
 e9b13454c0a2cf69936b90d46a8341d6216154baa232a02007b323e4770c29f7 webextension-polyfill.0.3.0.browser-polyfill.js
 c20a66af5674bdb163d628cdc88d27d07295ff0a847da514d2bbfc106e2d5c6c webextension-polyfill.0.3.0.browser-polyfill.min.js
+67c31495622acbca3cce2e6024c3679214a3bf5c16ac1c504347f2916aede4cb webextension-polyfill.0.3.1.browser-polyfill.js
+c4af642ba41957f7d768fde1c5bec5a43f873325abcffcfa0031fbfbac610e75 webextension-polyfill.0.3.1.browser-polyfill.min.js
