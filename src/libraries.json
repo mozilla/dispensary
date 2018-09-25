@@ -104,7 +104,8 @@
       "1.7.0",
       "1.7.1",
       "1.7.2",
-      "1.7.3"
+      "1.7.3",
+      "1.7.4"
     ],
     "filename": "angular.js",
     "filenameMinified": "angular.min.js",
@@ -234,7 +235,8 @@
       "1.0.4",
       "1.0.5",
       "1.0.6",
-      "1.0.7"
+      "1.0.7",
+      "1.0.8"
     ],
     "filename": "purify.js",
     "filenameMinified": "purify.min.js",
@@ -449,7 +451,10 @@
       "16.3.0",
       "16.4.0",
       "16.4.1",
-      "16.4.2"
+      "16.4.2",
+      "16.5.0",
+      "16.5.1",
+      "16.5.2"
     ],
     "filename": "react.development.js",
     "filenameMinified": "react.production.min.js",
@@ -497,7 +502,10 @@
       "16.3.0",
       "16.4.0",
       "16.4.1",
-      "16.4.2"
+      "16.4.2",
+      "16.5.0",
+      "16.5.1",
+      "16.5.2"
     ],
     "filename": "react-dom.development.js",
     "filenameMinified": "react-dom.production.min.js",
