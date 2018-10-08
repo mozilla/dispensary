@@ -105,7 +105,8 @@
       "1.7.1",
       "1.7.2",
       "1.7.3",
-      "1.7.4"
+      "1.7.4",
+      "1.7.5"
     ],
     "filename": "angular.js",
     "filenameMinified": "angular.min.js",
@@ -215,7 +216,8 @@
       "1.13.1",
       "1.13.2",
       "1.14.0",
-      "1.14.1"
+      "1.14.1",
+      "1.14.2"
     ],
     "filename": "dojo.js.uncompressed.js",
     "filenameMinified": "dojo.js",
