@@ -10,7 +10,7 @@ describe('logger.createLogger()', function() {
         },
       };
       createLogger(fakeProcess);
-    }, Error, /unknown level whatever/);
+    }, Error, /default level:whatever must be included in custom levels/);
   });
 
 });
