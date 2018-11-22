@@ -2105,9 +2105,9 @@ fast-levenshtein@~2.0.4:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/fast-levenshtein/-/fast-levenshtein-2.0.6.tgz#3d8a5c66883a16a30ca8643e851f19baa7797917"
 
-fast-redact@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/fast-redact/-/fast-redact-1.2.0.tgz#356bdb968c23473cd4e460689c10785842f41529"
+fast-redact@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/fast-redact/-/fast-redact-1.4.0.tgz#6123d2a23e6bdf76e82b3176d6f11698f2001797"
 
 fast-safe-stringify@^2.0.6:
   version "2.0.6"
@@ -2201,7 +2201,7 @@ flat-cache@^1.2.1:
     graceful-fs "^4.1.2"
     write "^0.2.1"
 
-flatstr@^1.0.5:
+flatstr@^1.0.5, flatstr@^1.0.8:
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/flatstr/-/flatstr-1.0.8.tgz#0e849229751f2b9f6a0919f8e81e1229e84ba901"
 
@@ -4007,18 +4007,18 @@ pino-std-serializers@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/pino-std-serializers/-/pino-std-serializers-2.3.0.tgz#34eeaab97c055c28e22c0542ae55978e7e427786"
 
-pino@~5.8.0:
-  version "5.8.0"
-  resolved "https://registry.yarnpkg.com/pino/-/pino-5.8.0.tgz#b566f78617c53c2bae91d30ad62d52cd1074df4a"
+pino@~5.9.0:
+  version "5.9.0"
+  resolved "https://registry.yarnpkg.com/pino/-/pino-5.9.0.tgz#4a436289ea90cefd0fad1e3ca5726b6d58922c71"
   dependencies:
     fast-json-parse "^1.0.3"
-    fast-redact "^1.2.0"
+    fast-redact "^1.4.0"
     fast-safe-stringify "^2.0.6"
     flatstr "^1.0.5"
     pino-std-serializers "^2.3.0"
     pump "^3.0.0"
     quick-format-unescaped "^3.0.0"
-    sonic-boom "^0.6.1"
+    sonic-boom "^0.6.3"
 
 pkg-dir@^2.0.0:
   version "2.0.0"
@@ -4645,11 +4645,11 @@ snapdragon@^0.8.1:
     source-map-resolve "^0.5.0"
     use "^3.1.0"
 
-sonic-boom@^0.6.1:
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/sonic-boom/-/sonic-boom-0.6.1.tgz#da832af4ed7c477eb5317fe4c5132c75f7556245"
+sonic-boom@^0.6.3:
+  version "0.6.3"
+  resolved "https://registry.yarnpkg.com/sonic-boom/-/sonic-boom-0.6.3.tgz#a02f9fc8d5ec42166e28c39760cc833552056595"
   dependencies:
-    flatstr "^1.0.5"
+    flatstr "^1.0.8"
 
 source-list-map@^2.0.0:
   version "2.0.0"
