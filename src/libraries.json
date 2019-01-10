@@ -143,11 +143,14 @@
       "3.3.5",
       "3.3.6",
       "3.3.7",
+      "3.4.0",
       "4.0.0",
       "4.1.0",
       "4.1.1",
       "4.1.2",
-      "4.1.3"
+      "4.1.3",
+      "4.2.0",
+      "4.2.1"
     ],
     "filename": "bootstrap.js",
     "filenameMinified": "bootstrap.min.js",
@@ -382,7 +385,8 @@
       "2.21.0",
       "2.22.0",
       "2.22.1",
-      "2.22.2"
+      "2.22.2",
+      "2.23.0"
     ],
     "filename": "moment.js",
     "filenameMinified": "moment.min.js",
@@ -459,7 +463,8 @@
       "16.5.2",
       "16.6.0",
       "16.6.1",
-      "16.6.3"
+      "16.6.3",
+      "16.7.0"
     ],
     "filename": "react.development.js",
     "filenameMinified": "react.production.min.js",
@@ -513,7 +518,8 @@
       "16.5.2",
       "16.6.0",
       "16.6.1",
-      "16.6.3"
+      "16.6.3",
+      "16.7.0"
     ],
     "filename": "react-dom.development.js",
     "filenameMinified": "react-dom.production.min.js",
