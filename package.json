@@ -37,7 +37,7 @@
     "babel-preset-stage-2": "~6.24.1",
     "chai": "~4.2.0",
     "coveralls": "~3.0.2",
-    "eslint": "~5.6.1",
+    "eslint": "~5.12.1",
     "grunt": "~1.0.3",
     "grunt-contrib-clean": "~2.0.0",
     "grunt-contrib-copy": "~1.0.0",
