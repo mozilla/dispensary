@@ -1,7 +1,9 @@
 var isparta = require('isparta');
 
 module.exports = {
-  files: '**/*.js',
+  files: {
+    files: '**/*.js'
+  },
   options: {
     lazy: true,
     cwd: 'src',
