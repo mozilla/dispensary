@@ -11,9 +11,9 @@
   },
   "scripts": {
     "update": "npm run build && ./bin/dispensary > src/hashes.txt",
-    "start": "node -e \"require('grunt').cli()\" null start",
-    "build": "node -e \"require('grunt').cli()\" null build",
-    "test": "LANG='en_US.UTF-8' node -e \"require('grunt').cli()\" null test",
+    "start": "grunt start",
+    "build": "grunt build",
+    "test": "LANG='en_US.UTF-8' grunt test",
     "prepublish": "npm test && npm run build"
   },
   "repository": {
