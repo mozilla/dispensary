@@ -106,7 +106,8 @@
       "1.7.2",
       "1.7.3",
       "1.7.4",
-      "1.7.5"
+      "1.7.5",
+      "1.7.6"
     ],
     "filename": "angular.js",
     "filenameMinified": "angular.min.js",
@@ -241,7 +242,8 @@
       "1.0.5",
       "1.0.6",
       "1.0.7",
-      "1.0.8"
+      "1.0.8",
+      "1.0.9"
     ],
     "filename": "purify.js",
     "filenameMinified": "purify.min.js",
@@ -386,7 +388,8 @@
       "2.22.0",
       "2.22.1",
       "2.22.2",
-      "2.23.0"
+      "2.23.0",
+      "2.24.0"
     ],
     "filename": "moment.js",
     "filenameMinified": "moment.min.js",
