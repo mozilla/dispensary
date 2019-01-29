@@ -18,6 +18,7 @@ fs.readdirSync('node_modules')
 
 
 module.exports = {
+  mode: 'production',
   entry: './src/main.js',
   target: 'node',
   output: {
