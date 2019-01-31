@@ -1,6 +1,20 @@
 {
+  "timezone": "UTC",
   "extends": [
     "config:base",
-    ":preserveSemverRanges"
+    ":maintainLockFilesWeekly",
+    ":prNotPending"
+  ],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": "before 4pm on Monday"
+  },
+  "packageRules": [
+    {
+      "packagePatterns": [
+        "*"
+      ],
+      "rangeStrategy": "replace"
+    }
   ]
 }
