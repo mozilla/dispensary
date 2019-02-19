@@ -64,6 +64,6 @@
     "request": "~2.88.0",
     "sha.js": "~2.4.4",
     "source-map-support": "~0.5.4",
-    "yargs": "~12.0.1"
+    "yargs": "~13.2.0"
   }
 }
