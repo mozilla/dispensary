@@ -212,6 +212,8 @@ b3725dabbcfdde7b0de94088512f8ac87e93547b6d92f91907d37fc997769572 angularjs.1.7.3
 7cbac274ba47c6470b9fd5fd40de09db58f1ce1d8917b6aa5609f43f8f66ca17 angularjs.1.7.6.angular.min.js
 ae296a6ada62035643bba9b604ada179ff6479e25758ff9ab1dd17e6e95f3e67 angularjs.1.7.7.angular.js
 1be42e2e6ae93c2ab4edd6c517588a2e39779cbe8cbefd6a5683332d5c87a69d angularjs.1.7.7.angular.min.js
+e3b0100b35fa76ace389c29ee0f69b68126d2e759f7e5df82d4f56254ba53688 angularjs.1.7.8.angular.js
+db7862d0083ae74b5c94005d18274c3528f1be2932b72438e2f606a3d1f23ab5 angularjs.1.7.8.angular.min.js
 2ebbacdc8393dac4ce1d4cfbb8eb1957ba7bd7811fa7bed67c94a4a1193a78f3 backbone.1.0.0.backbone.js
 918b67113f134ec866265fb26365dc1497c88af997f75bbd70ef8450ca7658e6 backbone.1.0.0.backbone-min.js
 5a36cd2b29bc952610f3d8689348056a9a0658014552d77eb47b23bc0f3350a8 backbone.1.1.0.backbone.js
@@ -812,6 +814,8 @@ b45b7f77871a78d00ac134ff65d209c08361703853e57eacfd46c5a0b6bf26ee react-dom16.16.
 2488ca4f62cc4b36345d0f6a94daae3fd0ba41cff5c37988dd0edbf9b0e10930 react-dom16.16.8.2.react-dom.production.min.js
 c5c7d5a81675a1c9115083c1cae5b22615613769d73558c4033f3c9332d635f8 react-dom16.16.8.3.react-dom.development.js
 07fee28413513b371da11925d4d94acc6be36694299784ad51ba8af2c519c5b1 react-dom16.16.8.3.react-dom.production.min.js
+cda0486ba92ec04b29cce214e53781e5b0139f19af2459a1b7db268b98cb1ff4 react-dom16.16.8.4.react-dom.development.js
+f2e5961bfec2077392f3d0b0ebbf81fbeb7ac3410c19f404f42e8e1a9b3e59df react-dom16.16.8.4.react-dom.production.min.js
 493ecfdc30046522c71c19c2f80c913460d115b4872bb1223c2de10639153990 react16.16.0.0.react.development.js
 de59b0d4504aa0350c13775fec9b78859f3eda83dea21d60dded98bb7866d54a react16.16.0.0.react.production.min.js
 370c93b477bfa29f564fcab84891a68a39357030362a9f4d6c356b0189dfb0ca react16.16.1.0.react.development.js
@@ -850,6 +854,8 @@ adbb82b4460e4b0302bc2373ec9aecb8ca6fbf8069c16050d277e9068090146a react16.16.8.2.
 293143b258a4986ea976533fb1689f2ca52864ee8d00a721c4e0dd297cebae49 react16.16.8.2.react.production.min.js
 3d12c8d4a8c4061e81e56ac981a11c4604dab8480fbc4d4a7c8aad9a0a6a2c83 react16.16.8.3.react.development.js
 6f527dde8b4edc9d347102fcb41e17d26cf00aff727693ea9140f7fc2a298842 react16.16.8.3.react.production.min.js
+e6a5f34e90a67b6825a6320c0fcd8df42bc7ce8b7b0ec363f89f35c0d0580acf react16.16.8.4.react.development.js
+72d51a9ae220482420d70b21f08c3441b0d749c9b25e18c9ea5c5852c702dc50 react16.16.8.4.react.production.min.js
 420e5861e1bc03a5a93660256af02d3c7de7fbce2fa5f07183521a5d22231117 underscore.1.2.0.underscore.js
 0e9fe368d777cd4bc5580a1e570128c5f1564c09ae8b6ae0ef7fa7c8d6106a40 underscore.1.2.0.underscore-min.js
 2e2e4a7d2772c9d1ddfab745f5f973b59b4ed741c51b994334bebc454af041ca underscore.1.2.1.underscore.js
