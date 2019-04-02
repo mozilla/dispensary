@@ -491,7 +491,9 @@
       "16.8.1",
       "16.8.2",
       "16.8.3",
-      "16.8.4"
+      "16.8.4",
+      "16.8.5",
+      "16.8.6"
     ],
     "filename": "react.development.js",
     "filenameMinified": "react.production.min.js",
@@ -551,7 +553,9 @@
       "16.8.1",
       "16.8.2",
       "16.8.3",
-      "16.8.4"
+      "16.8.4",
+      "16.8.5",
+      "16.8.6"
     ],
     "filename": "react-dom.development.js",
     "filenameMinified": "react-dom.production.min.js",
