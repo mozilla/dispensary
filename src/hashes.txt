@@ -584,6 +584,8 @@ d8aa24ecc6cecb1a60515bc093f1c9da38a0392612d9ab8ae0f7f36e6eee1fad jquery.3.3.1.jq
 160a426ff2894252cd7cebbdd6d6b7da8fcd319c65b70468f10b6690c45d02ef jquery.3.3.1.jquery.min.js
 0d864c082f074c2f900ebe5035a21c7d1ed548fb5c212ca477ee9e4a6056e6aa jquery.3.4.0.jquery.js
 0497a8d2a9bde7db8c0466fae73e347a3258192811ed1108e3e096d5f34ac0e8 jquery.3.4.0.jquery.min.js
+5a93a88493aa32aab228bf4571c01207d3b42b0002409a454d404b4d8395bd55 jquery.3.4.1.jquery.js
+0925e8ad7bd971391a8b1e98be8e87a6971919eb5b60c196485941c3c1df089a jquery.3.4.1.jquery.min.js
 1a9ea1a741fe03b6b1835b44ac2b9c59e39cdfc8abb64556a546c16528fc2828 jquery-slim.3.0.0.jquery.slim.js
 45fe0169d7f20adb2f1e63bcf4151971b62f34dbd9bce4f4f002df133bc2b03d jquery-slim.3.0.0.jquery.slim.min.js
 2faa690232fa8e0b5199f8ae8a0784139030348da91ff5fd2016cfc9a9c9799c jquery-slim.3.1.0.jquery.slim.js
@@ -598,6 +600,10 @@ ec89a3d1f2cab57e4d144092d6e9a8429ecd0b594482be270536ac366ee004b6 jquery-slim.3.3
 00c83723bc9aefa38b3c3f4cf8c93b92aac0dbd1d49ff16e1817d3ffd51ff65b jquery-slim.3.3.0.jquery.slim.min.js
 7cd5c914895c6b4e4120ed98e73875c6b4a12b7304fbf9586748fe0a1c57d830 jquery-slim.3.3.1.jquery.slim.js
 dde76b9b2b90d30eb97fc81f06caa8c338c97b688cea7d2729c88f529f32fbb1 jquery-slim.3.3.1.jquery.slim.min.js
+9a295ecf1e656a4ad9bb438ff5bd90585cb57edfd41142ba347d49ab3f215214 jquery-slim.3.4.0.jquery.slim.js
+65a5e76241c6a8886a4db27a301e25f45aecfebed4e23971ee2afc3c9601a9b2 jquery-slim.3.4.0.jquery.slim.min.js
+0539537503bdfdf6ac701d5dade92b0d591a29df4f93007298c9473a21bea8b2 jquery-slim.3.4.1.jquery.slim.js
+a5ab2a00a0439854f8787a0dda775dea5377ef4905886505c938941d6854ee4f jquery-slim.3.4.1.jquery.slim.min.js
 324b0783a50c21c9b2a105b39b7cd1767e8d44f288f08be5f6e2267d5ad83920 jquery-ui.1.10.0.jquery-ui.js
 853a5b7955e180299f3bb9c6716a7d77590898a6f363a80dd15a39bb9c0bbacb jquery-ui.1.10.0.jquery-ui.min.js
 76bbcc0a2f087f63a426cd3047494a9636d23d8b8880131f8fb477df150ca457 jquery-ui.1.10.1.jquery-ui.js
