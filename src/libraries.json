@@ -337,7 +337,8 @@
       "3.2.1",
       "3.3.0",
       "3.3.1",
-      "3.4.0"
+      "3.4.0",
+      "3.4.1"
     ],
     "filename": "jquery-$VERSION.js",
     "filenameOutput": "jquery.js",
@@ -354,7 +355,9 @@
       "3.2.0",
       "3.2.1",
       "3.3.0",
-      "3.3.1"
+      "3.3.1",
+      "3.4.0",
+      "3.4.1"
     ],
     "filename": "jquery-$VERSION.slim.js",
     "filenameOutput": "jquery.slim.js",
