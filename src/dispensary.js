@@ -170,7 +170,7 @@ export default class Dispensary {
       var queue = async.queue(this._getFile.bind(this),
         this.maxHTTPRequests || 35);
 
-      queue.drain = () => {
+      queue.drain( () => {
         log.debug('All downloads completed.');
 
         for (let file of referenceFiles) {
@@ -183,7 +183,7 @@ export default class Dispensary {
         }
 
         resolve(libraries);
-      };
+      });
 
       for (let i in libraries) {
         let library = libraries[i];
