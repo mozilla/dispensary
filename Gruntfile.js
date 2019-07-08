@@ -21,19 +21,6 @@ module.exports = function(grunt) {
 
   grunt.registerTask('test', [
     'clean',
-    'copy:coverage',
-    'instrument',
-    'webpack:build',
-    'webpack:coverage',
-    'mochaTest',
-    'storeCoverage',
-    'makeReport',
-    'eslint',
-    'jscs',
-  ]);
-
-  grunt.registerTask('test-no-coverage', [
-    'clean',
     'webpack:test',
     'mochaTest',
     'eslint',

@@ -1,8 +1,9 @@
 {
-  "presets": ["env", "stage-2"],
+  "presets": [
+    "@babel/preset-env"
+  ],
   "plugins": [
-    "transform-array-from",
-    "transform-class-properties",
-    "transform-es2015-modules-commonjs"
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-transform-modules-commonjs"
   ]
 }
