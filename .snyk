@@ -567,3 +567,19 @@ patch:
         patched: '2019-07-04T01:53:39.636Z'
     - babel-preset-stage-2 > babel-preset-stage-3 > babel-plugin-transform-async-to-generator > babel-helper-remap-async-to-generator > babel-helper-function-name > babel-template > babel-traverse > babel-types > lodash:
         patched: '2019-07-04T01:53:39.636Z'
+    - '@babel/core > lodash':
+        patched: '2019-07-08T11:24:31.656Z'
+    - '@babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > lodash':
+        patched: '2019-07-08T11:24:31.656Z'
+    - '@babel/plugin-transform-modules-commonjs > @babel/helper-simple-access > @babel/types > lodash':
+        patched: '2019-07-08T11:24:31.656Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-systemjs > @babel/helper-hoist-variables > @babel/types > lodash':
+        patched: '2019-07-08T11:24:31.656Z'
+    - '@babel/preset-env > @babel/plugin-transform-object-super > @babel/helper-replace-supers > @babel/helper-member-expression-to-functions > @babel/types > lodash':
+        patched: '2019-07-08T11:24:31.656Z'
+    - '@babel/preset-env > @babel/plugin-transform-classes > @babel/helper-define-map > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2019-07-08T11:24:31.656Z'
+    - '@babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/generator > @babel/types > lodash':
+        patched: '2019-07-08T11:24:31.656Z'
+    - '@babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2019-07-08T11:24:31.656Z'
