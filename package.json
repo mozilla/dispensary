@@ -51,7 +51,7 @@
     "mocha": "~6.1.0",
     "raw-loader": "~3.0.0",
     "sinon": "~7.3.0",
-    "webpack": "~4.35.0"
+    "webpack": "~4.36.0"
   },
   "dependencies": {
     "async": "~3.1.0",
