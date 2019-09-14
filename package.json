@@ -52,7 +52,7 @@
     "raw-loader": "~3.1.0",
     "sinon": "~7.4.0",
     "snyk": "^1.192.3",
-    "webpack": "~4.39.0"
+    "webpack": "~4.40.0"
   },
   "dependencies": {
     "async": "~3.1.0",
