@@ -36,7 +36,7 @@
     "babel-eslint": "~10.0.3",
     "babel-loader": "~8.0.0",
     "chai": "~4.2.0",
-    "eslint": "~6.4.0",
+    "eslint": "~6.5.0",
     "grunt": "~1.0.3",
     "grunt-contrib-clean": "~2.0.0",
     "grunt-contrib-copy": "~1.0.0",
