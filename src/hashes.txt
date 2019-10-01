@@ -460,6 +460,8 @@ b38628f0e95348aeecc2ef1bd125eb48546c387bbd9dbe4e5faffa407bad7565 dompurify.2.0.0
 5e05f3f02c115b14e5f0139459da0e1ac0d674b773bf0883ada98b6acc6c8ae2 dompurify.2.0.1.purify.min.js
 37f796be136fe0c8631b5bbc22fbaecccd5674434e289dd14b38f6983e0be893 dompurify.2.0.2.purify.js
 819e427372870fa2b73ff0161e1478661523b3db75789640608ba5e3f30925ce dompurify.2.0.2.purify.min.js
+3fe7608c96e9f05da5451e6be581bd43196e009fbc9af8b339671bdcb881c29d dompurify.2.0.3.purify.js
+e7c786296e92ba76de018d513fd5846e0de756207da35a839f1578c82213ab1e dompurify.2.0.3.purify.min.js
 43b98f6d029d12c6a1623302b2d03b70799099641200965c006582d82d341b85 jquery.1.2.1.jquery.js
 18ab106814b6251057c7b739d818b43887b443c42b8f488a052aeeaa4cea6b1f jquery.1.2.1.jquery.min.js
 717d8d9b9802ac9fd75cc287c0624f37f9306c470c5a6da05abe9659d790e7cc jquery.1.2.2.jquery.js
@@ -838,6 +840,10 @@ f6174c7284a4dde6adb6db64e8f588e26b92201118fe6b154eced6baf5d02cdd react-dom16.16.
 a95b05d5fb4bdef52af1114e2f03e72a299738ba3bdb182e0e5888c5e7df1d17 react-dom16.16.8.6.react-dom.production.min.js
 b4e8d85c2931a9b9967a3e5ed09429e2f6808b86b89eaec17bbfd21d6f3293f5 react-dom16.16.9.0.react-dom.development.js
 5903b1bee475a683a2d2ac0869fbbdb16609e2b8dede8027d2fee274122d9003 react-dom16.16.9.0.react-dom.production.min.js
+6c844c2ba9a96fceff7b6256a0d0ba3ed080fe163b5ce42accd27d8e0a9e516a react-dom16.16.10.0.react-dom.development.js
+1e84fe8938d0b1cabc9518479b33e9691392223227ec640d3dc55246e326ba43 react-dom16.16.10.0.react-dom.production.min.js
+5011742024f7c702d15e5fadbd56a22153e15fa7c54cc599f55f52c6a0af0b9a react-dom16.16.10.1.react-dom.development.js
+410b7a3294dd003d0388f2e1aa1cd5c8fb357e521db2d478fd1ef1e06a82bd9e react-dom16.16.10.1.react-dom.production.min.js
 493ecfdc30046522c71c19c2f80c913460d115b4872bb1223c2de10639153990 react16.16.0.0.react.development.js
 de59b0d4504aa0350c13775fec9b78859f3eda83dea21d60dded98bb7866d54a react16.16.0.0.react.production.min.js
 370c93b477bfa29f564fcab84891a68a39357030362a9f4d6c356b0189dfb0ca react16.16.1.0.react.development.js
@@ -884,6 +890,10 @@ f47d3978251ae71e06dbc772b58070a005e44775e03c4dec0a88325e1ac8370a react16.16.8.6.
 defa3ae595e7e697ec09f18ce47e795fe4a6c091c19723473f04665803e02673 react16.16.8.6.react.production.min.js
 5b12f0a8284718c118f9ad867e73b3c115fa0f536c7f8d8844f8b8395ec184fc react16.16.9.0.react.development.js
 d797bb58f111874a36c0ee0b3504b5e7a6b42d9e84a581d8f70cc0a72aa27b4f react16.16.9.0.react.production.min.js
+beb2b96bb6d38743d1974de1901e966e627efe8a5d8ca5d5d312e2c5e6cf12ce react16.16.10.0.react.development.js
+fa89f2d28b097f1c3033734ef788ab5b048fc1c6ffcb2ffbd89ade55ebafc408 react16.16.10.0.react.production.min.js
+b6ae0e176d0de2d88768ca48ba20fafc1bc22f3dc1fe9fe881ec1ceead27ea0b react16.16.10.1.react.development.js
+bcc123a1e4a5ce95afadeb399839719922b1c7a8c0983358e330adef5d98088d react16.16.10.1.react.production.min.js
 420e5861e1bc03a5a93660256af02d3c7de7fbce2fa5f07183521a5d22231117 underscore.1.2.0.underscore.js
 0e9fe368d777cd4bc5580a1e570128c5f1564c09ae8b6ae0ef7fa7c8d6106a40 underscore.1.2.0.underscore-min.js
 2e2e4a7d2772c9d1ddfab745f5f973b59b4ed741c51b994334bebc454af041ca underscore.1.2.1.underscore.js
@@ -948,3 +958,5 @@ c20a66af5674bdb163d628cdc88d27d07295ff0a847da514d2bbfc106e2d5c6c webextension-po
 c4af642ba41957f7d768fde1c5bec5a43f873325abcffcfa0031fbfbac610e75 webextension-polyfill.0.3.1.browser-polyfill.min.js
 bb37dcae17c857b656c3557e1253e042ebf5e818db829b46771af02318a7faa7 webextension-polyfill.0.4.0.browser-polyfill.js
 cc717f237e42acca98d833f5ab217dcf69fc2651a5d637b6a6f04fcb8aea2735 webextension-polyfill.0.4.0.browser-polyfill.min.js
+f519e624c1204d231f10609831727f69f52516cbb4941af4cafd26b2dfd9361b webextension-polyfill.0.5.0.browser-polyfill.js
+62e99fc92dc73e16f11eda78cd316d1cb38c83ca967156adff6c3b045123d708 webextension-polyfill.0.5.0.browser-polyfill.min.js
