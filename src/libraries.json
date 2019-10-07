@@ -267,7 +267,8 @@
       "2.0.0",
       "2.0.1",
       "2.0.2",
-      "2.0.3"
+      "2.0.3",
+      "2.0.4"
     ],
     "filename": "purify.js",
     "filenameMinified": "purify.min.js",
@@ -505,7 +506,8 @@
       "16.8.6",
       "16.9.0",
       "16.10.0",
-      "16.10.1"
+      "16.10.1",
+      "16.10.2"
     ],
     "filename": "react.development.js",
     "filenameMinified": "react.production.min.js",
@@ -570,7 +572,8 @@
       "16.8.6",
       "16.9.0",
       "16.10.0",
-      "16.10.1"
+      "16.10.1",
+      "16.10.2"
     ],
     "filename": "react-dom.development.js",
     "filenameMinified": "react-dom.production.min.js",
