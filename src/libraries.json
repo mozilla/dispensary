@@ -1,7 +1,7 @@
 [
   {
     "name": "angularjs",
-    "versions" : [
+    "versions": [
       "1.0.2",
       "1.0.3",
       "1.0.4",
@@ -117,7 +117,7 @@
   },
   {
     "name": "backbone",
-    "versions" : [
+    "versions": [
       "1.0.0",
       "1.1.0",
       "1.1.1",
@@ -430,23 +430,14 @@
   },
   {
     "name": "mootools",
-    "versions": [
-      "1.5.1",
-      "1.5.2",
-      "1.6.0"
-    ],
+    "versions": ["1.5.1", "1.5.2", "1.6.0"],
     "filename": "mootools-core.js",
     "filenameMinified": "mootools-core.min.js",
     "url": "https://raw.githubusercontent.com/mootools/mootools-core/$VERSION/dist/$FILENAME"
   },
   {
     "name": "prototype",
-    "versions": [
-      "1.7.0.0",
-      "1.7.1.0",
-      "1.7.2.0",
-      "1.7.3.0"
-    ],
+    "versions": ["1.7.0.0", "1.7.1.0", "1.7.2.0", "1.7.3.0"],
     "filename": "prototype.js",
     "url": "https://ajax.googleapis.com/ajax/libs/prototype/$VERSION/$FILENAME"
   },
@@ -617,7 +608,7 @@
     "filenameMinified": "underscore-min.js",
     "url": "https://raw.github.com/jashkenas/underscore/$VERSION/$FILENAME"
   },
-    {
+  {
     "name": "webextension-polyfill",
     "versions": [
       "0.1.1",

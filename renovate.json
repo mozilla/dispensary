@@ -1,19 +1,13 @@
 {
   "timezone": "UTC",
-  "extends": [
-    "config:base",
-    ":maintainLockFilesWeekly",
-    ":prNotPending"
-  ],
+  "extends": ["config:base", ":maintainLockFilesWeekly", ":prNotPending"],
   "lockFileMaintenance": {
     "enabled": true,
     "schedule": "before 4pm on Monday"
   },
   "packageRules": [
     {
-      "packagePatterns": [
-        "*"
-      ],
+      "packagePatterns": ["*"],
       "rangeStrategy": "replace"
     }
   ]

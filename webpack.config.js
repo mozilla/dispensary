@@ -1,21 +1,20 @@
-var webpack = require('webpack');
-var path = require('path');
-var fs = require('fs');
+const path = require('path');
+const fs = require('fs');
 
-var nodeModules = {};
+// eslint-disable-next-line import/no-extraneous-dependencies
+const webpack = require('webpack');
+
+const nodeModules = {};
 
 // This is to filter out node_modules as we don't want them
 // to be made part of any bundles.
 fs.readdirSync('node_modules')
-  .filter(function(x) {
+  .filter((x) => {
     return ['.bin'].indexOf(x) === -1;
   })
-  .forEach(function(mod) {
-    // jscs:disable requireTemplateStrings
-    nodeModules[mod] = 'commonjs ' + mod;
-    // jscs:enable requireTemplateStrings
+  .forEach((mod) => {
+    nodeModules[mod] = `commonjs ${mod}`;
   });
-
 
 module.exports = {
   mode: 'production',
@@ -32,15 +31,11 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         test: /\.js$/,
         // babel options are in .babelrc
-        use: [
-          {loader: 'babel-loader'}
-        ],
+        use: [{ loader: 'babel-loader' }],
       },
       {
         test: /\.txt$/,
-        use: [
-          {loader: 'raw-loader'}
-        ],
+        use: [{ loader: 'raw-loader' }],
       },
     ],
   },
@@ -54,9 +49,7 @@ module.exports = {
   ],
   resolve: {
     extensions: ['.js', '.json'],
-    modules: [
-      'node_modules',
-    ],
+    modules: ['node_modules', 'src'],
   },
   devtool: 'sourcemap',
 };
