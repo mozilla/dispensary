@@ -15,18 +15,6 @@ export default argv
     default: 'fatal',
     choices: ['fatal', 'error', 'warn', 'info', 'debug', 'trace'],
   })
-  .option('output', {
-    alias: 'o',
-    describe: 'The type of output to generate',
-    type: 'string',
-    default: 'json',
-    choices: ['json', 'text'],
-  })
-  .option('pretty', {
-    describe: 'Prettify JSON output',
-    type: 'boolean',
-    default: false,
-  })
   .option('max', {
     describe: 'Maximum number of concurrent HTTP requests',
     type: 'string',

@@ -28,20 +28,9 @@ describe('Basic CLI tests', () => {
     expect(args.max).toEqual('35');
   });
 
-  it('should default add-on output to "json"', () => {
-    const args = cli.parse(['angular']);
-    expect(args.output).toEqual('json');
-    expect(args.o).toEqual('json');
-  });
-
   it('should default stack to false', () => {
     const args = cli.parse(['angular']);
     expect(args.stack).toEqual(false);
-  });
-
-  it('should default pretty to false', () => {
-    const args = cli.parse(['angular']);
-    expect(args.pretty).toEqual(false);
   });
 
   it('should default boring to false', () => {
@@ -56,14 +45,5 @@ describe('Basic CLI tests', () => {
         'Should not fail with zero arguments',
       ),
     ).toBeFalsy();
-  });
-
-  it('should show error if incorrect output', () => {
-    cli.parse(['-o', 'false', 'whatevs']);
-    expect(
-      testContext.fakeFail.calledWithMatch(
-        'Invalid values:\n  Argument: output, Given: "false"',
-      ),
-    ).toBeTruthy();
   });
 });
