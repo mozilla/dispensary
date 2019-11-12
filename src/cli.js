@@ -2,13 +2,12 @@ import path from 'path';
 
 import argv from 'yargs';
 
+// eslint-disable-next-line import/extensions
 import { version } from '../package.json';
-
 
 export default argv
   // jscs:disable
-  .usage('Usage: ./$0 [options] \n\n' +
-    'Mozilla Dispensary v' + version)
+  .usage(`${'Usage: ./$0 [options] \n\n Mozilla Dispensary v'}${version}`)
   // jscs:enable
   .option('log-level', {
     describe: 'The log-level to generate',
@@ -46,9 +45,9 @@ export default argv
   .option('libraries', {
     describe: 'Custom library file',
     type: 'string',
-    default: global.appRoot ?
-      path.join(global.appRoot, '../src/libraries.json') :
-      './src/libraries.json',
+    default: global.appRoot
+      ? path.join(global.appRoot, '../src/libraries.json')
+      : './src/libraries.json',
   })
   .demand(0)
   .help('help')

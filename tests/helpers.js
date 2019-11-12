@@ -1,5 +1,5 @@
 export function unexpectedSuccess() {
-  return assert.fail(null, null, 'Unexpected success');
+  return expect(false).toBe(true);
 }
 
 export const FAKE_LIBRARIES = {

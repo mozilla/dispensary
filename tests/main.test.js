@@ -1,11 +1,9 @@
 import Dispensary from 'dispensary';
 import { createInstance } from 'main';
 
-describe('Main Dispensary module', function() {
-
+describe('Main Dispensary module', () => {
   it('should create an instance of Dispensary', () => {
-    var dispensary = createInstance();
-    assert.instanceOf(dispensary, Dispensary);
+    const dispensary = createInstance();
+    expect(dispensary).toBeInstanceOf(Dispensary);
   });
-
 });
