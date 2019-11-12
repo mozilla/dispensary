@@ -8,9 +8,10 @@ Add tests for your code and make sure all existing tests pass. If the tests fail
 
 ### Tests
 
-Our tests include `eslint` and `jscs` style checks; these keep our code consistent. You can review the rules in the [`.eslintrc`][eslint] and [`.jscsrc`][jscsrc] files.
+Our tests include `eslint` and prettier checks for code style, these keep our code consistent.
+
+Prettier will reformat code to match style guidelines run `npm run prettier` prior to committing code.
 
 Please run the tests locally with `npm test` before you commit.
 
 [eslint]: https://github.com/mozilla/dispensary/blob/master/.eslintrc
-[jscsrc]: https://github.com/mozilla/dispensary/blob/master/.jscsrc

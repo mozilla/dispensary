@@ -299,10 +299,7 @@ export default class Dispensary {
 
     for (const library of libraries) {
       for (const file of library.files) {
-        // jscs:disable
-        let hashString = `${file.hash} ${library.name}.${file.version}.${file.fileOut}`; // eslint-disable-line
-        // jscs:enable
-
+        const hashString = `${file.hash} ${library.name}.${file.version}.${file.fileOut}`;
         hashes.add(hashString);
       }
     }
