@@ -258,7 +258,7 @@ export default class Dispensary {
       return callback();
     };
 
-    _request.get({ url }, processResponse);
+    _request.get({ url, timeout: 10000 }, processResponse);
   }
 
   getHashes(libraries) {
