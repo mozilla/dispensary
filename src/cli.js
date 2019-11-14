@@ -6,9 +6,7 @@ import argv from 'yargs';
 import { version } from '../package.json';
 
 export default argv
-  // jscs:disable
   .usage(`${'Usage: ./$0 [options] \n\n Mozilla Dispensary v'}${version}`)
-  // jscs:enable
   .option('log-level', {
     describe: 'The log-level to generate',
     type: 'string',
