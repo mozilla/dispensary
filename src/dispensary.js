@@ -5,7 +5,6 @@ import request from 'request';
 import naturalCompare from 'natural-compare-lite';
 
 import HASHES from 'hashes.txt';
-import { COMMANDS } from 'const';
 import createHash from 'hasher';
 import log from 'logger';
 import { urlFormat } from 'utils';
@@ -18,8 +17,7 @@ export default class Dispensary {
     this._cachedHashes = null;
     this._libraries = _libraries;
     this._pathToHashes = './src/hashes.txt';
-    // Default command is "output"
-    this.command = COMMANDS.default;
+    this.command = 'output';
     this.libraryFile = config.libraries;
     this.maxHTTPRequests = 35;
 
