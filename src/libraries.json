@@ -498,7 +498,8 @@
       "16.10.0",
       "16.10.1",
       "16.10.2",
-      "16.11.0"
+      "16.11.0",
+      "16.12.0"
     ],
     "filename": "react.development.js",
     "filenameMinified": "react.production.min.js",
@@ -565,7 +566,8 @@
       "16.10.0",
       "16.10.1",
       "16.10.2",
-      "16.11.0"
+      "16.11.0",
+      "16.12.0"
     ],
     "filename": "react-dom.development.js",
     "filenameMinified": "react-dom.production.min.js",
