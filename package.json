@@ -13,7 +13,7 @@
     "build": "npm run clean && webpack",
     "clean": "rimraf /dist /coverage",
     "eslint": "eslint .",
-    "prepublishOnly": "npm test && npm run build",
+    "prepublishOnly": "npm run test-ci",
     "prettier": "pretty-quick --branch master",
     "prettier-ci": "prettier -c '**'",
     "prettier-full": "prettier --write '**'",
