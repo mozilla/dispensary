@@ -53,6 +53,7 @@
     "prettier": "1.19.1",
     "pretty-quick": "2.0.1",
     "raw-loader": "~4.0.0",
+    "replace-in-file": "5.0.2",
     "rimraf": "3.0.2",
     "sinon": "~9.0.0",
     "webpack": "~4.41.0",

@@ -114,7 +114,8 @@
     ],
     "filename": "angular.js",
     "filenameMinified": "angular.min.js",
-    "url": "https://code.angularjs.org/$VERSION/$FILENAME"
+    "url": "https://code.angularjs.org/$VERSION/$FILENAME",
+    "releasePage": "https://github.com/angular/angular.js/releases"
   },
   {
     "name": "backbone",
@@ -134,7 +135,8 @@
     ],
     "filename": "backbone.js",
     "filenameMinified": "backbone-min.js",
-    "url": "https://raw.githubusercontent.com/jashkenas/backbone/$VERSION/$FILENAME"
+    "url": "https://raw.githubusercontent.com/jashkenas/backbone/$VERSION/$FILENAME",
+    "releasePage": "https://github.com/jashkenas/backbone/releases"
   },
   {
     "name": "bootstrap",
@@ -164,7 +166,8 @@
     ],
     "filename": "bootstrap.js",
     "filenameMinified": "bootstrap.min.js",
-    "url": "https://raw.githubusercontent.com/twbs/bootstrap/v$VERSION/dist/js/$FILENAME"
+    "url": "https://raw.githubusercontent.com/twbs/bootstrap/v$VERSION/dist/js/$FILENAME",
+    "releasePage": "https://github.com/twbs/bootstrap/releases"
   },
   {
     "name": "dojo",
@@ -246,7 +249,8 @@
     ],
     "filename": "dojo.js.uncompressed.js",
     "filenameMinified": "dojo.js",
-    "url": "https://download.dojotoolkit.org/release-$VERSION/$FILENAME"
+    "url": "https://download.dojotoolkit.org/release-$VERSION/$FILENAME",
+    "releasePage": "https://download.dojotoolkit.org/"
   },
   {
     "name": "dompurify",
@@ -275,7 +279,8 @@
     "filename": "purify.js",
     "filenameMinified": "purify.min.js",
     "url": "https://raw.githubusercontent.com/cure53/DOMPurify/$VERSION/dist/$FILENAME",
-    "urlMin": "https://raw.githubusercontent.com/cure53/DOMPurify/$VERSION/dist/$FILENAME"
+    "urlMin": "https://raw.githubusercontent.com/cure53/DOMPurify/$VERSION/dist/$FILENAME",
+    "releasePage": "https://github.com/cure53/DOMPurify/releases"
   },
   {
     "name": "jquery",
@@ -352,7 +357,8 @@
     "filenameOutput": "jquery.js",
     "filenameMinified": "jquery-$VERSION.min.js",
     "filenameMinifiedOutput": "jquery.min.js",
-    "url": "https://code.jquery.com/$FILENAME"
+    "url": "https://code.jquery.com/$FILENAME",
+    "releasePage": "https://github.com/jquery/jquery/releases"
   },
   {
     "name": "jquery-slim",
@@ -371,7 +377,8 @@
     "filenameOutput": "jquery.slim.js",
     "filenameMinified": "jquery-$VERSION.slim.min.js",
     "filenameMinifiedOutput": "jquery.slim.min.js",
-    "url": "https://code.jquery.com/$FILENAME"
+    "url": "https://code.jquery.com/$FILENAME",
+    "releasePage": "https://github.com/jquery/jquery/releases"
   },
   {
     "name": "jquery-ui",
@@ -391,7 +398,8 @@
     ],
     "filename": "jquery-ui.js",
     "filenameMinified": "jquery-ui.min.js",
-    "url": "https://code.jquery.com/ui/$VERSION/$FILENAME"
+    "url": "https://code.jquery.com/ui/$VERSION/$FILENAME",
+    "releasePage": "https://github.com/jquery/jquery-ui/releases"
   },
   {
     "name": "moment",
@@ -425,20 +433,23 @@
     "filename": "moment.js",
     "filenameMinified": "moment.min.js",
     "url": "https://raw.githubusercontent.com/moment/moment/$VERSION/$FILENAME",
-    "urlMin": "https://raw.githubusercontent.com/moment/moment/$VERSION/min/$FILENAME"
+    "urlMin": "https://raw.githubusercontent.com/moment/moment/$VERSION/min/$FILENAME",
+    "releasePage": "https://github.com/moment/moment/releases"
   },
   {
     "name": "mootools",
     "versions": ["1.5.1", "1.5.2", "1.6.0"],
     "filename": "mootools-core.js",
     "filenameMinified": "mootools-core.min.js",
-    "url": "https://raw.githubusercontent.com/mootools/mootools-core/$VERSION/dist/$FILENAME"
+    "url": "https://raw.githubusercontent.com/mootools/mootools-core/$VERSION/dist/$FILENAME",
+    "releasePage": "https://github.com/mootools/mootools-core/releases"
   },
   {
     "name": "prototype",
     "versions": ["1.7.0.0", "1.7.1.0", "1.7.2.0", "1.7.3.0"],
     "filename": "prototype.js",
-    "url": "https://ajax.googleapis.com/ajax/libs/prototype/$VERSION/$FILENAME"
+    "url": "https://ajax.googleapis.com/ajax/libs/prototype/$VERSION/$FILENAME",
+    "releasePage": "http://prototypejs.org/"
   },
   {
     "name": "react",
@@ -470,7 +481,8 @@
     ],
     "filename": "react.js",
     "filenameMinified": "react.min.js",
-    "url": "https://unpkg.com/react@$VERSION/dist/$FILENAME"
+    "url": "https://unpkg.com/react@$VERSION/dist/$FILENAME",
+    "releasePage": "https://github.com/facebook/react/releases"
   },
   {
     "name": "react16",
@@ -506,7 +518,8 @@
     ],
     "filename": "react.development.js",
     "filenameMinified": "react.production.min.js",
-    "url": "https://unpkg.com/react@$VERSION/umd/$FILENAME"
+    "url": "https://unpkg.com/react@$VERSION/umd/$FILENAME",
+    "releasePage": "https://github.com/facebook/react/releases"
   },
   {
     "name": "react-dom",
@@ -538,7 +551,8 @@
     ],
     "filename": "react-dom.js",
     "filenameMinified": "react-dom.min.js",
-    "url": "https://unpkg.com/react-dom@$VERSION/dist/$FILENAME"
+    "url": "https://unpkg.com/react-dom@$VERSION/dist/$FILENAME",
+    "releasePage": "https://github.com/facebook/react/releases"
   },
   {
     "name": "react-dom16",
@@ -574,7 +588,8 @@
     ],
     "filename": "react-dom.development.js",
     "filenameMinified": "react-dom.production.min.js",
-    "url": "https://unpkg.com/react-dom@$VERSION/umd/$FILENAME"
+    "url": "https://unpkg.com/react-dom@$VERSION/umd/$FILENAME",
+    "releasePage": "https://github.com/facebook/react/releases"
   },
   {
     "name": "underscore",
@@ -608,7 +623,8 @@
     ],
     "filename": "underscore.js",
     "filenameMinified": "underscore-min.js",
-    "url": "https://raw.github.com/jashkenas/underscore/$VERSION/$FILENAME"
+    "url": "https://raw.github.com/jashkenas/underscore/$VERSION/$FILENAME",
+    "releasePage": "https://github.com/jashkenas/underscore/releases"
   },
   {
     "name": "webextension-polyfill",
@@ -625,6 +641,7 @@
     ],
     "filename": "browser-polyfill.js",
     "filenameMinified": "browser-polyfill.min.js",
-    "url": "https://unpkg.com/webextension-polyfill@$VERSION/dist/$FILENAME"
+    "url": "https://unpkg.com/webextension-polyfill@$VERSION/dist/$FILENAME",
+    "releasePage": "https://github.com/mozilla/webextension-polyfill/releases"
   }
 ]
