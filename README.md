@@ -35,3 +35,51 @@ This is the (manual) process to update libraries in dispensary:
 6. Run `npm run update`
 7. Commit and push (Make sure to include `src/libraries.json`and `src/hashes.txt`)
 8. Tag and release
+
+## Development commands
+
+Here are some commands you can run:
+
+### `npm run build`
+
+This command builds the project.
+
+### `npm run clean`
+
+This command removes the build artifacts.
+
+### `npm run eslint`
+
+This command runs [eslint][] (JavaScript linter).
+
+### `npm run prettier`
+
+This command runs [pretty-quick][] to automatically compare and format modified source files against the master branch.
+
+### `npm run prettier-full`
+
+This command runs [Prettier][] to automatically format the entire codebase.
+
+### `npm run prettier-ci`
+
+This command runs [Prettier][] and fail if some code has been changed without being formatted.
+
+### `npm run test`
+
+This command builds the project and then runs the test suite (in watch mode).
+
+### `npm run test-coverage`
+
+This command builds the project, runs the test suite and then reports code coverage (codecov).
+
+### `npm run test-ci`
+
+This command runs all checks and is only useful in a CI context.
+
+### `bin/build-doc`
+
+This command updates the list of release pages in the `README.md` file based on the `src/libraries.json` file.
+
+[eslint]: https://eslint.org/
+[prettier]: https://prettier.io/
+[pretty-quick]: https://www.npmjs.com/package/pretty-quick
