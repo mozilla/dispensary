@@ -29,6 +29,6 @@ const content = releasePages
 
 replaceInFile.sync({
   files: README_FILE,
-  from: /(<!--RELEASE_PAGES_START-->\n)[\s\S]*(\n<!--RELEASE_PAGES_END-->)/,
+  from: /(<!--RELEASE_PAGES_START-->\n)[\s\S]*(\n\n<!--RELEASE_PAGES_END-->)/,
   to: `$1\n${content}$2`,
 });

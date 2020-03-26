@@ -26,6 +26,7 @@ This is the (manual) process to update libraries in dispensary:
 - https://github.com/facebook/react/releases
 - https://github.com/jashkenas/underscore/releases
 - https://github.com/mozilla/webextension-polyfill/releases
+
 <!--RELEASE_PAGES_END-->
 
 3. On each page, check whether there are newer release versions than what is in `src/libraries.json`. Note that some libraries, like react, support several versions, so we need to check each "branch".
