@@ -60,7 +60,7 @@
     "webpack-cli": "^3.3.10"
   },
   "dependencies": {
-    "async": "~3.1.0",
+    "async": "~3.2.0",
     "natural-compare-lite": "~1.4.0",
     "pino": "~5.16.0",
     "request": "~2.88.0",
