@@ -45,7 +45,7 @@
     "eslint-config-amo": "1.36.0",
     "eslint-config-prettier": "6.11.0",
     "eslint-plugin-async-await": "0.0.0",
-    "eslint-plugin-jest": "23.8.2",
+    "eslint-plugin-jest": "23.17.1",
     "eslint-plugin-prettier": "3.1.2",
     "eslint-plugin-promise": "4.2.1",
     "jest": "25.5.4",
