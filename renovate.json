@@ -1,14 +1,31 @@
 {
+  "automerge": true,
+  "major": {
+    "automerge": false
+  },
   "timezone": "UTC",
-  "extends": ["config:base", ":maintainLockFilesWeekly", ":prNotPending"],
+  "extends": [
+    "config:base",
+    ":maintainLockFilesWeekly"
+  ],
   "lockFileMaintenance": {
     "enabled": true,
     "schedule": "before 4pm on Monday"
   },
   "packageRules": [
     {
-      "packagePatterns": ["*"],
+      "packagePatterns": [
+        "*"
+      ],
       "rangeStrategy": "replace"
+    },
+    {
+      "depTypeList": ["engines"],
+      "rangeStrategy": "auto"
     }
-  ]
+  ],
+  "stabilityDays": 7,
+  "node": {
+    "supportPolicy": ["lts"]
+  }
 }
