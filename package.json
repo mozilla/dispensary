@@ -40,7 +40,7 @@
     "@babel/preset-env": "~7.10.0",
     "babel-eslint": "~10.1.0",
     "babel-loader": "~8.1.0",
-    "codecov": "3.7.0",
+    "codecov": "3.7.1",
     "eslint": "~7.5.0",
     "eslint-config-amo": "3.4.0",
     "eslint-config-prettier": "6.11.0",
