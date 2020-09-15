@@ -164,7 +164,9 @@
       "4.3.1",
       "4.4.0",
       "4.4.1",
-      "4.5.0"
+      "4.5.0",
+      "4.5.1",
+      "4.5.2"
     ],
     "filename": "bootstrap.js",
     "filenameMinified": "bootstrap.min.js",
@@ -305,7 +307,9 @@
       "2.0.9",
       "2.0.10",
       "2.0.11",
-      "2.0.12"
+      "2.0.12",
+      "2.0.14",
+      "2.0.15"
     ],
     "filename": "purify.js",
     "filenameMinified": "purify.min.js",
@@ -469,7 +473,8 @@
       "2.25.2",
       "2.25.3",
       "2.26.0",
-      "2.27.0"
+      "2.27.0",
+      "2.28.0"
     ],
     "filename": "moment.js",
     "filenameMinified": "moment.min.js",
