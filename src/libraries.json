@@ -311,7 +311,8 @@
       "2.0.14",
       "2.0.15",
       "2.0.16",
-      "2.0.17"
+      "2.0.17",
+      "2.1.0"
     ],
     "filename": "purify.js",
     "filenameMinified": "purify.min.js",
@@ -476,7 +477,8 @@
       "2.25.3",
       "2.26.0",
       "2.27.0",
-      "2.28.0"
+      "2.28.0",
+      "2.29.0"
     ],
     "filename": "moment.js",
     "filenameMinified": "moment.min.js",
@@ -674,7 +676,8 @@
       "1.9.2",
       "1.10.0",
       "1.10.1",
-      "1.10.2"
+      "1.10.2",
+      "1.11.0"
     ],
     "filename": "underscore.js",
     "filenameMinified": "underscore-min.js",
