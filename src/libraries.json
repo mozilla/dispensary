@@ -312,7 +312,8 @@
       "2.0.15",
       "2.0.16",
       "2.0.17",
-      "2.1.0"
+      "2.1.0",
+      "2.1.1"
     ],
     "filename": "purify.js",
     "filenameMinified": "purify.min.js",
