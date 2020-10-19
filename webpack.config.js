@@ -51,5 +51,5 @@ module.exports = {
     extensions: ['.js', '.json'],
     modules: ['node_modules', 'src'],
   },
-  devtool: 'sourcemap',
+  devtool: 'source-map',
 };
