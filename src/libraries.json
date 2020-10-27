@@ -111,7 +111,9 @@
       "1.7.7",
       "1.7.8",
       "1.7.9",
-      "1.8.0"
+      "1.8.0",
+      "1.8.1",
+      "1.8.2"
     ],
     "filename": "angular.js",
     "filenameMinified": "angular.min.js",
@@ -166,7 +168,8 @@
       "4.4.1",
       "4.5.0",
       "4.5.1",
-      "4.5.2"
+      "4.5.2",
+      "4.5.3"
     ],
     "filename": "bootstrap.js",
     "filenameMinified": "bootstrap.min.js",
@@ -313,7 +316,8 @@
       "2.0.16",
       "2.0.17",
       "2.1.0",
-      "2.1.1"
+      "2.1.1",
+      "2.2.0"
     ],
     "filename": "purify.js",
     "filenameMinified": "purify.min.js",
@@ -479,7 +483,8 @@
       "2.26.0",
       "2.27.0",
       "2.28.0",
-      "2.29.0"
+      "2.29.0",
+      "2.29.1"
     ],
     "filename": "moment.js",
     "filenameMinified": "moment.min.js",
@@ -528,7 +533,9 @@
       "15.4.2",
       "15.5.4",
       "15.6.0",
-      "15.6.1"
+      "15.6.1",
+      "15.6.2",
+      "15.7.0"
     ],
     "filename": "react.js",
     "filenameMinified": "react.min.js",
@@ -567,7 +574,10 @@
       "16.11.0",
       "16.12.0",
       "16.13.0",
-      "16.13.1"
+      "16.13.1",
+      "16.14.0",
+      "17.0.0",
+      "17.0.1"
     ],
     "filename": "react.development.js",
     "filenameMinified": "react.production.min.js",
