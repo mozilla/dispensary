@@ -300,6 +300,7 @@ describe('Dispensary', () => {
     );
   });
 
+  // eslint-disable-next-line jest/no-done-callback
   it('should pass an error to callback on a bad request', (done) => {
     const testAssert = (err) => {
       expect(err).toBeInstanceOf(Error);
@@ -324,6 +325,7 @@ describe('Dispensary', () => {
     );
   });
 
+  // eslint-disable-next-line jest/no-done-callback
   it('should pass an error to callback on non-200 responseCode', (done) => {
     const testAssert = (err) => {
       expect(err).toBeInstanceOf(Error);
@@ -348,6 +350,7 @@ describe('Dispensary', () => {
     );
   });
 
+  // eslint-disable-next-line jest/no-done-callback
   it('should pass an error to callback on empty responseCode', (done) => {
     const testAssert = (err) => {
       expect(err).toBeInstanceOf(Error);
