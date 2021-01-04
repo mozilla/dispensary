@@ -320,7 +320,9 @@
       "2.2.0",
       "2.2.1",
       "2.2.2",
-      "2.2.3"
+      "2.2.3",
+      "2.2.4",
+      "2.2.6"
     ],
     "filename": "purify.js",
     "filenameMinified": "purify.min.js",
@@ -691,7 +693,8 @@
       "1.10.0",
       "1.10.1",
       "1.10.2",
-      "1.11.0"
+      "1.11.0",
+      "1.12.0"
     ],
     "filename": "underscore.js",
     "filenameMinified": "underscore-min.js",
@@ -709,7 +712,8 @@
       "0.3.1",
       "0.4.0",
       "0.5.0",
-      "0.6.0"
+      "0.6.0",
+      "0.7.0"
     ],
     "filename": "browser-polyfill.js",
     "filenameMinified": "browser-polyfill.min.js",
