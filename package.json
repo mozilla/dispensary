@@ -42,7 +42,7 @@
     "babel-loader": "~8.2.0",
     "codecov": "3.8.1",
     "eslint": "~7.23.0",
-    "eslint-config-amo": "4.3.0",
+    "eslint-config-amo": "4.4.0",
     "eslint-plugin-async-await": "0.0.0",
     "eslint-plugin-promise": "4.3.1",
     "jest": "26.6.3",
