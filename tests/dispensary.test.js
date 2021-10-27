@@ -50,7 +50,9 @@ describe('Dispensary', () => {
       .run(fakeConsole)
       .then(unexpectedSuccess)
       .catch((err) => {
+        // eslint-disable-next-line jest/no-conditional-expect
         expect(err.message).toEqual('Error!');
+        // eslint-disable-next-line jest/no-conditional-expect
         expect(consoleErrorSpy.calledOnce).toBeTruthy();
       });
   });
@@ -104,7 +106,9 @@ describe('Dispensary', () => {
       .updateCommand([], fakeConsole, fakeFS)
       .then(unexpectedSuccess)
       .catch((err) => {
+        // eslint-disable-next-line jest/no-conditional-expect
         expect(err.message).toEqual('UpdateError: Error: Fail!');
+        // eslint-disable-next-line jest/no-conditional-expect
         expect(err).toBeInstanceOf(Error);
       });
   });
@@ -216,7 +220,9 @@ describe('Dispensary', () => {
       .getLibraries()
       .then(unexpectedSuccess)
       .catch((err) => {
+        // eslint-disable-next-line jest/no-conditional-expect
         expect(err).toBeInstanceOf(Error);
+        // eslint-disable-next-line jest/no-conditional-expect
         expect(err.message).toEqual(
           'whatever-foo-bar does not exist or is not a file.',
         );
@@ -386,7 +392,9 @@ describe('Dispensary', () => {
       .getLibraries(fakeFS)
       .then(unexpectedSuccess)
       .catch((err) => {
+        // eslint-disable-next-line jest/no-conditional-expect
         expect(err).toBeInstanceOf(Error);
+        // eslint-disable-next-line jest/no-conditional-expect
         expect(err.message).toEqual('JSONError: fake.json is not valid JSON.');
       });
   });
