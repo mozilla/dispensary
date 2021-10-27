@@ -12,14 +12,12 @@ describe('Dispensary', () => {
       name: 'myjslib',
       files: [
         {
-          hash:
-            '6657a7293da6afcd29e9243886725c8f90c8399e826dba9978e51a0a19e9bed6',
+          hash: '6657a7293da6afcd29e9243886725c8f90c8399e826dba9978e51a0a19e9bed6',
           fileOut: 'mylib.js',
           version: '1.0.2',
         },
         {
-          hash:
-            '4657a7293da6afcd29e9243886725c8f90c8399e826dba9978e51a0a19e9bed6',
+          hash: '4657a7293da6afcd29e9243886725c8f90c8399e826dba9978e51a0a19e9bed6',
           fileOut: 'mylib.min.js',
           version: '1.0.4',
         },
@@ -30,8 +28,7 @@ describe('Dispensary', () => {
       name: 'myotherlib',
       files: [
         {
-          hash:
-            '1657a7293da6afcd29e9243886725c8f90c8399e826dba9978e51a0a19e9bed6',
+          hash: '1657a7293da6afcd29e9243886725c8f90c8399e826dba9978e51a0a19e9bed6',
           fileOut: 'otherjs.js',
           version: '1.0.2',
         },
@@ -434,14 +431,12 @@ describe('Dispensary', () => {
         name: 'myzlib',
         files: [
           {
-            hash:
-              '6657a7293da6afcd29e9243886725c8f90c8399e826dba9978e51a0a19e9bed6',
+            hash: '6657a7293da6afcd29e9243886725c8f90c8399e826dba9978e51a0a19e9bed6',
             fileOut: 'myzlib.js',
             version: '1.0.11',
           },
           {
-            hash:
-              '8657a7293da6afcd29e9243886725c8f90c8399e826dba9978e51a0a19e9bed6',
+            hash: '8657a7293da6afcd29e9243886725c8f90c8399e826dba9978e51a0a19e9bed6',
             fileOut: 'myzlib.min.js',
             version: '1.0.9',
           },
@@ -452,8 +447,7 @@ describe('Dispensary', () => {
         name: 'myalib',
         files: [
           {
-            hash:
-              '7657a7293da6afcd29e9243886725c8f90c8399e826dba9978e51a0a19e9bed6',
+            hash: '7657a7293da6afcd29e9243886725c8f90c8399e826dba9978e51a0a19e9bed6',
             fileOut: 'myalib.js',
             version: '1.1.99',
           },
