@@ -3,6 +3,9 @@
 # NPM_TOKEN - A valid NPM token for releases
 version: 2.1
 
+orbs:
+  codecov: codecov/codecov@3.2.0
+
 references:
   defaults: &defaults
     working_directory: ~/dispensary
@@ -56,6 +59,7 @@ jobs:
       - *run_npm_install
       - *save_build_cache
       - run: npm run test-ci
+      - codecov/upload
       - run: bin/build-doc && git diff --name-only | grep 'README.md' && echo -e "\nPlease run 'bin/build-doc'" && (exit 1) || (exit 0)
       # Set up a workspace to share data between this job and the `release-tag`
       # one when we want to publish a new npm version.

@@ -19,7 +19,7 @@
     "prettier-full": "prettier --write '**'",
     "start": "webpack --watch",
     "test": "npm run build && jest tests/ --watch",
-    "test-coverage": "npm run build && jest tests/ --coverage && codecov",
+    "test-coverage": "npm run build && jest tests/ --coverage",
     "test-ci": "npm run test-coverage && npm run eslint && npm run prettier-ci",
     "update": "npm run build && ./bin/dispensary > src/hashes.txt"
   },
@@ -40,7 +40,6 @@
     "@babel/preset-env": "~7.15.0",
     "babel-eslint": "~10.1.0",
     "babel-loader": "~8.2.0",
-    "codecov": "3.8.2",
     "eslint": "~7.32.0",
     "eslint-config-amo": "4.11.0",
     "eslint-plugin-async-await": "0.0.0",
